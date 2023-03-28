@@ -8,7 +8,7 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString 
+@ToString  
 public class ProductVO {
 	private int pseq;
 	private String name;
