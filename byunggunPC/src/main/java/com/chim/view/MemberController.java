@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -53,5 +54,28 @@ public class MemberController {
 		
 		status.setComplete();
 		return "index";
+	}
+	
+	@RequestMapping("/idCheck_form")
+	public String idCheckForm(MemberVO vo,Model model) {
+		
+		String pwd = memberService.confirmMember(vo.getId());
+		int message = 0;
+		if(pwd == null) {//아이디 사용 중 아님
+			message = 0;
+			
+		} else {//아이디 사용중
+			message = 1;
+		}
+		model.addAttribute("id", vo.getId());
+		model.addAttribute("message", message);
+		return "member/idCheck";
+	}
+	
+	@PostMapping("/join")
+	public String joinAction(MemberVO vo) {
+		memberService.insertMember(vo);
+		
+		return "member/login";
 	}
 }

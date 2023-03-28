@@ -21,4 +21,10 @@ public class MemberDAO {
 		
 		return mybatis.selectOne("MemberMapper.getMember", id);
 	}
+	
+	public void insertMember(MemberVO vo) {
+		
+		mybatis.insert("MemberMapper.insertMember", vo);
+	}
+	
 }

@@ -7,5 +7,6 @@ public interface MemberService {
 	String confirmMember(String id);
 
 	MemberVO getMember(String id);
-
+	
+	void insertMember(MemberVO vo);
 }

@@ -19,7 +19,6 @@
 		</div>
 		<div class="form-outline mb-4"></div>
 		<div class="col d-flex justify-content-center"></div>
-		<p>${mesaage}</p>
 		<div class="col">
 			<!-- 2 column grid layout for inline styling -->
 			<div class="row mb-4">
