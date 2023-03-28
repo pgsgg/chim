@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../views/header.jsp"%>
+<%@ include file="../header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,12 +10,12 @@
 	<form method="post">
 		<!-- Email input -->
 		<div class="form-outline mb-4">
-			<input type="text" id="form2Example1" class="form-control" name="id" id="id" /> <label class="form-label" for="form2Example1">아이디</label>
+			<input type="text"  class="form-control" name="id" id="id" /> <label class="form-label" for="form2Example1">아이디</label>
 		</div>
 
 		<!-- Password input -->
 		<div class="form-outline mb-4">
-			<input type="password" id="form2Example2" class="form-control" name="password" id="password" /> <label class="form-label" for="form2Example2">비밀번호</label>
+			<input type="password" class="form-control" name="pwd" id="pwd" /> <label class="form-label" for="form2Example2">비밀번호</label>
 		</div>
 
 		<!-- 2 column grid layout for inline styling -->
@@ -24,7 +24,7 @@
 
 			<div class="col">
 				<!-- Simple link -->
-				<a href="#!">비밀번호 찾기123 </a>
+				<a href="#!">비밀번호 찾기 </a>
 			</div>
 		</div>
 
@@ -53,4 +53,4 @@
 			</button>
 		</div>
 	</form>
-	<%@ include file="../views/footer.jsp"%>
+	<%@ include file="../footer.jsp"%>
