@@ -34,12 +34,15 @@ public class MemberController {
 		String pwd = memberService.confirmMember(vo.getId());
 		
 		if(pwd == null) {
-			model.addAttribute("message", "아이디가 틀립니다.");
-		} else if(pwd != vo.getPwd()) {
-			model.addAttribute("message", "비밀번호가 틀립니다.");
+			model.addAttribute("message", "아이디가 맞지 않습니다.");
+			return "member/loginfail";
+		} else if(!pwd.equals(vo.getPwd())) {
+			model.addAttribute("message", "비밀번호가 맞지 않습니다.");
+			return "member/loginfail";
 		} else {
 			model.addAttribute("loginUser", memberService.getMember(vo.getId()));
+			return "index";
 		}
-		return "index";
+		
 	}
 }

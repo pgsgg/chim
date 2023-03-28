@@ -7,22 +7,23 @@
 <title>login</title>
 </head>
 <body>
-	<form method="post" id="loginForm">
+	<form method="post" id="loginForm" action="login">
 		<!-- Email input -->
 		<div class="form-outline mb-4">
-			<input type="text"  class="form-control" name="id" id="id" /> <label class="form-label" for="form2Example1">아이디</label>
+			<input type="text" class="form-control" name="id" id="id" /> <label class="form-label" for="form2Example1">아이디</label>
 		</div>
 
 		<!-- Password input -->
 		<div class="form-outline mb-4">
 			<input type="password" class="form-control" name="pwd" id="pwd" /> <label class="form-label" for="form2Example2">비밀번호</label>
 		</div>
+		<div class="form-outline mb-4"></div>
+		<div class="col d-flex justify-content-center"></div>
+		<p>${mesaage}</p>
+		<div class="col">
+			<!-- 2 column grid layout for inline styling -->
+			<div class="row mb-4">
 
-		<!-- 2 column grid layout for inline styling -->
-		<div class="row mb-4">
-			<div class="col d-flex justify-content-center"></div>
-
-			<div class="col">
 				<!-- Simple link -->
 				<a href="#!">비밀번호 찾기 </a>
 			</div>
