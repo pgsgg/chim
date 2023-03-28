@@ -1,4 +1,4 @@
-package com.ezen.biz.dto;
+package com.chim.biz.dto;
 
 import java.util.Date;
 
