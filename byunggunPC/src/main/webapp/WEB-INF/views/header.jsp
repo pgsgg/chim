@@ -28,7 +28,9 @@
 					<a class="navbar-brand" href="joinForm">회원가입</a>
 				</c:when>
 				<c:otherwise>
+					${sessionScope.loginUser.name}님 환영합니다
 					<a class="navbar-brand" href="myPage">마이페이지</a>
+					<a class="navbar-brand" href="logout">로그아웃</a>
 				</c:otherwise>
 			</c:choose>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
