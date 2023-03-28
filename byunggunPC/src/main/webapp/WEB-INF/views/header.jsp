@@ -15,14 +15,15 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
+<script type="text/javascript" src="js/member.js"></script>
 </head>
 <body>
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container px-4 px-lg-5">
 			<a class="navbar-brand" href="index">byunggunPC</a>
-			<a class="navbar-brand" href="login">로그인</a>
-			<a class="navbar-brand" href="join">회원가입</a>
+			<a class="navbar-brand" href="loginForm">로그인</a>
+			<a class="navbar-brand" href="joinForm">회원가입</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>

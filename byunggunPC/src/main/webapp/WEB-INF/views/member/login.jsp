@@ -7,7 +7,7 @@
 <title>login</title>
 </head>
 <body>
-	<form method="post">
+	<form method="post" id="loginForm">
 		<!-- Email input -->
 		<div class="form-outline mb-4">
 			<input type="text"  class="form-control" name="id" id="id" /> <label class="form-label" for="form2Example1">아이디</label>
@@ -29,7 +29,7 @@
 		</div>
 
 		<!-- Submit button -->
-		<button type="button" class="btn btn-primary btn-block mb-4">로그인</button>
+		<button type="button" class="btn btn-primary btn-block mb-4" onclick="loginCheck()">로그인</button>
 
 		<!-- Register buttons -->
 		<div class="text-center">
