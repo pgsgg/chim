@@ -2,9 +2,10 @@ package com.ezen.biz.dto;
 
 import java.util.Date;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
+
 
 @Getter
 @Setter
