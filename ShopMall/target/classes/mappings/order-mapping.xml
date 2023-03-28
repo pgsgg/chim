@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="OrderMapper">
+	<select id="selectMaxOseq" resultType="int">
+		SELECT NVL2(MAX(oseq),MAX(oseq)+1,1) FROM ORDERS
+	</select>
+
+	<insert id="insertOrder">
+		INSERT INTO ORDERS (OSEQ, ID) VALUES (#{oseq},#{id})
+	</insert>
+	<insert id="insertOrderDetail">
+		INSERT INTO ORDER_DETAIL (odseq,oseq,pseq,quantity)
+		VALUES (ORDER_DETAIL_SEQ.NEXTVAL,#{oseq},#{pseq},#{quantity})
+	</insert>
+
+	<!-- 사용자별 주문내역 조회 -->
+	<select id="listOrderById" resultType="order">
+		SELECT * FROM ORDER_VIEW
+		WHERE ID = #{id}
+		AND OSEQ = #{oseq}
+		AND RESULT LIKE '%'||#{result}||'%'
+	</select>
+
+	<!-- 사용자별 주문번호 조회 -->
+	<select id="selectSeqOrdering" resultType="int">
+		SELECT DISTINCT(OSEQ)
+		FROM ORDER_VIEW
+		WHERE ID = #{id} AND RESULT LIKE '%'||#{result}||'%' ORDER BY OSEQ DESC
+	</select>
+
+	<!-- 전체 주문내역 조회 -->
+	<select id="listOrder" resultType="order">
+		SELECT * FROM order_view WHERE
+		mname like '%'||#{mname}||'%' ORDER BY result,odseq DESC
+	</select>
+
+	<update id="updateOrderResult">
+		UPDATE order_detail SET result = '2'
+		WHERE odseq = #{odseq}
+	</update>
+	
+	<!-- 제품 판매 실적 조회 -->
+	<!-- 테이블의 컬럼명과 VO클래스의 멤버 변수 이름이 틀린경우 매핑 -->
+	<resultMap type="com.ezen.biz.dto.SalesQuantity" id="salesMap">
+		<result column="pname" property="pname"></result>
+		<result column="sales_count" property="quantity"></result>
+	</resultMap>
+	
+	<select id="listProductSales" resultMap="salesMap">
+		SELECT pname, sum(quantity) as sales_count FROM order_view
+		 WHERE result = '2'
+		 GROUP BY pname
+	</select>
+
+</mapper>
