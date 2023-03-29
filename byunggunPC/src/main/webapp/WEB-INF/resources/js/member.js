@@ -27,6 +27,7 @@ function idCheck(){
 }
 
 function go_save(){
+    var regExp = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;
     if(document.getElementById('id').value == ""){
         alert("아이디를 입력해 주세요");
         document.getElementById('id').focus();
@@ -55,7 +56,12 @@ function go_save(){
         alert("주소를 입력해 주세요");
         document.getElementById('zipNum').focus();
         return false;
-    } else {
+    } else if(!regExp.test){
+        alert("휴대폰번호 형식이 맞지 않습니다");
+        document.getElementById('phone').focus();
+        return false;
+    }
+     else {
         document.getElementById('join').action = "join";
         document.getElementById('join').submit();
     }
@@ -64,7 +70,9 @@ function go_save(){
 function getAddress(){
     new daum.Postcode({
         oncomplete: function(data) {
-            document.getElementById('address').value = date.address;
+            document.getElementById('zipNum').value = data.zonecode;
+            document.getElementById('address').value = data.address;
+            document.getElementById('addressDetail').focus();
         }
     }).open();
 }

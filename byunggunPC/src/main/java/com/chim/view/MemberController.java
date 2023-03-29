@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -73,7 +74,9 @@ public class MemberController {
 	}
 	
 	@PostMapping("/join")
-	public String joinAction(MemberVO vo) {
+	public String joinAction(MemberVO vo,
+			@RequestParam(value = "addressDetail") String addressDetail) {
+		vo.setAddress(vo.getAddress() + " " + addressDetail);
 		memberService.insertMember(vo);
 		
 		return "member/login";
