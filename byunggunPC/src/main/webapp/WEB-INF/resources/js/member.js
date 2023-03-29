@@ -60,7 +60,7 @@ function go_save() {
         alert("휴대폰 번호를 입력해 주세요");
         document.getElementById('phone').focus();
         return false;
-    } else if (!regExp.test) {
+    } else if (regExp.test(document.getElementById('phone').value) == false) {
         alert("휴대폰번호 형식이 맞지 않습니다");
         document.getElementById('phone').focus();
         return false;

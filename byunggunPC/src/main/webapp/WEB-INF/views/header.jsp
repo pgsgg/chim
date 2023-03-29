@@ -15,7 +15,9 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/member.js"></script>
+<script type="text/javascript" src="js/product.js"></script>
 </head>
 <body>
 	<!-- Navigation-->
@@ -31,6 +33,7 @@
 					${sessionScope.loginUser.name}님 환영합니다
 					<a class="navbar-brand" href="myPage">마이페이지</a>
 					<a class="navbar-brand" href="logout">로그아웃</a>
+					<a class="navbar-brand" href="cartList">장바구니</a>
 				</c:otherwise>
 			</c:choose>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +52,7 @@
 						</ul></li>
 				</ul>
 				<form class="d-flex">
-					<button class="btn btn-outline-dark" type="submit">
+					<button class="btn btn-outline-dark" type="submit" >
 						<i class="bi-cart-fill me-1"></i> Cart <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
 					</button>
 				</form>

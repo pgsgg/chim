@@ -35,7 +35,7 @@
 		<!-- Register buttons -->
 		<div class="text-center">
 			<p>
-				회원이 아니신가요? <a href="#!">회원가입</a>
+				회원이 아니신가요? <a href="joinForm">회원가입</a>
 			</p>
 			<button type="button" class="btn btn-link btn-floating mx-1">
 				<i class="fab fa-facebook-f"></i>

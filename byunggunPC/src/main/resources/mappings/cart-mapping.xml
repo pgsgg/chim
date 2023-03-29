@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="CartMapper">
+	<insert id="insertCart">
+		INSERT INTO cart (cseq,id,pseq,quantity,)
+		values(cart_seq.NEXTVAL,#{id},#{pseq},#{quantity})
+	</insert>
+	<delete id="deleteCart">
+		DELETE cart WHERE cseq=#{cseq}
+	</delete>
+	<update id="updateCart">
+		UPDATE cart SET result = '2' WHERE cseq = #{cseq}
+	</update>
+	<select id="selectCart" resultType="cart">
+		SELECT * FROM cart_view WHERE id=#{id}
+	</select>
+</mapper>

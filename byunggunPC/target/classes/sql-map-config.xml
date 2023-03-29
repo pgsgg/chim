@@ -4,11 +4,13 @@
 	<typeAliases>
 		<!-- <typeAlias type="com.chim.biz.dto.ProductVO" alias="product"/> -->
 		<typeAlias type="com.chim.biz.dto.MemberVO" alias="member"/>
+		<typeAlias type="com.chim.biz.dto.CartVO" alias="cart"/>
 	</typeAliases>
 	
 	<!-- SQL 매핑 파일 -->
 	<mappers>
 		<!-- <mapper resource="mappings/product-mapping.xml"/> -->
 		<mapper resource="mappings/member-mapping.xml"/>
+		<mapper resource="mappings/cart-mapping.xml"/>
 	</mappers>
 </configuration>
