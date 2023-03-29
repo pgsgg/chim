@@ -30,4 +30,18 @@ public class MemberServiceImpl implements MemberService {
 		memberDAO.insertMember(vo);
 	}
 
+	@Override
+	public String getIdByNamePhone(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return memberDAO.selectIdByNamePhone(vo);
+	}
+
+	@Override
+	public void chagePwd(MemberVO vo) {
+		// TODO Auto-generated method stub
+		memberDAO.chagePwd(vo);
+	}
+
+	
+
 }

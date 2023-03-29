@@ -24,7 +24,8 @@
 			<div class="row mb-4">
 
 				<!-- Simple link -->
-				<a href="#!">비밀번호 찾기 </a>
+				<a href="#" onclick="findId()">아이디 찾기 </a>
+				<a href="#" onclick="findPwd()">비밀번호 찾기 </a>
 			</div>
 		</div>
 

@@ -7,6 +7,10 @@ public interface MemberService {
 	String confirmMember(String id);
 
 	MemberVO getMember(String id);
-	
+
 	void insertMember(MemberVO vo);
+
+	String getIdByNamePhone(MemberVO vo);
+
+	public void chagePwd(MemberVO vo);
 }

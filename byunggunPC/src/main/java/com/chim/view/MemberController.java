@@ -81,4 +81,53 @@ public class MemberController {
 		
 		return "member/login";
 	}
+	
+	@GetMapping("/find_id_form")
+	public String findIdView() {
+		
+		return "member/findId";
+	}
+	
+	@PostMapping("/find_id")
+	public String findIdAction(MemberVO vo,Model model) {
+		String id = memberService.getIdByNamePhone(vo);
+		int message = 0;
+		if(id == null) {
+			message = -1;
+		} else {
+			message = 1;
+		}
+		model.addAttribute("id", id);
+		model.addAttribute("message", message);
+		return "member/findResult";
+	}
+	
+	@GetMapping("/find_pwd_form")
+	public String findPwdView() {
+		
+		return "member/findPwd";
+	}
+	
+	@PostMapping("/find_pwd")
+	public String findPwdAction(MemberVO vo,Model model) {
+		String id = memberService.getIdByNamePhone(vo);
+		int message = 0;
+		
+		if(id != null && id.equals(vo.getId())) {	
+			message = 1;
+			model.addAttribute("id", vo.getId());
+			model.addAttribute("message", message);
+		} else {
+			message = -1;
+			model.addAttribute("message", message);
+		}
+		return "member/findPwdResult";
+	}
+	
+	@PostMapping("/change_pwd")
+	public String changePwdAction(MemberVO vo) {
+		memberService.chagePwd(vo);
+		
+		return "member/changePwdOK";
+	}
 }
