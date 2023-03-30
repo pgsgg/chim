@@ -22,8 +22,12 @@ public class mypageController {
 
 	@Autowired
 	private CartService cartService;
-	@Autowired
-	private MemberService memberservice;
+	
+	@GetMapping("/mypage")
+	public String mypageView() {
+		
+		return "mypage/mypage";
+	}
 	
 	@RequestMapping("cartList")
 	public String cartList(HttpSession session,Model model) {

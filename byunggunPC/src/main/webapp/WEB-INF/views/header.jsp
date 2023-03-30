@@ -18,6 +18,7 @@
 <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/member.js"></script>
 <script type="text/javascript" src="js/product.js"></script>
+<script type="text/javascript" src="js/mypage.js"></script>
 </head>
 <body>
 	<!-- Navigation-->
