@@ -1,7 +1,5 @@
 package com.chim.biz.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,15 +14,19 @@ public class AdminServiceImpl implements AdminService {
 	
 	
 	@Override
-	public String adminCheck(String id) {
-		
-		return adminDao.adminCheck(id);
+	public int adminCheck(AdminVO vo) {
+		String pwd = adminDao.adminCheck(vo.getId());
+		if(pwd==null)
+			return -1; //아이디없음
+		else if (pwd.equals(vo.getPwd()))
+			return 1; //정상
+		else return 0 ; //틀림
 	}
 
 	@Override
-	public List<AdminVO> getAdmin(AdminVO vo) {
+	public AdminVO getAdmin(String id) {
 		
-		return adminDao.getAdmin(vo);
+		return adminDao.getAdmin(id);
 	}
 
 }
