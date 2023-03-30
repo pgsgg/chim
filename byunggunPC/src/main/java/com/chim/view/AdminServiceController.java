@@ -28,27 +28,29 @@ public class AdminServiceController {
 	
 	
 	//메인화면 표시
-		@RequestMapping("/admin_main")
-		public String mainView() {
+		@RequestMapping("/admin_index")
+		public String indexView() {
 			
-			return "admin/main";
+			return "admin/index";
 		}
 	
 		//에러화면 표시
-		@RequestMapping("/admin_401")
-		public String View401() {
-			
-			return "admin/401";
-		}
 		@RequestMapping("/admin_404")
 		public String View404() {
 			
 			return "admin/404";
 		}
-		@RequestMapping("/admin_500")
-		public String View500() {
+		
+		@RequestMapping("/admin_blank")
+		public String blankView() {
 			
-			return "admin/500";
+			return "admin/blank";
+		}
+		
+		@RequestMapping("/admin_buttons")
+		public String buttonsView() {
+			
+			return "admin/buttons";
 		}
 		
 		
@@ -57,10 +59,10 @@ public class AdminServiceController {
 			
 			return "admin/charts";
 		}
-		@RequestMapping("/admin_layout-sidenav-light")
-		public String layoutSidenavLightView() {
+		@RequestMapping("/admin_cards")
+		public String cardsView() {
 			
-			return "admin/layout-sidenav-light";
+			return "admin/cards";
 		}
 		@RequestMapping("/admin_layout-static")
 		public String layoutStaticView() {
@@ -72,10 +74,10 @@ public class AdminServiceController {
 			
 			return "admin/login";
 		}
-		@RequestMapping("/admin_password")
-		public String password() {
+		@RequestMapping("/admin_forgot-password")
+		public String forgotPassword() {
 			
-			return "admin/password";
+			return "admin/forgot-password";
 		}
 		@RequestMapping("/admin_register")
 		public String registerView() {
@@ -87,7 +89,26 @@ public class AdminServiceController {
 			
 			return "admin/tables";
 		}
-	
+		@RequestMapping("/admin_utilities-animation")
+		public String utilitiesAnimationView() {
+			
+			return "admin/utilities-animation";
+		}
+		@RequestMapping("/admin_utilities-border")
+		public String utilitiesBorderView() {
+			
+			return "admin/utilities-border";
+		}
+		@RequestMapping("/admin_utilities-color")
+		public String utilitiesColorView() {
+			
+			return "admin/utilities-color";
+		}
+		@RequestMapping("/admin_utilities-other")
+		public String utilitiesOtherView() {
+			
+			return "admin/utilities-other";
+		}
 	
 	
 	@PostMapping("/admin_login")

@@ -31,8 +31,6 @@
 	<servlet-mapping>
 		<servlet-name>action</servlet-name>
 		<url-pattern>/</url-pattern>
-		<url-pattern>*.css</url-pattern>
-		<url-pattern>*.js</url-pattern>
 	</servlet-mapping>
 
 	<filter>
