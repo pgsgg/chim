@@ -15,3 +15,9 @@ function go_cart_delete(){
         form.submit();
     }
 }
+
+function go_cart(){
+    var form = document.getElementById('theform');
+    form.action = "cart_insert";
+    form.submit();
+}
