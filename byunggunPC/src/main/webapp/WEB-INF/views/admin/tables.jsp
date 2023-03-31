@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -365,6 +366,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
+                <form name="frm" id="admin_product_list" method="post">
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
@@ -392,7 +394,17 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <c:forEach items="${productList}" var="productVO" varStatus="status">
+                                    <!-- tbody가 작동안함 -->
+             <c:choose>
+    <c:when test="${productListSize<=0}">
+    <tr>
+      <td width="100%" colspan="7" align="center" height="23">
+        등록된 상품이 없습니다.
+      </td>      
+    </tr>
+    </c:when>
+	<c:otherwise>
+	<c:forEach items="${productList}" var="productVO" varStatus="status">
     <tr>
  <%-- <td height="23" align="center" >${productVO.pseq}</td> --%>
       <td height="23" align="center">${status.count}</td>
@@ -413,13 +425,19 @@
    	  </td> 
     </tr>
     </c:forEach>
-                                    </tbody>
-                                </table>
+    <tr><td colspan="6" style="text-align: center;"> ${paging} </td></tr>
+	</c:otherwise>	
+</c:choose> <!-- tbody가 작동안함 -->
+ </tbody>
+     </table>
+                                    
+                               
                             </div>
                         </div>
                     </div>
 
                 </div>
+                </form>
                 <!-- /.container-fluid -->
 
             </div>
