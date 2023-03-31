@@ -12,11 +12,14 @@
 	<mvc:annotation-driven></mvc:annotation-driven>
 	
 	<mvc:resources location="/WEB-INF/resources/css/" mapping="/css/**"></mvc:resources>
-	<mvc:resources location="/WEB-INF/resources/js/" mapping="/js/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/views/admin/" mapping="/admin/**"></mvc:resources>
+
 	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/"></property>
 		<property name="suffix" value=".jsp"></property>
 		<property name="contentType" value="text/html;charset=UTF-8"></property>
 	</bean>
+	
+	
 </beans>

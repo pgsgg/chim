@@ -57,5 +57,6 @@
 					</button>
 				</form>
 			</div>
+			<a class="navbar-brand" href="admin_index">관리자페이지</a>
 		</div>
 	</nav>
