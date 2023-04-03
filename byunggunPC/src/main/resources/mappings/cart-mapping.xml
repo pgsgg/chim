@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="CartMapper">
 	<insert id="insertCart">
-		INSERT INTO cart (cseq,id,pseq,quantity,)
+		INSERT INTO cart (cseq,id,pseq,quantity)
 		values(cart_seq.NEXTVAL,#{id},#{pseq},#{quantity})
 	</insert>
 	<delete id="deleteCart">

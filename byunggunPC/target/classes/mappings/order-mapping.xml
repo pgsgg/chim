@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="OrderMapper">
+	<insert id="insertOrder">
+		insert into orders (oseq,id) values  (#{oseq},#{id})
+	</insert>
+	<select id="selectMaxOseq" resultType="int">
+		select nvl2(MAX(oseq),MAX(oseq)+1,1) from orders
+	</select>
+	<insert id="insertOrderDetail">
+		INSERT INTO order_detail (odseq,oseq,pseq,quantity) values (order_detail_seq.nextval,#{oseq},#{pseq},#{quantity})
+	</insert>
+	<select id="listOrderById" resultType="order">
+		select * from order_view
+		 where id = #{id}
+		  and oseq = #{oseq}
+		   and result like '%'||#{result}||'%'
+	</select>
+	<select id="selectSeqOrdering" resultType="int">
+		SELECT DISTINT(oseq) FROM order_view
+		 WHERE ID = #{id} AND RESULT LIKE '%'||#{result}||'%' ORDER BY OSEQ DESC 
+	</select>
+</mapper>

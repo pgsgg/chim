@@ -2,12 +2,6 @@
 <%@ include file="../header.jsp"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 <h2> Cart List </h2>
     <form name="formm" id="theform" method="post">
 	<table>
@@ -41,5 +35,6 @@
 		</tbody>	
 	</table>
 	<button type="button" class="btn btn-danger btn-lg" onclick="go_cart_delete()">삭제하기</button>
+	<input type="button" class="btn btn-primary btn-lg" onclick="go_order()" value="주문하기">
 	</form>
 	<%@ include file="../footer.jsp"%>

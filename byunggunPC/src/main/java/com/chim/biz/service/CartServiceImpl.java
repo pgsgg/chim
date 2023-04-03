@@ -9,7 +9,7 @@ import com.chim.biz.dao.CartDAO;
 import com.chim.biz.dto.CartVO;
 
 @Service("cartService")
-public class CartImpl implements CartService {
+public class CartServiceImpl implements CartService {
 	
 	@Autowired
 	private CartDAO cartDAO;

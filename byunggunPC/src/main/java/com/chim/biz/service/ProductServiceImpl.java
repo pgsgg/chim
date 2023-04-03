@@ -8,66 +8,20 @@ import org.springframework.stereotype.Service;
 import com.chim.biz.dao.ProductDAO;
 import com.chim.biz.dto.ProductVO;
 
-import utils.Criteria;
-
 @Service("productService")
 public class ProductServiceImpl implements ProductService {
-
-	@Autowired
-	private ProductDAO productDao;
 	
+	@Autowired
+	private ProductDAO productDAO;
 	@Override
-	public ProductVO getProduct(ProductVO product) {
+	public List<ProductVO> selectProduct() {
 		// TODO Auto-generated method stub
-		return productDao.getProduct(product);
+		return productDAO.selectProduct();
 	}
-
 	@Override
-	public List<ProductVO> getProductListByKind(String kind) {
+	public ProductVO selectProductDetail(int pseq) {
 		// TODO Auto-generated method stub
-		return productDao.getProductListByKind(kind);
-	}
-
-	@Override
-	public List<ProductVO> getNewProductList() {
-		// TODO Auto-generated method stub
-		return productDao.getNewProductList();
-	}
-
-	@Override
-	public List<ProductVO> getBestProductList() {
-		// TODO Auto-generated method stub
-		return productDao.getBestProductList();
-	}
-
-	@Override
-	public int countProductList(String name) {
-		// TODO Auto-generated method stub
-		return productDao.countProductList(name);
-	}
-
-	@Override
-	public List<ProductVO> getlistProduct(String name) {
-		// TODO Auto-generated method stub
-		return productDao.listProduct(name);
-	}
-
-	@Override
-	public List<ProductVO> getlistProductWithPaging(Criteria criteria, String name) {
-		// TODO Auto-generated method stub
-		return productDao.listProductWithPaging(criteria, name);
-	}
-
-	@Override
-	public void insertProduct(ProductVO vo) {
-		// TODO Auto-generated method stub
-		productDao.insertProduct(vo);
-	}
-
-	@Override
-	public void updateProduct(ProductVO vo) {
-		// TODO Auto-generated method stub
-		productDao.updateProduct(vo);
+		return productDAO.selectProductDetail(pseq);
 	}
 
 }
