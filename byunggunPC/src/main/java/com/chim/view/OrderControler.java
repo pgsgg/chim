@@ -34,6 +34,7 @@ public class OrderControler {
 		}
 	}
 	
+	//주문 상세보기
 	@RequestMapping("/order_list")
 	public String listOrder(OrderVO vo,Model model,HttpSession session) {
 		MemberVO loginUser =  (MemberVO) session.getAttribute("loginUser");

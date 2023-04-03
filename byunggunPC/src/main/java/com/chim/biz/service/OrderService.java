@@ -13,5 +13,9 @@ public interface OrderService {
 	int insertOrderDetail(OrderVO vo);
 
 	List<OrderVO> listOrderById(OrderVO vo);
+	
+	public List<Integer> selectSeqOrdering(OrderVO vo);
+	
+	public void deleteOrder(int oseq);
 
 }

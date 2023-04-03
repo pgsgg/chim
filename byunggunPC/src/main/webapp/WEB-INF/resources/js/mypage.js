@@ -27,3 +27,18 @@ function go_order(){
     form.action = "insert_order";
     form.submit();
 }
+
+function deleteOrder(){
+    const query = "input[name=oseq]:checked"
+
+    var len = document.querySelectorAll(query).length;
+    console.log("oseq.length = "+ len);
+
+    if(len == 0){
+        alert("삭제할 항목을 선택해 주세요")
+    } else {
+        var form = document.getElementById('formm');
+        form.action = "order_delete";
+        form.submit();
+    }
+}

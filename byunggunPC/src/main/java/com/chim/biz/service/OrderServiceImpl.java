@@ -60,4 +60,17 @@ public class OrderServiceImpl implements OrderService{
 		return orderDAO.listOrderById(vo);
 	}
 
+	@Override
+	public List<Integer> selectSeqOrdering(OrderVO vo) {
+		// TODO Auto-generated method stub
+		return orderDAO.selectSeqOrdering(vo);
+	}
+
+	@Override
+	public void deleteOrder(int oseq) {
+		// TODO Auto-generated method stub	
+		orderDAO.deleteOrder(oseq);
+	}
+	
+
 }

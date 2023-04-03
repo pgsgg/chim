@@ -8,7 +8,6 @@
 				<th>제품명</th>
 				<th>가격</th>
 				<th>등록일</th>
-				<th>선택삭제</th>
 			</tr>
 		</thead>
 		<tbody>

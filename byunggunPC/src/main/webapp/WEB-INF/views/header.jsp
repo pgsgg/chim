@@ -19,6 +19,7 @@
 <script type="text/javascript" src="js/member.js"></script>
 <script type="text/javascript" src="js/product.js"></script>
 <script type="text/javascript" src="js/mypage.js"></script>
+<script type="text/javascript" src="js/order.js"></script>
 </head>
 <body>
 	<!-- Navigation-->
@@ -32,7 +33,7 @@
 				</c:when>
 				<c:otherwise>
 					${sessionScope.loginUser.name}님 환영합니다
-					<a class="navbar-brand" href="myPage">마이페이지</a>
+					<a class="navbar-brand" href="orders?result=1">마이페이지</a>
 					<a class="navbar-brand" href="logout">로그아웃</a>
 					<a class="navbar-brand" href="cartList">장바구니</a>
 				</c:otherwise>

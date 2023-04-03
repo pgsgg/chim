@@ -17,7 +17,10 @@
 		   and result like '%'||#{result}||'%'
 	</select>
 	<select id="selectSeqOrdering" resultType="int">
-		SELECT DISTINT(oseq) FROM order_view
+		SELECT DISTINCT(oseq) FROM order_view
 		 WHERE ID = #{id} AND RESULT LIKE '%'||#{result}||'%' ORDER BY OSEQ DESC 
 	</select>
+	<delete id="deleteOrder">
+		DELETE FROM order_view WHERE oseq = #{oseq}
+	</delete>
 </mapper>
