@@ -1,14 +1,15 @@
 package com.chim.biz.dao;
 
-import java.util.List;
-
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.chim.biz.dto.AdminVO;
 
-
+@Repository
 public class AdminDAO {
 	
+	@Autowired
 	private SqlSessionTemplate mybatis;
 	
 	
@@ -17,9 +18,9 @@ public class AdminDAO {
 		return mybatis.selectOne("AdminMapper.adminCheck",id);
 	}
 	
-	public List<AdminVO> getAdmin(AdminVO vo){
+	public AdminVO getAdmin(String id){
 		
-		return mybatis.selectList("AdminMapper.getAdmin",vo);
+		return mybatis.selectOne("AdminMapper.getAdmin",id);
 	} 
 	
 	
