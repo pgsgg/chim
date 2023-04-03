@@ -144,7 +144,7 @@ public class AdminController {
 		
 		// (1) 전체 상품목록 조회
 		List<ProductVO> productList = productService.getlistProductWithPaging(criteria, name);
-		
+		 
 		// (2) 화면에 표시할 페이지 버튼 정보 설정(PageMaker 클래스 이용)
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCriteria(criteria); // 현재 페이지 정보 저장

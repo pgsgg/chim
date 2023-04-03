@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.chim.biz.dao.ProductDAO;
 import com.chim.biz.dto.ProductVO;
 
+import utils.Criteria;
+
 @Service("productService")
 public class ProductServiceImpl implements ProductService {
 	
@@ -22,6 +24,16 @@ public class ProductServiceImpl implements ProductService {
 	public ProductVO selectProductDetail(int pseq) {
 		// TODO Auto-generated method stub
 		return productDAO.selectProductDetail(pseq);
+	}
+	@Override
+	public List<ProductVO> getlistProductWithPaging(Criteria criteria, String name) {
+		// TODO Auto-generated method stub
+		return productDAO.getlistProductWithPaging(criteria,name);
+	}
+	@Override
+	public int countProductList(String name) {
+		// TODO Auto-generated method stub
+		return productDAO.countProductList(name);
 	}
 
 }
