@@ -418,10 +418,11 @@
       <td><fmt:formatNumber value="${productVO.price2}"/></td>
       <td><fmt:formatDate value="${productVO.regdate}"/></td>
       <td>
-      	<c:choose>
-   	 		<c:when test='${productVO.useyn=="n"}'>미사용</c:when>
+      	 <c:choose>
+   	 		<c:when test='${productVO.bestyn=="n"}'>미사용</c:when>
    	 		<c:otherwise>사용</c:otherwise>  	 		
-   	 	</c:choose>
+   	 	</c:choose> 
+   	 	
    	  </td> 
     </tr>
     </c:forEach>
