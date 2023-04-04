@@ -19,4 +19,10 @@ public interface ProductService {
 	void updateQuantity(int quantity,int pseq);
 	
 	List<ProductVO> getProductListByKind (String kind);
+	
+	void insertProduct(ProductVO vo);
+	
+	void updateProduct(ProductVO vo);
+	
+	ProductVO getProduct(ProductVO vo);
 }
