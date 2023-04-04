@@ -16,4 +16,5 @@ public interface ProductService {
 	
 	int countProductList(String name);
 		
+	void updateQuantity(int quantity,int pseq);
 }

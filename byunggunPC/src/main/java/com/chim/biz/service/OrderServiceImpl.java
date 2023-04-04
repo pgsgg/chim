@@ -9,18 +9,21 @@ import com.chim.biz.dao.CartDAO;
 import com.chim.biz.dao.OrderDAO;
 import com.chim.biz.dto.CartVO;
 import com.chim.biz.dto.OrderVO;
+import com.chim.biz.dto.ProductVO;
 
 @Service("orderService")
-public class OrderServiceImpl implements OrderService{
-	
+public class OrderServiceImpl implements OrderService {
+
 	@Autowired
 	private OrderDAO orderDAO;
 	@Autowired
 	private CartDAO cartDAO;
-	
+	@Autowired
+	private ProductService productService;
+
 	@Override
 	public int selectMaxOseq() {
-		
+
 		return orderDAO.selectMaxOseq();
 	}
 
@@ -33,23 +36,33 @@ public class OrderServiceImpl implements OrderService{
 	@Override
 	public int insertOrderDetail(OrderVO vo) {
 		// TODO Auto-generated method stub
-		
+
 		int oseq = this.selectMaxOseq();
 		vo.setOseq(oseq);
-		
+
 		this.insertOrder(vo);
-		
+
 		List<CartVO> cartList = cartDAO.selectCart(vo.getId());
-		
-		for(CartVO cart : cartList) {
+		if (cartList.size() > 0) {
+			for (CartVO cart : cartList) {
+				OrderVO order = new OrderVO();
+				
+				order.setOseq(oseq);
+				order.setPseq(cart.getPseq());
+				order.setQuantity(cart.getQuantity());
+
+				orderDAO.insertOrderDetail(order);
+				productService.updateQuantity(cart.getQuantity(),cart.getPseq());
+				cartDAO.updateCart(cart.getCseq());
+				
+			}
+		} else {
 			OrderVO order = new OrderVO();
-			
 			order.setOseq(oseq);
-			order.setPseq(cart.getPseq());
-			order.setQuantity(cart.getQuantity());
-			
+			order.setPseq(vo.getPseq());
+			order.setQuantity(vo.getQuantity());
+			productService.updateQuantity(vo.getQuantity(),vo.getPseq());
 			orderDAO.insertOrderDetail(order);
-			cartDAO.updateCart(cart.getCseq());
 		}
 		return oseq;
 	}
@@ -68,9 +81,8 @@ public class OrderServiceImpl implements OrderService{
 
 	@Override
 	public void deleteOrder(int oseq) {
-		// TODO Auto-generated method stub	
+		// TODO Auto-generated method stub
 		orderDAO.deleteOrder(oseq);
 	}
-	
 
 }

@@ -35,4 +35,7 @@
 		AND rn > (#{criteria.pageNum} - 1) * #{criteria.rowsPerPage}
 		]]> 
 	</select>
+	<update id="updateQuantity">
+		UPDATE PRODUCT SET quantity = quantity - #{array[0]} WHERE pseq = #{array[1]} 
+	</update>
 </mapper>

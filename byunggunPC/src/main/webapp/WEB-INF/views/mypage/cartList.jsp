@@ -4,6 +4,11 @@
 <!DOCTYPE html>
 <h2> Cart List </h2>
     <form name="formm" id="theform" method="post">
+    <c:choose>
+    <c:when test="${cartList.size() == 0}">
+    	장바구니 내역이 없습니다.
+    </c:when>
+    <c:otherwise>
 	<table>
 		<thead>
 			<tr align="center">
@@ -36,5 +41,7 @@
 	</table>
 	<button type="button" class="btn btn-danger btn-lg" onclick="go_cart_delete()">삭제하기</button>
 	<input type="button" class="btn btn-primary btn-lg" onclick="go_order()" value="주문하기">
+	</c:otherwise>
+	</c:choose>
 	</form>
 	<%@ include file="../footer.jsp"%>

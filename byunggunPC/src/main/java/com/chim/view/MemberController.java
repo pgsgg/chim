@@ -46,7 +46,7 @@ public class MemberController {
 			return "member/loginfail";
 		} else {
 			model.addAttribute("loginUser", memberService.getMember(vo.getId()));
-			return "index";
+			return "redirect:index";
 		}
 		
 	}

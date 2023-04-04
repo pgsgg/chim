@@ -102,7 +102,7 @@ public class mypageController {
 				List<OrderVO> list = orderSerive.listOrderById(order);
 				OrderVO summary = list.get(0);
 				if(list.size() >= 2) {
-					summary.setPname(summary.getPname() + "외" + (list.size()-1));
+					summary.setPname(summary.getPname() + " 외 " + (list.size()-1) + "개");
 				} else {
 					summary.setPname(summary.getPname());
 				}

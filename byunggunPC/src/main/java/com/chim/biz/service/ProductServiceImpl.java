@@ -35,5 +35,11 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return productDAO.countProductList(name);
 	}
+	@Override
+	public void updateQuantity(int quantity,int pseq) {
+		// TODO Auto-generated method stub
+		productDAO.updateQuantity(quantity,pseq);
+	}
+	
 
 }

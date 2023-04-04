@@ -40,6 +40,11 @@ public class ProductDAO {
 		return mybatis.selectOne("ProductMapper.countProductList",name);
 	}
 	
+	public void updateQuantity(int quantity,int pseq) {
+		Object[] args = {quantity,pseq};
+		mybatis.update("ProductMapper.updateQuantity", args);
+	}
+	
 	
 //	<select id="countProductList" parameterType="String" resultType="int">
 //	getlistProductWithPaging
