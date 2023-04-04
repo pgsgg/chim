@@ -17,4 +17,6 @@ public interface ProductService {
 	int countProductList(String name);
 		
 	void updateQuantity(int quantity,int pseq);
+	
+	List<ProductVO> getProductListByKind (String kind);
 }
