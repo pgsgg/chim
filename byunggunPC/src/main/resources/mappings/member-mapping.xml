@@ -20,4 +20,10 @@
 	<update id="chagePwd">
 		UPDATE MEMBER SET pwd = #{pwd} WHERE id = #{id}
 	</update>
+	
+	<select id="listMember" resultType="member">
+		SELECT * FROM member
+		WHERE name LIKE '%'||#{name}||'%' 
+		ORDER BY name
+	</select>
 </mapper>

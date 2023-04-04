@@ -1,5 +1,7 @@
 package com.chim.biz.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +42,12 @@ public class MemberServiceImpl implements MemberService {
 	public void chagePwd(MemberVO vo) {
 		// TODO Auto-generated method stub
 		memberDAO.chagePwd(vo);
+	}
+
+	@Override
+	public List<MemberVO> getListMember(String name) {
+		// TODO Auto-generated method stub
+		return memberDAO.getListMember(name);
 	}
 
 	

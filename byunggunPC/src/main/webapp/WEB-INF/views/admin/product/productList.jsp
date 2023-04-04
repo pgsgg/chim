@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
-<%@ include file="sub_menu.html"%>
 
 <article>
 <h1>상품리스트</h1>	
@@ -18,10 +17,12 @@
   </td>
   </tr>
 </table>
-<table id="productList">
+<!-- <table id="productList"> -->
+<table id="datatable" class="table table-bordered dataTable">
     <tr>
         <th>번호</th><th>상품명</th><th>원가</th><th>판매가</th><th>등록일</th><th>사용유무</th>
     </tr>
+    <tbody>
     <c:choose>
     <c:when test="${productListSize<=0}">
     <tr>
@@ -33,10 +34,8 @@
 	<c:otherwise>
 	<c:forEach items="${productList}" var="productVO" varStatus="status">
     <tr>
- <%-- <td height="23" align="center" >${productVO.pseq}</td> --%>
       <td height="23" align="center">${status.count}</td>
       <td style="text-align: left; padding-left: 50px; padding-right: 0px;">   
-  <%--  <a href="#" onclick="go_detail('${pageMaker.criteria.pageNum}','${pageMaker.criteria.rowsPerPage}','${productVO.pseq}')"> --%>
   		<a href="#" onclick="go_detail('${productVO.pseq}')">    
     	 ${productVO.name}     
    		</a>
@@ -55,8 +54,11 @@
     <tr><td colspan="6" style="text-align: center;"> ${paging} </td></tr>
 	</c:otherwise>	
 </c:choose>  
+</tbody>
 </table>
+
+<%@ include file="../page_area.jsp" %>
 </form> 
-<%-- <%@ include file="../page_area.jsp" %> --%>
+
 </article>
 <%-- <%@ include file="../footer.jsp" %> --%>

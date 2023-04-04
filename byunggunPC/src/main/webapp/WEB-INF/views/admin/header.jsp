@@ -6,7 +6,6 @@
 <html lang="en">
 
 <head>
-<!-- fkfkfkfkaaaa -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -136,20 +135,27 @@
                 <a class="nav-link" href="admin_tables">
                     <i class="fas fa-fw fa-table"></i>
                     <span>productList</span></a>
+                    
             </li>
             
-            </li>
-
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="admin_member_list">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>productList2</span></a>
+                    <span>memberList</span></a>
+                    
             </li>
-
+            
+            
+            
+             
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
+<!-- logout -->
+<input class="btn_btt" type="button"  value="logout"  style="float: right; text-size: 1rem;"
+			   onClick="location.href='admin_logout'">
+			   
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>

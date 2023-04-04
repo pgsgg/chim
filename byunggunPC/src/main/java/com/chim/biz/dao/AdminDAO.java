@@ -23,5 +23,7 @@ public class AdminDAO {
 		return mybatis.selectOne("AdminMapper.getAdmin",id);
 	} 
 	
-	
+	public void insertadmin(AdminVO vo) {
+		mybatis.insert("AdminMapper.insertAdmin",vo);
+	}
 }

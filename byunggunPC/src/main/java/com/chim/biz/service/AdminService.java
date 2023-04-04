@@ -7,5 +7,7 @@ public interface AdminService {
 	int adminCheck(AdminVO vo);
 
 	AdminVO getAdmin(String id);
-
+	
+	void insertAdmin(AdminVO vo);
+	
 }

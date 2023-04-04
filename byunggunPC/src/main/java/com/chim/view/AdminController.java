@@ -18,6 +18,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.chim.biz.dto.AdminVO;
+import com.chim.biz.dto.MemberVO;
 import com.chim.biz.dto.ProductVO;
 import com.chim.biz.service.AdminService;
 import com.chim.biz.service.CartService;
@@ -78,10 +79,10 @@ public class AdminController {
 		return "admin/layout-static";
 	}
 
-	@RequestMapping("/admin_login")
-	public String loginView() {
-		return "admin/login";
-	}
+	/*
+	 * @RequestMapping("/admin_login") public String loginView() { return
+	 * "admin/login"; }
+	 */
 
 	@RequestMapping("/admin_forgot-password")
 	public String forgotPassword() {
@@ -94,9 +95,21 @@ public class AdminController {
 	}
 
 	@RequestMapping("/admin_tables")
-	public String tablesView() {
+	public String tablesView(Criteria criteria,
+			@RequestParam(value="key", defaultValue="") String name, Model model) {
+		List<ProductVO> productList = productService.getlistProductWithPaging(criteria, name);
+		
+		PageMaker pageMaker= new PageMaker();
+		pageMaker.setCriteria(criteria);
+		pageMaker.setTotalCount(productService.countProductList(name));
+		
+		model.addAttribute("productList",productList);
+		model.addAttribute("productListSize",productList.size());
+		model.addAttribute("pageMaker",pageMaker);
+		
 		return "admin/product/productList";
 	}
+	
 	@RequestMapping("/admin_tables2")
 	public String tables2View() {
 		return "admin/product/productList2";
@@ -122,27 +135,7 @@ public class AdminController {
 		return "admin/utilities-other";
 	}
 
-	@PostMapping("/admin_login")
-	public String adminCheck(AdminVO vo, Model model) {
-
-		int result = adminService.adminCheck(vo);
-
-		if (result == 1) {
-			model.addAttribute("admin", adminService.getAdmin(vo.getId()));
-			return "";
-		} else {
-
-			if (result == 0) {
-				model.addAttribute("message", "비밀번호를 확인해주세요.");
-			} else {
-				model.addAttribute("message", "아이디를 확인해주세요.");
-			}
-			return "admin/index";
-		}
-
-	}
-	
-	@GetMapping("admin_logout")
+	@RequestMapping("admin_logout")
 	public String adminLogout(SessionStatus status) {
 		status.setComplete();
 		
@@ -179,14 +172,14 @@ public class AdminController {
 		
 	}
 	
-	@PostMapping("/admin_product_write_form")
+	@RequestMapping("/admin_product_write_form")
 	public String adminProductWriteView(Model model) {
 		String[] kindList = {"CPU","메인보드","그래픽카드","파워","조립 PC","세일상품"};
 		model.addAttribute("kindList",kindList);
 		return "admin/product/productWrite";
 	}
 	// 상품 등록처리
-	@PostMapping("/admin_product_write")
+	@RequestMapping("/admin_product_write")
 	public String adminProductWrite(ProductVO vo, HttpSession session, 
 			@RequestParam(value="product_image") MultipartFile uploadFile) {
 		
@@ -227,7 +220,7 @@ public class AdminController {
 		return "admin/product/productUpdate";
 	}
 	
-	@PostMapping("/admin_product_update")
+	@RequestMapping("/admin_product_update")
 	public String adminProductUpdate(ProductVO vo, 
 			@RequestParam(value="product_image") MultipartFile uploadFile,
 			@RequestParam(value="nonmakeImg") String org_image,
@@ -263,4 +256,50 @@ public class AdminController {
 		return "redirect:admin_product_list";
 	}
 
+	@RequestMapping("/admin_member_list")
+	public String memberList(@RequestParam(value="key", defaultValue="") String name, Model model) {
+		List<MemberVO> memberList = memberService.getListMember(name);
+		model.addAttribute("memberList", memberList);
+		
+		return "admin/member/memberList";
+	}
+	
+	@RequestMapping("/admin_login_form")
+	public String adminLoginView(HttpSession session) {
+		
+		return "admin/main";
+	}
+	
+	@RequestMapping("/admin_login")
+	public String adminLogin(AdminVO vo, Model model) {
+		// (1) 관리자 ID 인증
+		int result=adminService.adminCheck(vo);
+		
+		// (2) 정상적인 관리자이면 
+		// - 관리자 정보 조회
+		// - 상품목록 화면으로 이동
+		if (result == 1) {
+			model.addAttribute("admin", adminService.getAdmin(vo.getId()));
+			return "redirect:admin_product_list";
+		} else {
+			// (3) 비정상적인 로그인 일때
+			// - 메시지를 설정하고 로그인화면으로 이동
+			if(result==0) {
+				model.addAttribute("message", "비밀번호를 확인해주세요.");
+			} else {
+				model.addAttribute("message", "아이디를 확인해주세요.");
+			}
+			return "admin/main";
+		}
+		
+	}
+	
+	@RequestMapping("/admin_join")
+	public String joinAction(AdminVO vo) {
+		adminService.insertAdmin(vo);
+		
+		return "redirect:admin_login";
+	}
+	
+	
 }

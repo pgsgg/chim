@@ -106,6 +106,10 @@ footer hr {
 	border: 1px solid;
 }
 
+footer div .foot{
+	margin:0 0 500px 0;
+}
+
 #login {
 	width: 200px;
 	float: right;
@@ -124,15 +128,29 @@ footer hr {
 .btn {
 	width: 100px;
 	border-radius: 5px;
-	background-color: #FC3;
-	color: #333;
+	background-color: #777;
+	color: #fff;
 	box-shadow: 3px 3px 3px #999999;
 	text-decoration: none;
 	text-align: center;
-	padding: 5px;
+	padding: 3px;
 	margin: 0 7px 7px 0px;
 }
 
+.btn_btt{
+
+	width: 100px;
+	border-radius: 5px;
+	background-color: #ab0;
+	color: #fff;
+	box-shadow: 3px 3px 3px #999999;
+	text-decoration: none;
+	text-align: center;
+	padding: 3px;
+	margin: 0px 10px 10px 60px
+	
+	}
+	
 .btn:HOVER {
 	background-color: #FFF;
 }
@@ -143,6 +161,10 @@ footer hr {
 
 article {
 	min-height: 600px;
+}
+
+article h1{
+	margin:30px 20px 30px 200px;
 }
 
 th {
@@ -201,7 +223,7 @@ table#orderList {
 	border-collapse: collapse; /* border 사이의 간격 없앰 */
 	border-top: 2px solid #333;
 	border-bottom: 1px solid #333;
-	width: 85%; /* 전체 테이블 길이 설정 */
+	width: 120%; /* 전체 테이블 길이 설정 */
 	margin-left: 100px;
 	margin-bottom: 20px;
 }
@@ -421,3 +443,5 @@ div.reviewdiv table.reviewtable {
 	font-size: 10pt;
 	text-align: center;
 }
+
+
