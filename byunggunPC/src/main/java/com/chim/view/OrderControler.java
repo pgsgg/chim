@@ -30,7 +30,7 @@ public class OrderControler {
 			
 			int oseq = orderService.insertOrderDetail(vo);
 			model.addAttribute("oseq", oseq);
-			return "redirect:order_list";
+			return "redirect:order_list?result=1";
 		}
 	}
 	
@@ -39,7 +39,6 @@ public class OrderControler {
 	public String listOrder(OrderVO vo,Model model,HttpSession session) {
 		MemberVO loginUser =  (MemberVO) session.getAttribute("loginUser");
 		vo.setId(loginUser.getId());
-		vo.setResult("1");
 		List<OrderVO> listOrder = orderService.listOrderById(vo);
 		int totalPrice = 0;
 		for(OrderVO order : listOrder) {

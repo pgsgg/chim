@@ -32,7 +32,7 @@
 								<fmt:formatNumber value="${orderVO.price2}" type="currency" currencySymbol="￦" />
 							</td>
 							<td>
-								<a href="order_list?oseq=${orderVO.oseq}"> 조회 </a>
+								<a href="order_list?oseq=${orderVO.oseq}&result=${orderVO.result}"> 조회 </a>
 							</td>
 							<c:if test="${orderVO.result == 1}">
 								<td>

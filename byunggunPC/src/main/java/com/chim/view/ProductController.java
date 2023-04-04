@@ -22,7 +22,7 @@ public class ProductController {
 	public String productDetailAction(ProductVO product,Model model) {
 		
 		// 상품상세조회
-		ProductVO productVO=productService.getProduct(product);
+		ProductVO productVO=productService.selectProductDetail(product.getPseq());
 		
 		// JSP에 결과 조회
 		model.addAttribute("productVO",productVO);
