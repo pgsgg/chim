@@ -1,5 +1,7 @@
 package com.chim.biz.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -35,6 +37,10 @@ public class MemberDAO {
 	public void chagePwd(MemberVO vo) {
 
 		mybatis.update("MemberMapper.chagePwd", vo);
+	}
+	
+	public List<MemberVO> getListMember(String name) {
+		return mybatis.selectList("MemberMapper.listMember",name);
 	}
 
 }

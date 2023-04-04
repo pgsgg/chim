@@ -29,4 +29,10 @@ public class AdminServiceImpl implements AdminService {
 		return adminDao.getAdmin(id);
 	}
 
+	@Override
+	public void insertAdmin(AdminVO vo) {
+		
+		adminDao.insertadmin(vo);
+	}
+
 }

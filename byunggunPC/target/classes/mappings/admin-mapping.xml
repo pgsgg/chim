@@ -10,4 +10,9 @@
 		SELECT * FROM admin WHERE id = #{id}
 	</select>
 
+
+	<insert id="insertAdmin">
+		insert into admin(id, pwd, name, phone) values
+		 (#{id}, #{pwd}, #{name}, #{phone})
+	</insert>
 </mapper>

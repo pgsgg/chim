@@ -61,9 +61,13 @@
                                             id="exampleRepeatPassword" placeholder="Repeat Password">
                                     </div>
                                 </div>
-                                <a href="admin_login" class="btn btn-primary btn-user btn-block">
+                                
+                                
+                                <a href="admin_public" class="btn btn-primary btn-user btn-block">
                                     Register Account
                                 </a>
+                                
+                                
                                 <hr>
                                 <a href="admin_index" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Register with Google
