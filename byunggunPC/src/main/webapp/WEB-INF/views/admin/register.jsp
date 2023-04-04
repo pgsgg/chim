@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+  pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +21,20 @@
 
     <!-- Custom styles for this template-->
     <link href="admin/css/sb-admin-2.min.css" rel="stylesheet">
-
+<script type="text/javascript">
+function admin_check()
+{
+  if(document.frm.id.value==""){
+      alert("아이디를 입력하세요.");
+      return false;
+  } else if(document.frm.pwd.value==""){
+     alert("비밀번호를 입력하세요.");
+      return false;
+  }
+  
+  return true;  
+}
+</script>
 </head>
 
 <body class="bg-gradient-primary">
@@ -40,17 +55,18 @@
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="First Name">
+                                            placeholder="Name">
+                                            <!-- First Name -->
                                     </div>
-                                    <div class="col-sm-6">
+                                    <!-- <div class="col-sm-6">
                                         <input type="text" class="form-control form-control-user" id="exampleLastName"
                                             placeholder="Last Name">
-                                    </div>
+                                    </div> -->
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <input type="email" class="form-control form-control-user" id="exampleInputEmail"
                                         placeholder="Email Address">
-                                </div>
+                                </div> -->
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control form-control-user"
@@ -68,21 +84,21 @@
                                 </a>
                                 
                                 
-                                <hr>
+                                <!-- <hr>
                                 <a href="admin_index" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Register with Google
                                 </a>
                                 <a href="admin_index" class="btn btn-facebook btn-user btn-block">
                                     <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                </a>
+                                </a> -->
                             </form>
                             <hr>
-                            <div class="text-center">
+                            <!-- <div class="text-center">
                                 <a class="small" href="admin_forgot-password">Forgot Password?</a>
                             </div>
                             <div class="text-center">
                                 <a class="small" href="admin_login">Already have an account? Login!</a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

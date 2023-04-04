@@ -2,7 +2,6 @@
   pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ include file="../header.jsp"%>
-<%@ include file="sub_menu.html"%>
 
 <article>
 <h1>상품등록</h1>  
@@ -21,7 +20,8 @@
 <tr>
   <th>상품명</th>
   <td width="343" colspan="5">
-       <input type="text" name="name" id="name" size="47" maxlength="100" value="킬힐">
+       <input type="text" name="name" id="name" size="47" maxlength="100" placeholder="상품명">
+       
   </td>
 </tr>
 <tr>
@@ -35,14 +35,14 @@
   </td>
   <th>[B-A]</th>
     <td width="72">
-      <input type="text" name="price3" id="price3" size="11" readonly onKeyUp='NumFormat(this)'>
+      <input type="text" name="price3" id="price3" size="11" readonly onKeyUp='NumFormat(this)' placeholder="이익">
     </td>
   </tr>
     
   <tr>
     <th>상세설명</th>
     <td colspan="5">
-      <textarea name="content" id="content" rows="8" cols="70" >이뻐요</textarea>
+      <textarea name="content" id="content" rows="8" cols="70" placeholder="상품설명을 입력해주세요."></textarea>
     </td>
   </tr>
   <tr>
