@@ -25,4 +25,5 @@ public interface ProductService {
 	void updateProduct(ProductVO vo);
 	
 	ProductVO getProduct(ProductVO vo);
+	
 }

@@ -53,7 +53,8 @@
 			</c:otherwise>
 		</c:choose>
 	</form>
-
+	<div align="center">
+	<%@ include file="page_area.jsp" %>
+	</div>
 </article>
-</div>
 <%@ include file="../footer.jsp"%>

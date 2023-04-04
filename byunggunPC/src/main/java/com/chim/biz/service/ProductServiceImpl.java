@@ -60,6 +60,5 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return productDAO.getProduct(vo);
 	}
-	
 
 }

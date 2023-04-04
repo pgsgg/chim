@@ -66,6 +66,7 @@ public class ProductDAO {
 		return mybatis.selectOne("ProductMapper.getProduct", vo);
 	}
 	
+	
 //	<select id="countProductList" parameterType="String" resultType="int">
 //	getlistProductWithPaging
 //	countProductList
