@@ -16,12 +16,12 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductDAO productDAO;
 	@Override
-	public List<ProductVO> selectProduct() {
+	public ProductVO getProduct(ProductVO product) {
 		// TODO Auto-generated method stub
-		return productDAO.selectProduct();
+		return productDAO.getProduct(product);
 	}
 	@Override
-	public ProductVO selectProductDetail(int pseq) {
+	public ProductVO getProductDetail(int pseq) {
 		// TODO Auto-generated method stub
 		return productDAO.selectProductDetail(pseq);
 	}
@@ -35,5 +35,39 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return productDAO.countProductList(name);
 	}
+	@Override
+	public List<ProductVO> getListProduct(String name) {
+		// TODO Auto-generated method stub
+		return productDAO.listProduct(name);
+	}
+	@Override
+	public void insertProduct(ProductVO vo) {
+		// TODO Auto-generated method stub
+		productDAO.insertProduct(vo);
+	}
+	@Override
+	public void updateProduct(ProductVO vo) {
+		// TODO Auto-generated method stub
+		productDAO.updateProduct(vo);
+	}
+	@Override
+	public List<ProductVO> getProductListByKind(String kind) {
+		// TODO Auto-generated method stub
+		return productDAO.getProductListByKind(kind);
+	}
+	@Override
+	public List<ProductVO> getNewProductList() {
+		// TODO Auto-generated method stub
+		return productDAO.getNewProductList();
+	}
+	@Override
+	public List<ProductVO> getBestProductList() {
+		// TODO Auto-generated method stub
+		return productDAO.getBestProductList();
+	}
+	/*
+	 * @Override public ProductVO selectProduct() { // TODO Auto-generated method
+	 * stub return productDAO.selectProduct(); }
+	 */
 
 }

@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="ProductMapper">
+<!--  상품  상세정보 조회 -->
+	<select id="getProduct" resultType="product">
+		SELECT * FROM product WHERE pseq=#{pseq}
+	</select>
+	
+	<!--  상품 카테고리별 조회 -->
+	<select id="getProductListByKind" resultType="product">
+		SELECT * FROM product WHERE kind=#{kind} ORDER BY name
+	</select>
+	
 	<select id="selectProduct" resultType="product">
 		<![CDATA[
 		SELECT * FROM (SELECT * FROM product ORDER BY dbms_random.value)
@@ -35,4 +45,17 @@
 		AND rn > (#{criteria.pageNum} - 1) * #{criteria.rowsPerPage}
 		]]> 
 	</select>
+	<!-- 상품 추가 -->
+	<insert id="insertProduct" parameterType="product">
+		INSERT INTO product(pseq,kind,name,price1,price2,price3,content,image)
+		VALUES(product_seq.nextval,#{kind},#{name},#{price1},#{price2},#{price3},#{content},#{image})
+	</insert>
+	
+	<!-- 상품 수정 -->
+	<update id="updateProduct" parameterType="product">
+		UPDATE product SET kind=#{kind}, useyn=#{useyn}, name=#{name}, 
+		price1=#{price1}, price2=#{price2}, price3=#{price3},
+		content=#{content}, image=#{image}, bestyn=#{bestyn} 
+		WHERE pseq=#{pseq}
+	</update>
 </mapper>

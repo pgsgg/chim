@@ -1,14 +1,21 @@
 package com.chim.view;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.chim.biz.dto.AdminVO;
 import com.chim.biz.dto.ProductVO;
@@ -88,7 +95,11 @@ public class AdminController {
 
 	@RequestMapping("/admin_tables")
 	public String tablesView() {
-		return "admin/tables";
+		return "admin/product/productList";
+	}
+	@RequestMapping("/admin_tables2")
+	public String tables2View() {
+		return "admin/product/productList2";
 	}
 
 	@RequestMapping("/admin_utilities-animation")
@@ -131,6 +142,13 @@ public class AdminController {
 
 	}
 	
+	@GetMapping("admin_logout")
+	public String adminLogout(SessionStatus status) {
+		status.setComplete();
+		
+		return "admin/main";
+	}
+	
 	@RequestMapping("/admin_product_list")
 	public String adminProductList( //productList.jsp 에 key를 param
 			@RequestParam(value="pageNum", defaultValue="1") String pageNum, 
@@ -159,6 +177,90 @@ public class AdminController {
 		
 		return "admin/product/productList";
 		
+	}
+	
+	@PostMapping("/admin_product_write_form")
+	public String adminProductWriteView(Model model) {
+		String[] kindList = {"CPU","메인보드","그래픽카드","파워","조립 PC","세일상품"};
+		model.addAttribute("kindList",kindList);
+		return "admin/product/productWrite";
+	}
+	// 상품 등록처리
+	@PostMapping("/admin_product_write")
+	public String adminProductWrite(ProductVO vo, HttpSession session, 
+			@RequestParam(value="product_image") MultipartFile uploadFile) {
+		
+		if(!uploadFile.isEmpty()) {
+			String fileName = uploadFile.getOriginalFilename();
+			vo.setImage(fileName); // 테이블에 파일명 저장 용도
+			
+			// 전송된 이미지 파일을 이동할 실제 경로 구하기 -- ServletContext 는 webapp 까지 .. 이후는 지정
+			String image_path = session.getServletContext().getRealPath("WEB-INF/resources/product_images/");
+			try {
+				uploadFile.transferTo(new File(image_path + fileName));
+			} catch (IllegalStateException | IOException e) {
+				e.printStackTrace();
+			}
+		}
+		productService.insertProduct(vo);
+		return "redirect:admin_product_list";
+	}
+	
+	@RequestMapping("/admin_product_detail")
+	public String adminProductDetailAction(ProductVO vo, Model model) {
+		String[] kindList = {"", "CPU","메인보드","그래픽카드","파워","조립 PC","세일상품"};
+		ProductVO product = productService.getProduct(vo);
+		model.addAttribute("productVO",product);//productDetail에 사용된 productVO 보고 작성.
+		int index = Integer.parseInt(product.getKind());
+		model.addAttribute("kind", kindList[index]);
+		
+		return "admin/product/productDetail";
+	}
+	
+	@RequestMapping("/admin_product_update_form")
+	public String adminProductUpdateView(ProductVO vo, Model model) {
+		String[] kindlist = {"CPU","메인보드","그래픽카드","파워","조립 PC","세일상품"};
+		
+		ProductVO product = productService.getProduct(vo);
+		model.addAttribute("productVO", product);
+		model.addAttribute("kindList", kindlist);
+		return "admin/product/productUpdate";
+	}
+	
+	@PostMapping("/admin_product_update")
+	public String adminProductUpdate(ProductVO vo, 
+			@RequestParam(value="product_image") MultipartFile uploadFile,
+			@RequestParam(value="nonmakeImg") String org_image,
+			HttpSession session) {
+		
+		if(!uploadFile.isEmpty()) { // 상품 이미지를 수정한 경우임.
+			String fileName = uploadFile.getOriginalFilename();
+			vo.setImage(fileName); // 테이블에 파일명 저장 용도
+			
+			// 전송된 이미지 파일을 이동할 실제 경로 구하기 -- ServletContext 는 webapp 까지 .. 이후는 지정
+			String image_path = session.getServletContext().getRealPath("WEB-INF/resources/product_images/");
+			try {
+				uploadFile.transferTo(new File(image_path + fileName));
+			} catch (IllegalStateException | IOException e) {
+				e.printStackTrace();
+			}
+		} else { // 상품의 기존 이미지 사용
+			vo.setImage(org_image);
+		}
+		// 베스트 상품, 신규 상품 처리
+//		if (vo.getUseyn() == null) {
+//			vo.setUseyn("n");
+//		} else {
+//			vo.setUseyn("y");
+//		}
+		
+		if (vo.getBestyn()==null) {
+			vo.setBestyn("n");
+		} else {
+			vo.setBestyn("y");
+		}
+		productService.updateProduct(vo);
+		return "redirect:admin_product_list";
 	}
 
 }

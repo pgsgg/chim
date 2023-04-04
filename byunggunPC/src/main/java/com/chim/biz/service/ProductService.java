@@ -8,12 +8,25 @@ import utils.Criteria;
 
 public interface ProductService {
 
-	List<ProductVO> selectProduct();
+	/* ProductVO selectProduct(); */
 	
-	ProductVO selectProductDetail(int pseq);
+	ProductVO getProduct(ProductVO product);
+	
+	ProductVO getProductDetail(int pseq);
 	
 	List<ProductVO> getlistProductWithPaging(Criteria criteria,String name);
 	
 	int countProductList(String name);
 		
+	List<ProductVO> getListProduct(String name);
+	
+	void insertProduct(ProductVO vo);
+	
+	void updateProduct(ProductVO vo);
+	
+	List<ProductVO> getProductListByKind(String kind);
+
+	List<ProductVO> getNewProductList();
+
+	List<ProductVO> getBestProductList();
 }
