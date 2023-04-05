@@ -12,53 +12,76 @@ import utils.Criteria;
 
 @Service("productService")
 public class ProductServiceImpl implements ProductService {
-	
+
 	@Autowired
 	private ProductDAO productDAO;
+
 	@Override
 	public List<ProductVO> selectProduct() {
 		// TODO Auto-generated method stub
 		return productDAO.selectProduct();
 	}
+
 	@Override
 	public ProductVO selectProductDetail(int pseq) {
 		// TODO Auto-generated method stub
 		return productDAO.selectProductDetail(pseq);
 	}
+
 	@Override
 	public List<ProductVO> getlistProductWithPaging(Criteria criteria, String name) {
 		// TODO Auto-generated method stub
-		return productDAO.getlistProductWithPaging(criteria,name);
+		return productDAO.getlistProductWithPaging(criteria, name);
 	}
+
 	@Override
 	public int countProductList(String name) {
 		// TODO Auto-generated method stub
 		return productDAO.countProductList(name);
 	}
+
 	@Override
-	public void updateQuantity(int quantity,int pseq) {
+	public void updateQuantity(int quantity, int pseq) {
 		// TODO Auto-generated method stub
-		productDAO.updateQuantity(quantity,pseq);
+		productDAO.updateQuantity(quantity, pseq);
 	}
+
 	@Override
 	public List<ProductVO> getProductListByKind(String kind) {
 		// TODO Auto-generated method stub
 		return productDAO.getProductListByKind(kind);
 	}
+
+	@Override
+	public List<ProductVO> getProductListByKindWithPaging(String kind, Criteria criteria) {
+		// TODO Auto-generated method stub
+		return productDAO.getProductListByKindWithPaging(kind, criteria);
+	}
+	
+	@Override
+	public int countProductListByKind(String kind) {
+		// TODO Auto-generated method stub
+		return productDAO.countProductListByKind(kind);
+	}
+
 	@Override
 	public void insertProduct(ProductVO vo) {
 		// TODO Auto-generated method stub
 		productDAO.insertProduct(vo);
 	}
+
 	@Override
 	public void updateProduct(ProductVO vo) {
 		// TODO Auto-generated method stub
 		productDAO.updateProduct(vo);
 	}
+
 	@Override
 	public ProductVO getProduct(ProductVO vo) {
 		// TODO Auto-generated method stub
 		return productDAO.getProduct(vo);
 	}
+
+
 
 }

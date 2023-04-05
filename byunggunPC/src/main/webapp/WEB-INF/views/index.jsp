@@ -1,14 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"%>
-<!-- Header-->
-<header class="bg-dark py-5">
-	<div class="container px-4 px-lg-5 my-5">
-		<div class="text-center text-white">
-			<h1 class="display-4 fw-bolder">byunggunPC</h1>
-			<p class="lead fw-normal text-white-50 mb-0">병건 조립PC</p>
-		</div>
+<div class="container px-4 px-lg-5 my-5">
+	<div class="text-center text-white">
+		<h1 class="display-4 fw-bolder">byunggunPC</h1>
+		<p class="lead fw-normal text-white-50 mb-0">병건 조립PC</p>
 	</div>
-</header>
+</div>
 <!-- Section-->
 <section class="py-5">
 	<div class="container px-4 px-lg-5 mt-5">

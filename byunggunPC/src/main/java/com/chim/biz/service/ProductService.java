@@ -26,4 +26,7 @@ public interface ProductService {
 	
 	ProductVO getProduct(ProductVO vo);
 	
+	List<ProductVO> getProductListByKindWithPaging(String kind,Criteria criteria);
+	
+	int countProductListByKind(String kind);
 }

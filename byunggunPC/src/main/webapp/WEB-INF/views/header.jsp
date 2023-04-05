@@ -5,7 +5,32 @@
 <html>
 <head>
 <style type="text/css">
+#searchdiv {
+	display: flex;
+	align-items: center;
+	height: 40px;
+	width: 400px;
+	border: 1px solid #1b5ac2;
+	background: #ffffff;
+	box-sizing: border-box;
+}
 
+#search {
+	flex: 1;
+	font-size: 16px;
+	padding: 10px;
+	border: 0px;
+	outline: none;
+}
+
+#searchButton {
+	width: 50px;
+	height: 100%;
+	border: 0px;
+	background: #1b5ac2;
+	outline: none;
+	color: #ffffff;
+}
 </style>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -47,13 +72,24 @@
 			<a class="navbar-brand" href="admin_login_form">관리자페이지</a>
 		</div>
 	</nav>
-	<nav id="top_menu">
-		<ul align="center">
-			<li style="display: inline-block;"><a href="category?kind=1">CPU</a></li>
-			<li style="display: inline-block;"><a href="category?kind=2">메인보드</a></li>
-			<li style="display: inline-block;"><a href="category?kind=3">그래픽카드</a></li>
-			<li style="display: inline-block;"><a href="category?kind=4">파워</a></li>
-			<li style="display: inline-block;"><a href="category?kind=5">조립PC </a></li>
-			<li style="display: inline-block;"><a href="category?kind=5">세일상품 </a></li>
-		</ul>
-	</nav>
+	<div class="container px-4 px-lg-5">
+		<nav id="top_menu" class="navbar navbar-expand-lg navbar-light bg-light">
+			<ul align="center">
+				<li class="navbar-brand" style="display: inline-block;"><a class="navbar-brand" href="category?kind=1">CPU</a></li>
+				<li class="navbar-brand" style="display: inline-block;"><a class="navbar-brand" href="category?kind=2">메인보드</a></li>
+				<li class="navbar-brand" style="display: inline-block;"><a class="navbar-brand" href="category?kind=3">그래픽카드</a></li>
+				<li class="navbar-brand" style="display: inline-block;"><a class="navbar-brand" href="category?kind=4">파워</a></li>
+				<li class="navbar-brand" style="display: inline-block;"><a class="navbar-brand" href="category?kind=5">조립PC </a></li>
+				<li class="navbar-brand" style="display: inline-block;"><a class="navbar-brand" href="category?kind=5">세일상품 </a></li>
+			</ul>
+		</nav>
+	</div>
+	<form action="category" method="post">
+		<div align="center">
+			<div id="searchdiv">
+				<input type="text" name="keword" id="search" placeholder="검색어 입력">
+				<button type="button" onclick="" id="searchButton">검색</button>
+			</div>
+		</div>
+	</form>
+	<div style="height: 20px;"></div>

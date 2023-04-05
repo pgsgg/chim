@@ -48,6 +48,19 @@
 	<select id="getProductListByKind" resultType="product">
 		SELECT * FROM product WHERE kind=#{kind} ORDER BY name
 	</select>
+	<select id="getProductListByKindWithPaging" resultType="product">
+				<![CDATA[
+         select * from
+         		(SELECT rownum rn, A.*
+		FROM   (SELECT * FROM product WHERE kind = #{kind} ORDER BY name) A
+		WHERE rownum <= #{criteria.pageNum} * #{criteria.rowsPerPage} )
+		where rn > (#{criteria.pageNum} - 1) * #{criteria.rowsPerPage}
+		]]> 
+	</select>
+	<select id="countProductListByKind" resultType="int">
+		SELECT count(*) FROM product WHERE kind = #{kind}
+	</select>
+	
 	<!-- 세미콜론(;) 금지 syntax에러남 -->
 	
 	<insert id="insertProduct" parameterType="product">

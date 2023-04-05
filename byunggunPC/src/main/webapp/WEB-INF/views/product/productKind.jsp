@@ -10,7 +10,7 @@
 	</div>
 </header>
 <!-- Section-->
-<section class="py-5">
+<section class="py-5 text-center">
 	<ul align="center" style="list-style-type: none;">
 		<c:forEach var="productVO" items="${productKindList}" varStatus="status">
 			<li style="width: 1050px; height: 190px; display: flex; align-items: center;">
@@ -24,12 +24,7 @@
 				</div>
 			</li>
 		</c:forEach>
+			<%@include file="page_area.jsp"%>
 	</ul>
-
-	<form action="category" method="post">
-		<div align="center">
-			<input type="text" name="keword" id=keyword> <input type="submit" value="검색">
-		</div>
-	</form>
 </section>
 <%@ include file="../footer.jsp"%>
