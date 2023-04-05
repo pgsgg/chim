@@ -16,10 +16,15 @@ public interface OrderService {
 
 	List<OrderVO> listOrderById(OrderVO vo);
 	
-	public List<Integer> selectSeqOrdering(OrderVO vo,Criteria criteria);
+	 List<Integer> selectSeqOrdering(OrderVO vo,Criteria criteria);
 	
-	public void deleteOrder(int oseq);
+	 void deleteOrder(int oseq);
 	
 	int countOrderListById(OrderVO vo);
+	
+	 List<OrderVO> getListOrder(String mname);
+	
+	 void updateOrderResult(int odseq) ;
+		
 
 }

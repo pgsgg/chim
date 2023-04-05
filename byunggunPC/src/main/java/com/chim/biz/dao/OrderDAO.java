@@ -57,4 +57,13 @@ public class OrderDAO {
 		
 		return mybatis.selectOne("OrderMapper.countOrderListById", vo);
 	}
+	public List<OrderVO> listOrder(String mname){
+		
+		return mybatis.selectList("OrderMapper.listOrder",mname);
+	}
+	
+	public void updateOrderResult(int odseq) {
+		
+		mybatis.update("OrderMapper.updateOrderResult",odseq);
+	}
 }

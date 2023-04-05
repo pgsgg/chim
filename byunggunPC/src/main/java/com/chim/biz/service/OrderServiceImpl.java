@@ -93,4 +93,16 @@ public class OrderServiceImpl implements OrderService {
 		return orderDAO.selectSeqOrdering(vo,criteria);
 	}
 
+	@Override
+	public List<OrderVO> getListOrder(String mname) {
+		// TODO Auto-generated method stub
+		return orderDAO.listOrder(mname);
+	}
+
+	@Override
+	public void updateOrderResult(int odseq) {
+		// TODO Auto-generated method stub
+		orderDAO.updateOrderResult(odseq);
+	}
+
 }
