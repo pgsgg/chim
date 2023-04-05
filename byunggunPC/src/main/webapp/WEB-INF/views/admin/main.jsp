@@ -29,8 +29,8 @@ function admin_check()
     <header>      
       <div id="logo">
         <a href="admin_login_form"> 
-        <img src="admin/images/bar_01.gif" style="float:left">
-        <img src="admin/images/text.gif">
+        <!-- <img src="admin/images/bar_01.gif" style="float:left">
+        <img src="admin/images/text.gif"> -->
         </a>
       </div>      
     </header>
