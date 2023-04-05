@@ -1646,4 +1646,12 @@ background: url(//image5.compuzone.co.kr/img/images/cscenter2019/btn_rdo.png) ce
 /* 230322 MY¾Ë¸² ¸ðµÎÀÐÀ½ ¹öÆ° ¿©¹é¼öÁ¤ */
 .notice_bell_inner .bell_title .bell_left a{padding: 0 10px;}
 	
-	
+.pd_info_box .price {
+  font-family: 'spoqa B';
+  font-size: 18px;
+}
+
+.pd_info_box .price_area {
+  color: #1A1A1A;
+  float: right;
+}

@@ -2,10 +2,18 @@
 <%@ include file="header.jsp"%>
 <div class="container px-4 px-lg-5 my-5">
 	<div class="text-center text-white">
-		<h1 class="display-4 fw-bolder">byunggunPC</h1>
-		<p class="lead fw-normal text-white-50 mb-0">병건 조립PC</p>
+<!-- 		<h1 class="display-4 fw-bolder">byunggunPC</h1>
+		<p class="lead fw-normal text-white-50 mb-0">병건 조립PC</p> -->
+		<img src="images/main_photo/banner.PNG"/>
+		<br><br>
+		
+	</div>
+	
+	<div class="text-center text-white">
+	<img src="images/main_photo/guard.PNG"/>
 	</div>
 </div>
+
 <!-- Section-->
 <section class="py-5">
 	<div class="container px-4 px-lg-5 mt-5">
@@ -23,7 +31,11 @@
 									<a href="product_detail?pseq=${productVO.pseq}">${productVO.name}</a>
 								</h5>
 								<!-- Product price-->
+								<a class="pd_info_box">
+								<span class="price">
+								<span class="price_area">
 								${productVO.price2}원
+								</span></span></a>
 							</div>
 						</div>
 					</div>
