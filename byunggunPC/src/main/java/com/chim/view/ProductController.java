@@ -89,6 +89,7 @@ public class ProductController {
 		model.addAttribute("productKindList", productKindList);
 		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("url", "search");
+		model.addAttribute("keyword", name);
 		return "product/productKind";
 	}
 }

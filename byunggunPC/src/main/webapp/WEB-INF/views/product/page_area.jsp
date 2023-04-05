@@ -15,7 +15,7 @@
 				
 		<!-- [1][2][3]... 표시 부분 -->
 		<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="index">
-			<a href="${url}${pageMaker.makeQuery(index)}&kind=${productKindList[0].kind}">[${index}]</a>
+			<a href="${url}${pageMaker.makeQuery(index)}&kind=${productKindList[0].kind}&keyword=${keyword}">[${index}]</a>
 		</c:forEach>
 		
 		<c:if test="${pageMaker.next}">
