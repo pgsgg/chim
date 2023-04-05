@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,11 +18,16 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.chim.biz.dto.AdminVO;
 import com.chim.biz.dto.MemberVO;
+import com.chim.biz.dto.OrderVO;
 import com.chim.biz.dto.ProductVO;
+import com.chim.biz.dto.QnaVO;
 import com.chim.biz.service.AdminService;
 import com.chim.biz.service.CartService;
+import com.chim.biz.service.CommentService;
 import com.chim.biz.service.MemberService;
+import com.chim.biz.service.OrderService;
 import com.chim.biz.service.ProductService;
+import com.chim.biz.service.QnaService;
 
 import utils.Criteria;
 import utils.PageMaker;
@@ -40,6 +44,12 @@ public class AdminController {
 	private CartService cartService;
 	@Autowired
 	private AdminService adminService;
+	@Autowired
+	private QnaService qnaService;
+	@Autowired
+	private CommentService commentService;
+	@Autowired
+	private OrderService orderService;
 
 	// 메인화면 표시
 	@RequestMapping("/admin_index")
@@ -295,6 +305,52 @@ public class AdminController {
 		adminService.insertAdmin(vo);
 
 		return "redirect:admin_login";
+	}
+	
+	@RequestMapping("/admin_qna_list")
+	public String adminQnaList(Model model) {
+		List<QnaVO> qnaList= qnaService.getListAllQna();
+		
+		model.addAttribute("qnaList", qnaList);
+		
+		return "admin/qna/qnaList";
+	}
+	
+	@PostMapping("/admin_qna_detail")
+	public String adminQnaDetail(QnaVO vo, Model model) {
+		QnaVO qna = qnaService.getQna(vo.getQseq());
+		model.addAttribute("qnaVO", qna);
+		
+		return "admin/qna/qnaDetail";
+	}
+	
+	@PostMapping("/admin_qna_repsave")
+	public String adminQnaRepSave(QnaVO vo) {
+		
+		qnaService.updateQna(vo);
+		
+		return "redirect:admin_qna_list";
+	}
+	
+	@RequestMapping("/admin_order_list")
+	public String adminOrderList(@RequestParam(value="key",defaultValue="") String mname,
+			Model model) {
+		
+		List<OrderVO> orderList = orderService.getListOrder(mname);
+		model.addAttribute("orderList", orderList);
+		
+		return "admin/order/orderList";
+	}
+	
+	//주문완료 처리
+	@RequestMapping("/admin_order_save")
+	public String adminOrderSave(@RequestParam(value="result") int[] odseq) {
+		
+		for(int i=0;i<odseq.length;i++) {
+			orderService.updateOrderResult(odseq[i]);
+		}
+		
+		return "redirect:admin_order_list";
 	}
 
 }

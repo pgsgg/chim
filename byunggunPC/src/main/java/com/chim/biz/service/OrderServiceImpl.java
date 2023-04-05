@@ -85,4 +85,16 @@ public class OrderServiceImpl implements OrderService {
 		orderDAO.deleteOrder(oseq);
 	}
 
+	@Override
+	public List<OrderVO> getListOrder(String mname) {
+		// TODO Auto-generated method stub
+		return orderDAO.listOrder(mname);
+	}
+
+	@Override
+	public void updateOrderResult(int odseq) {
+		// TODO Auto-generated method stub
+		orderDAO.updateOrderResult(odseq);
+	}
+
 }

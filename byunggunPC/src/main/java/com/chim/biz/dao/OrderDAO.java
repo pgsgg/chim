@@ -43,4 +43,14 @@ public class OrderDAO {
 
 		mybatis.delete("OrderMapper.deleteOrder", oseq);
 	}
+	
+	public List<OrderVO> listOrder(String mname){
+		
+		return mybatis.selectList("OrderMapper.listOrder",mname);
+	}
+	
+	public void updateOrderResult(int odseq) {
+		
+		mybatis.update("OrderMapper.updateOrderResult",odseq);
+	}
 }
