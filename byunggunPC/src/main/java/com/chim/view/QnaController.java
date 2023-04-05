@@ -10,9 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.ezen.biz.dto.MemberVO;
-import com.ezen.biz.dto.QnaVO;
-import com.ezen.biz.service.QnaService;
+import com.chim.biz.dto.MemberVO;
+import com.chim.biz.dto.QnaVO;
+import com.chim.biz.service.QnaService;
 
 @Controller
 public class QnaController {

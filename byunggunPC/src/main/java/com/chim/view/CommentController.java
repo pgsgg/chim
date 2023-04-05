@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ezen.biz.dto.MemberVO;
-import com.ezen.biz.dto.ProductCommentVO;
-import com.ezen.biz.service.CommentService;
+import com.chim.biz.dto.MemberVO;
+import com.chim.biz.dto.ProductCommentVO;
+import com.chim.biz.service.CommentService;
 
 import utils.Criteria;
 import utils.PageMaker;
