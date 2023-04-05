@@ -71,11 +71,11 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<a class="navbar-brand" href="admin_login_form">관리자페이지</a>
-			<form action="category" method="post">
+			<form action="search" method="post" id="searchform" name="searchform">
 		<div align="center">
 			<div id="searchdiv">
-				<input type="text" name="keword" id="search" placeholder="검색어 입력">
-				<button type="button" onclick="" id="searchButton">검색</button>
+				<input type="text" name="keyword" id="search" placeholder="검색어 입력">
+				<button type="button" onclick="go_search()" id="searchButton">검색</button>
 			</div>
 		</div>
 	</form>
