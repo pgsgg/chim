@@ -74,4 +74,8 @@
 		WHERE pseq=#{pseq}
 	</update>
 	
+	<delete id="deleteProduct">
+  		DELETE product WHERE pseq=#{pseq}
+  	</delete>
+  
 </mapper>

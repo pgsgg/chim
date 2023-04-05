@@ -36,9 +36,9 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin_index">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">BYGUN Admin <sup></sup></div>
+                    <i class="fas fa-laugh"></i>
+                </div><i class="fas fa-laugh rotate-n-15""></i><i class="fas fa-laugh"></i>
+                <div class="sidebar-brand-text"> BYGUN Admin<sup></sup></div>
             </a>
 
             <!-- Divider -->
@@ -171,9 +171,9 @@
 			   onClick="location.href='admin_logout'">
 			   
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
+           <!--  <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+            </div> -->
 
             <!-- Sidebar Message -->
            <!--  <div class="sidebar-card d-none d-lg-flex">
@@ -184,3 +184,39 @@
 
         </ul>
         <!-- End of Sidebar -->
+        
+         <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    
+
+
+                        <!-- Nav Item - Messages -->
+                        
+
+                        <!-- Nav Item - User Information -->
+                      
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
