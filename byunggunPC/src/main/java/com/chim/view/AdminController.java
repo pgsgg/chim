@@ -352,5 +352,12 @@ public class AdminController {
 		
 		return "redirect:admin_order_list";
 	}
+	
+	@RequestMapping("/admin_delete_product")
+	public String deleteBoard(ProductVO vo) {
+
+		productService.deleteProduct(vo);
+		return "redirect:/admin_product_list";
+	}
 
 }

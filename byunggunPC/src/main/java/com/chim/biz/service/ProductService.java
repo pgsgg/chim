@@ -26,4 +26,5 @@ public interface ProductService {
 	
 	ProductVO getProduct(ProductVO vo);
 	
+	void deleteProduct(ProductVO vo);
 }

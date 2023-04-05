@@ -66,6 +66,10 @@ public class ProductDAO {
 		return mybatis.selectOne("ProductMapper.getProduct", vo);
 	}
 	
+	public void deleteProduct(ProductVO vo) {
+		mybatis.delete("ProductMapper.deleteProduct",vo);
+	}
+	
 	
 //	<select id="countProductList" parameterType="String" resultType="int">
 //	getlistProductWithPaging

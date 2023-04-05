@@ -60,5 +60,10 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return productDAO.getProduct(vo);
 	}
+	@Override
+	public void deleteProduct(ProductVO vo) {
+		// TODO Auto-generated method stub
+		productDAO.deleteProduct(vo);
+	}
 
 }

@@ -86,6 +86,12 @@ function go_mod(pseq) {
 	form.submit();
 }
 
+function go_del(pseq) {
+	var form = document.getElementById("detail_form");
+	form.action = "admin_delete_product?pseq="+pseq;
+	form.submit();
+}
+
 function go_mod_save(pseq) {
 	if (document.getElementById("kind").value==""){
 		alert("상품 종류를 입력하세요");
