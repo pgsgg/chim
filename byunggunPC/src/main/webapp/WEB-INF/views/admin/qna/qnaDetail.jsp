@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
-<%@ include file="../sub_menu.jsp"%>
 <script type="text/javascript">
    function go_list()
    {
@@ -22,7 +21,7 @@
 <h1>Q&amp;A 게시판</h1>   
 <form name="frm" method="post">
 <input type="hidden" name="qseq" value="${qnaVO.qseq}">
-<table id="orderList">
+<table id="datatable" class="table table-bordered dataTable">
     <tr>
         <th width="20%">제목</th>
         <td> ${qnaVO.subject} ${qnaVO.rep} </td>
@@ -38,10 +37,10 @@
 </table>
 <c:choose>          
   <c:when test='${qnaVO.rep=="1"}'>
-  <table id="orderList">
+  <table id="datatable" class="table table-bordered dataTable">
       <tr>
           <td colspan="2">
-      <img src="admin/images/opinionimg01.gif">
+      <!-- <img src="/images/opinionimg01.gif"> -->
       </td>
       </tr>
     <tr>
@@ -54,9 +53,9 @@
   <br>
   </c:when>
   <c:otherwise>  
-  <table id="orderList">
+  <table id="datatable" class="table table-bordered dataTable">
     <tr>
-     <th>댓글</th>
+     <th style="width:120px">댓글</th>
      <td> ${qnaVO.reply}</td>
     </tr>
   </table>
@@ -64,7 +63,8 @@
 </c:choose>    
 <input type="button" class="btn" value="목록" onClick="go_list()">
 </form>
-</article>
 <%@ include file="../footer.jsp"%>
+</article>
+
 </body>
 </html>

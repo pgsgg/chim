@@ -7,7 +7,7 @@
 <form name="frm" id="detail_form" method="post">
 <input type="hidden" name="pageNum" value="${criteria.pageNum}">
 <input type="hidden" name="rowsPerPage" value="${criteria.rowsPerPage}">
-<table id="list">
+<table id="datatable" class="table table-bordered dataTable">
   <tr>
     <th>상품분류</th>
     <td  colspan="5">

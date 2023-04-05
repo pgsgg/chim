@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
-<%@ include file="../sub_menu.jsp"%>
 <script type="text/javascript">
   function go_view(qseq) {
     var theForm = document.frm;
@@ -15,7 +14,7 @@
 <h1>Q&amp;A 게시글 리스트</h1>  
 <form name="frm" method="post">
 <input type="hidden" name="qseq">  
-<table id="orderList">
+<table id="datatable" class="table table-bordered dataTable">
   <tr>
     <th>번호(답변여부)</th> <th>제목</th> <th>작성자</th> <th>작성일</th>    
   </tr>
@@ -38,8 +37,9 @@
       </tr>
     </c:forEach>
     </table>
-    </form>    
+    </form>
+    <%@ include file="../footer.jsp"%>    
   </article>
-  <%@ include file="../footer.jsp"%>
+  
 </body>
 </html>

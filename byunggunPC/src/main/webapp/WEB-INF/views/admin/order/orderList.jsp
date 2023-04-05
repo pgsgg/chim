@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
-<%@ include file="../sub_menu.jsp"%>
 <script type="text/javascript">
   function go_order_save() {
     var count = 0;
@@ -41,7 +40,7 @@
     </tr>
   </table>
   <br>
-  <table id="orderList">
+  <table id="datatable" class="table table-bordered dataTable">
   <tr>
     <th>주문번호(처리여부)</th><th>주문자</th><th>상품명</th><th>수량</th>
     <th>우편번호</th><th>배송지</th><th>전화</th><th>주문일</th>
@@ -61,7 +60,7 @@
       </c:choose>
     </td>
     <td>${orderVO.mname}</td> <td>${orderVO.pname}</td>
-    <td>${orderVO.quantity}</td> <td>${orderVO.zip_num}</td>
+    <td>${orderVO.quantity}</td> <td>${orderVO.zipNum}</td>
     <td>${orderVO.address}</td>  <td>${orderVO.phone}</td>
     <td><fmt:formatDate value="${orderVO.indate}" /></td>
   </tr>
@@ -70,7 +69,8 @@
   <input type="button" class="btn" style="width: 200px"
       value="주문처리(입금확인)" onClick="go_order_save()">
 </form>
-</article>
 <%@ include file="../footer.jsp"%>
+</article>
+
 </body>
 </html>
