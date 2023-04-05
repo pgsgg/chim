@@ -39,4 +39,16 @@
 	<delete id="deleteOrder">
 		DELETE FROM order_view WHERE oseq = #{oseq}
 	</delete>
+	
+	<update id="updateOrderResult">
+  	UPDATE order_detail
+  	SET result = '2'
+  	WHERE odseq=#{odseq}
+  </update>
+  
+  <select id="listOrder" resultType="order">
+  	SELECT * FROM order_view
+  	WHERE mname LIKE '%'||#{mname}||'%'
+  	ORDER BY result, odseq DESC
+  </select>
 </mapper>

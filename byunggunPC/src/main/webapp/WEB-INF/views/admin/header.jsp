@@ -134,7 +134,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="admin_tables">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>productList</span></a>
+                    <span>상품리스트</span></a>
                     
             </li>
             
@@ -142,7 +142,21 @@
             <li class="nav-item">
                 <a class="nav-link" href="admin_member_list">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>memberList</span></a>
+                    <span>회원리스트</span></a>
+                    
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="admin_order_list">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>주문리스트</span></a>
+                    
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="admin_qna_list">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Q&A</span></a>
                     
             </li>
             
