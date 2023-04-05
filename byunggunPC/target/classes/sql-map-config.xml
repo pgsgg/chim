@@ -8,6 +8,8 @@
 		<typeAlias type="com.chim.biz.dto.AdminVO" alias="admin"/>
 		<typeAlias type="com.chim.biz.dto.ProductVO" alias="product"/>
 		<typeAlias type="com.chim.biz.dto.OrderVO" alias="order"/>
+		<typeAlias type="com.chim.biz.dto.ProductCommentVO" alias="comment"/>
+		<typeAlias type="com.chim.biz.dto.QnaVO" alias="qna"/>
 	</typeAliases>
 	
 	<!-- SQL 매핑 파일 -->
@@ -18,5 +20,7 @@
 		<mapper resource="mappings/admin-mapping.xml"/>
 		<mapper resource="mappings/product-mapping.xml"/>
 		<mapper resource="mappings/order-mapping.xml"/>
+		<mapper resource="mappings/comment-mapping.xml"/>
+		<mapper resource="mappings/qna-mapping.xml"/>
 	</mappers>
 </configuration>
