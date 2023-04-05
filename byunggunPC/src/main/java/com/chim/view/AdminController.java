@@ -196,7 +196,7 @@ public class AdminController {
 			vo.setImage(fileName); // 테이블에 파일명 저장 용도
 
 			// 전송된 이미지 파일을 이동할 실제 경로 구하기 -- ServletContext 는 webapp 까지 .. 이후는 지정
-			String image_path = session.getServletContext().getRealPath("WEB-INF/resources/product_images/");
+			String image_path = session.getServletContext().getRealPath("WEB-INF/resources/images/product/");
 			try {
 				uploadFile.transferTo(new File(image_path + fileName));
 			} catch (IllegalStateException | IOException e) {
@@ -237,7 +237,7 @@ public class AdminController {
 			vo.setImage(fileName); // 테이블에 파일명 저장 용도
 
 			// 전송된 이미지 파일을 이동할 실제 경로 구하기 -- ServletContext 는 webapp 까지 .. 이후는 지정
-			String image_path = session.getServletContext().getRealPath("WEB-INF/resources/product_images/");
+			String image_path = session.getServletContext().getRealPath("WEB-INF/resources/images/product/");
 			try {
 				uploadFile.transferTo(new File(image_path + fileName));
 			} catch (IllegalStateException | IOException e) {
