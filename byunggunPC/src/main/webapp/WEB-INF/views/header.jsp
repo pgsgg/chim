@@ -43,6 +43,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
+<link href="css/page-2.css" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/member.js"></script>
 <script type="text/javascript" src="js/product.js"></script>
@@ -70,24 +71,32 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<a class="navbar-brand" href="admin_login_form">관리자페이지</a>
+			<form action="category" method="post">
+		<div align="center">
+			<div id="searchdiv">
+				<input type="text" name="keword" id="search" placeholder="검색어 입력">
+				<button type="button" onclick="" id="searchButton">검색</button>
+			</div>
+		</div>
+	</form>
 		</div>
 	</nav>
-	<div class="container px-4 px-lg-5">
-		<nav id="top_menu" class="navbar navbar-expand-lg navbar-light bg-light">
-			<ul align="center">
-				<li class="navbar-brand" style="display: inline-block;"><a class="navbar-brand" href="category?kind=1">CPU</a></li>
-				<li class="navbar-brand" style="display: inline-block;"><a class="navbar-brand" href="category?kind=2">메인보드</a></li>
-				<li class="navbar-brand" style="display: inline-block;"><a class="navbar-brand" href="category?kind=3">그래픽카드</a></li>
-				<li class="navbar-brand" style="display: inline-block;"><a class="navbar-brand" href="category?kind=4">파워</a></li>
-				<li class="navbar-brand" style="display: inline-block;"><a class="navbar-brand" href="category?kind=5">조립PC </a></li>
-				<li class="navbar-brand" style="display: inline-block;"><a class="navbar-brand" href="category?kind=5">세일상품 </a></li>
-			</ul>
-		</nav>
-	</div>
-	<form action="search" method="post" id="searchform" name="searchform">
-			<div id="searchdiv" align="center">
-				<input type="text" name="keyword" id="search" placeholder="검색어 입력">
-				<button type="button" onclick="go_search()" id="searchButton">검색</button>
+	
+	<div class="cpz_lnb_wrap">
+		<div class="cpz_inner">
+			<div class="lnb_menu_box">
+				<div class="cpz_category_layer"></div>
+				<ul>
+					<li><a class="navbar-brand" href="category?kind=1">CPU</a></li>
+					<li><a class="navbar-brand" href="category?kind=2">메인보드</a></li>
+					<li><a class="navbar-brand" href="category?kind=3">그래픽카드</a></li>
+					<li><a class="navbar-brand" href="category?kind=4">파워</a></li>
+					<li><a class="navbar-brand" href="category?kind=5">조립PC </a></li>
+					<li><a class="navbar-brand" href="category?kind=5">세일상품 </a></li>
+				</ul>
 			</div>
-	</form>
+		</div>
+	</div>
+	
+	
 	<div style="height: 20px;"></div>
