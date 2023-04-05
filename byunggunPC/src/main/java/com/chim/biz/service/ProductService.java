@@ -33,4 +33,6 @@ public interface ProductService {
 	List<ProductVO> searchProdcutList(String name,Criteria criteria);
 	
 	int countSearchProduct(String name);
+
+	void deleteProduct(ProductVO vo);
 }
