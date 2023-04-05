@@ -1,12 +1,16 @@
 package com.chim.biz.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.chim.biz.dto.OrderVO;
+
+import utils.Criteria;
 
 @Repository
 public class OrderDAO {
@@ -34,13 +38,23 @@ public class OrderDAO {
 		return mybatis.selectList("OrderMapper.listOrderById", vo);
 	}
 
-	public List<Integer> selectSeqOrdering(OrderVO vo) {
-
-		return mybatis.selectList("OrderMapper.selectSeqOrdering", vo);
+	public List<Integer> selectSeqOrdering(OrderVO vo,Criteria criteria) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("id", vo.getId());
+		map.put("result", vo.getResult());
+		map.put("criteria", criteria);
+		
+		return mybatis.selectList("OrderMapper.selectSeqOrdering", map);
 	}
 
 	public void deleteOrder(int oseq) {
 
 		mybatis.delete("OrderMapper.deleteOrder", oseq);
+	}
+	
+	public int countOrderListById(OrderVO vo) {
+		
+		return mybatis.selectOne("OrderMapper.countOrderListById", vo);
 	}
 }

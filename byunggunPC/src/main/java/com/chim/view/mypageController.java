@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,9 @@ import com.chim.biz.dto.OrderVO;
 import com.chim.biz.service.CartService;
 import com.chim.biz.service.MemberService;
 import com.chim.biz.service.OrderService;
+
+import utils.Criteria;
+import utils.PageMaker;
 
 @Controller
 public class mypageController {
@@ -73,16 +77,26 @@ public class mypageController {
 	
 	@RequestMapping("/orders")
 	public String mypageAction(HttpSession session,Model model,OrderVO vo,
-			@RequestParam (value = "result") String result) {
+			@RequestParam (value = "result") String result,
+			@RequestParam(value = "pageNum", defaultValue = "1") String pageNum,
+			@RequestParam(value = "rowsPerPage", defaultValue = "5") String rowsPerPage) {
 		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
-		
 		if(loginUser == null) {
 			
 			return "member/login";
 		} else {
-			String title = null;
 			vo.setId(loginUser.getId());
 			vo.setResult(result);
+			String title = null;
+			
+			Criteria criteria = new Criteria();
+			criteria.setPageNum(Integer.parseInt(pageNum));
+			criteria.setRowsPerPage(Integer.parseInt(rowsPerPage));
+			
+			PageMaker pageMaker = new PageMaker();
+			pageMaker.setCriteria(criteria);
+			pageMaker.setTotalCount(orderSerive.countOrderListById(vo));
+			
 			if(result.equals("1")) {
 				title = "입금확인중";
 			} else if (result.equals("2")) {
@@ -90,7 +104,7 @@ public class mypageController {
 			} else {
 				title = "";
 			}
-			List<Integer> listOseq = orderSerive.selectSeqOrdering(vo);
+			List<Integer> listOseq = orderSerive.selectSeqOrdering(vo,criteria);
 			List<OrderVO> summaryList = new ArrayList<OrderVO>();
 			
 			for(int oseq : listOseq) {
@@ -117,6 +131,7 @@ public class mypageController {
 			
 			model.addAttribute("orderList", summaryList);
 			model.addAttribute("title", title);
+			model.addAttribute("pageMaker", pageMaker);
 			return "mypage/mypage";
 		}
 		

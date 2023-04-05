@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.chim.biz.dto.OrderVO;
 
+import utils.Criteria;
+
 public interface OrderService {
 
 	int selectMaxOseq();
@@ -14,8 +16,10 @@ public interface OrderService {
 
 	List<OrderVO> listOrderById(OrderVO vo);
 	
-	public List<Integer> selectSeqOrdering(OrderVO vo);
+	public List<Integer> selectSeqOrdering(OrderVO vo,Criteria criteria);
 	
 	public void deleteOrder(int oseq);
+	
+	int countOrderListById(OrderVO vo);
 
 }

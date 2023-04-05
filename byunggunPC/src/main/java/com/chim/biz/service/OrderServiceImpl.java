@@ -11,6 +11,8 @@ import com.chim.biz.dto.CartVO;
 import com.chim.biz.dto.OrderVO;
 import com.chim.biz.dto.ProductVO;
 
+import utils.Criteria;
+
 @Service("orderService")
 public class OrderServiceImpl implements OrderService {
 
@@ -74,15 +76,21 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public List<Integer> selectSeqOrdering(OrderVO vo) {
-		// TODO Auto-generated method stub
-		return orderDAO.selectSeqOrdering(vo);
-	}
-
-	@Override
 	public void deleteOrder(int oseq) {
 		// TODO Auto-generated method stub
 		orderDAO.deleteOrder(oseq);
+	}
+
+	@Override
+	public int countOrderListById(OrderVO vo) {
+		// TODO Auto-generated method stub
+		return orderDAO.countOrderListById(vo);
+	}
+
+	@Override
+	public List<Integer> selectSeqOrdering(OrderVO vo, Criteria criteria) {
+		// TODO Auto-generated method stub
+		return orderDAO.selectSeqOrdering(vo,criteria);
 	}
 
 }
