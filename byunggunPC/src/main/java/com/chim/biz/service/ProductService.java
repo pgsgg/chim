@@ -29,4 +29,5 @@ public interface ProductService {
 	List<ProductVO> getProductListByKindWithPaging(String kind,Criteria criteria);
 	
 	int countProductListByKind(String kind);
+	void deleteProduct(ProductVO vo);
 }
