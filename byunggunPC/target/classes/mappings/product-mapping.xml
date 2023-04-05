@@ -8,22 +8,26 @@
   	 	 ]]>
 	</select>
 	<select id="selectProductDetail" resultType="product">
-		SELECT * FROM product WHERE pseq=#{pseq}
+		SELECT * FROM
+		product WHERE pseq=#{pseq}
 	</select>
-	
+
 	<!-- 상품 전체갯수 조회 -->
-	<select id="countProductList" parameterType="String" resultType="int">
-		SELECT count(*) FROM product 
+	<select id="countProductList" parameterType="String"
+		resultType="int">
+		SELECT count(*) FROM product
 		WHERE name LIKE '%'||#{name}||'%'
 	</select>
-	
+
 	<!-- 상품목록 조회 -->
-	<select id="listProduct" parameterType="String" resultType="product">
+	<select id="listProduct" parameterType="String"
+		resultType="product">
 		SELECT pseq, regdate, name, price1, price2, bestyn
-		FROM product WHERE name LIKE '%'||#{name}||'%'
+		FROM
+		product WHERE name LIKE '%'||#{name}||'%'
 		ORDER BY name
 	</select>
-	
+
 	<!-- 페이지별 상품 목록 조회 -->
 	<select id="listProductWithPaging" resultType="product">
 		<![CDATA[
@@ -33,20 +37,23 @@
 	        	WHERE name LIKE '%'||#{name}||'%')
 		WHERE rn <= #{criteria.pageNum} * #{criteria.rowsPerPage}  
 		AND rn > (#{criteria.pageNum} - 1) * #{criteria.rowsPerPage}
-		]]> 
+		]]>
 	</select>
 	<update id="updateQuantity">
-		UPDATE PRODUCT SET quantity = quantity - #{array[0]} WHERE pseq = #{array[1]} 
+		UPDATE PRODUCT SET quantity = quantity - #{array[0]}
+		WHERE pseq = #{array[1]}
 	</update>
-	
-	<!--  상품  상세정보 조회 -->
+
+	<!-- 상품 상세정보 조회 -->
 	<select id="getProduct" resultType="product">
-		SELECT * FROM product WHERE pseq=#{pseq}
+		SELECT * FROM product WHERE
+		pseq=#{pseq}
 	</select>
-	
-	<!--  상품 카테고리별 조회 -->
+
+	<!-- 상품 카테고리별 조회 -->
 	<select id="getProductListByKind" resultType="product">
-		SELECT * FROM product WHERE kind=#{kind} ORDER BY name
+		SELECT * FROM
+		product WHERE kind=#{kind} ORDER BY name
 	</select>
 	<select id="getProductListByKindWithPaging" resultType="product">
 				<![CDATA[
@@ -55,27 +62,45 @@
 		FROM   (SELECT * FROM product WHERE kind = #{kind} ORDER BY name) A
 		WHERE rownum <= #{criteria.pageNum} * #{criteria.rowsPerPage} )
 		where rn > (#{criteria.pageNum} - 1) * #{criteria.rowsPerPage}
-		]]> 
+		]]>
 	</select>
 	<select id="countProductListByKind" resultType="int">
-		SELECT count(*) FROM product WHERE kind = #{kind}
+		SELECT count(*)
+		FROM product WHERE kind = #{kind}
+	</select>
+	<select id="searchProdcutList" resultType="product">
+					<![CDATA[
+         select * from
+         		(SELECT rownum rn, A.*
+		FROM   (select * from product where name like '%'||#{name}||'%' order by pseq desc) A
+		WHERE rownum <= #{criteria.pageNum} * #{criteria.rowsPerPage} )
+		where rn > (#{criteria.pageNum} - 1) * #{criteria.rowsPerPage}
+		]]>
+
 	</select>
 	
+	<select id="countSearchProduct" resultType="int">
+		select count(*) from product where name like '%'||#{name}||'%'
+	</select>
+
 	<!-- 세미콜론(;) 금지 syntax에러남 -->
-	
+
 	<insert id="insertProduct" parameterType="product">
-		INSERT INTO product (pseq,name,kind,price1,price2,price3,content,image) 
-		VALUES (product_seq.nextval,#{name},#{kind},#{price1},#{price2},#{price3},#{content},#{image})
+		INSERT INTO product
+		(pseq,name,kind,price1,price2,price3,content,image)
+		VALUES
+		(product_seq.nextval,#{name},#{kind},#{price1},#{price2},#{price3},#{content},#{image})
 	</insert>
-	
+
 	<update id="updateProduct" parameterType="product">
-		UPDATE product SET name=#{name},kind=#{kind},price1=#{price1},price2=#{price2},price3=#{price3},
-		content=#{content},image=#{image},bestyn=#{bestyn},quantity=#{quantity} 
+		UPDATE product SET
+		name=#{name},kind=#{kind},price1=#{price1},price2=#{price2},price3=#{price3},
+		content=#{content},image=#{image},bestyn=#{bestyn},quantity=#{quantity}
 		WHERE pseq=#{pseq}
 	</update>
-	
+
 	<delete id="deleteProduct">
-  		DELETE product WHERE pseq=#{pseq}
-  	</delete>
-  
+		DELETE product WHERE pseq=#{pseq}
+	</delete>
+
 </mapper>

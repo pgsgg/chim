@@ -3,7 +3,7 @@ package com.chim.view;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.ui.Model;import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -52,8 +52,7 @@ public class ProductController {
 	public String productListByKindWithPagingAction(ProductVO product, Model model,
 			@RequestParam(value = "pageNum", defaultValue = "1") String pageNum,
 			@RequestParam(value = "rowsPerPage", defaultValue = "5") String rowsPerPage) {
-		String[] kindList = { "CPU", "메인보드", "그래픽카드", "파워"};
-		
+
 		Criteria criteria = new Criteria();
 		criteria.setPageNum(Integer.parseInt(pageNum));
 		criteria.setRowsPerPage(Integer.parseInt(rowsPerPage));
@@ -65,8 +64,31 @@ public class ProductController {
 		List<ProductVO> listProduct = productService.getProductListByKindWithPaging(product.getKind(), criteria);
 
 		model.addAttribute("productKindList", listProduct);
-		model.addAttribute("pageMaker",pageMaker);
-		model.addAttribute("kindList", kindList);
+		model.addAttribute("pageMaker", pageMaker);
+		model.addAttribute("url", "category");
+		return "product/productKind";
+	}
+
+	@RequestMapping("/search")
+	public String searchProdcutListAction(ProductVO product, Model model,
+			@RequestParam(value = "pageNum", defaultValue = "1") String pageNum,
+			@RequestParam(value = "rowsPerPage", defaultValue = "5") String rowsPerPage,
+			@RequestParam(value = "keyword",defaultValue = "")String name) {
+		product.setName(name);
+		
+		Criteria criteria = new Criteria();
+		criteria.setPageNum(Integer.parseInt(pageNum));
+		criteria.setRowsPerPage(Integer.parseInt(rowsPerPage));
+
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCriteria(criteria);
+		pageMaker.setTotalCount(productService.countSearchProduct(product.getName()));
+		
+		List<ProductVO> productKindList = productService.searchProdcutList(product.getName(), criteria);
+		
+		model.addAttribute("productKindList", productKindList);
+		model.addAttribute("pageMaker", pageMaker);
+		model.addAttribute("url", "search");
 		return "product/productKind";
 	}
 }

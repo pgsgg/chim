@@ -29,4 +29,8 @@ public interface ProductService {
 	List<ProductVO> getProductListByKindWithPaging(String kind,Criteria criteria);
 	
 	int countProductListByKind(String kind);
+	
+	List<ProductVO> searchProdcutList(String name,Criteria criteria);
+	
+	int countSearchProduct(String name);
 }

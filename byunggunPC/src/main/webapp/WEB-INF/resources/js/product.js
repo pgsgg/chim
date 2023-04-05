@@ -11,3 +11,9 @@
 // window.onload = function() {
 //     updateTotal();
 //   };
+
+function go_search(){
+  var form = document.getElementById('searchform');
+  form.action = "search";
+  form.submit();
+}

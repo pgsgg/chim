@@ -81,10 +81,22 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return productDAO.getProduct(vo);
 	}
+//	@Override
+//	public void deleteProduct(ProductVO vo) {
+//		// TODO Auto-generated method stub
+//		productDAO.deleteProduct(vo);
+//	}
+
 	@Override
-	public void deleteProduct(ProductVO vo) {
+	public List<ProductVO> searchProdcutList(String name, Criteria criteria) {
 		// TODO Auto-generated method stub
-		productDAO.deleteProduct(vo);
+		return productDAO.searchProdcutList(name, criteria);
+	}
+
+	@Override
+	public int countSearchProduct(String name) {
+		// TODO Auto-generated method stub
+		return productDAO.countSearchProduct(name);
 	}
 
 

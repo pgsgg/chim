@@ -63,6 +63,15 @@ public class ProductDAO {
 		
 		return mybatis.selectOne("ProductMapper.countProductListByKind", kind);
 	}
+	
+	public List<ProductVO> searchProdcutList(String name,Criteria criteria){
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("name", name);
+		map.put("criteria", criteria);
+		
+		return mybatis.selectList("ProductMapper.searchProdcutList", map);
+	}
 
 	public void updateProduct(ProductVO vo) {
 
@@ -77,6 +86,11 @@ public class ProductDAO {
 	public ProductVO getProduct(ProductVO vo) {
 
 		return mybatis.selectOne("ProductMapper.getProduct", vo);
+	}
+	
+	public int countSearchProduct(String name) {
+		
+		return mybatis.selectOne("ProductMapper.countSearchProduct", name);
 	}
 
 //	<select id="countProductList" parameterType="String" resultType="int">

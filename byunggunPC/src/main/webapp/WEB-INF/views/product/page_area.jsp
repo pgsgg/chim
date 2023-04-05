@@ -9,18 +9,18 @@
 	
 		<c:if test="${pageMaker.prev}">
 			<li class="paginate_button previous">
-				<a href="category${pageMaker.makeQuery(pageMaker.startPage-1)}&kind=${productKindList[0].kind}">[이전]</a>
+				<a href="${url}${pageMaker.makeQuery(pageMaker.startPage-1)}&kind=${productKindList[0].kind}">[이전]</a>
 			</li>
 		</c:if>
 				
 		<!-- [1][2][3]... 표시 부분 -->
 		<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="index">
-			<a href="category${pageMaker.makeQuery(index)}&kind=${productKindList[0].kind}">[${index}]</a>
+			<a href="${url}${pageMaker.makeQuery(index)}&kind=${productKindList[0].kind}">[${index}]</a>
 		</c:forEach>
 		
 		<c:if test="${pageMaker.next}">
 			<li class="paginate_button next">
-				<a href="category${pageMaker.makeQuery(pageMaker.endPage+1)}&kind=${productKindList[0].kind}">[다음]</a>
+				<a href="${url}${pageMaker.makeQuery(pageMaker.endPage+1)}&kind=${productKindList[0].kind}">[다음]</a>
 			</li>
 		</c:if>
 			
