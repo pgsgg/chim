@@ -10,7 +10,7 @@
 	align-items: center;
 	height: 40px;
 	width: 400px;
-	border: 1px solid #1b5ac2;
+	border-radius: 15px;
 	background: #ffffff;
 	box-sizing: border-box;
 }
@@ -21,6 +21,7 @@
 	padding: 10px;
 	border: 0px;
 	outline: none;
+	
 }
 
 #searchButton {
@@ -30,6 +31,7 @@
 	background: #1b5ac2;
 	outline: none;
 	color: #ffffff;
+	border-radius: 15px;
 }
 </style>
 <meta charset="utf-8" />
@@ -59,18 +61,25 @@
 				<c:when test="${sessionScope.loginUser == null}">
 					<a class="navbar-brand" href="loginForm">로그인</a>
 					<a class="navbar-brand" href="joinForm">회원가입</a>
+					<a class="navbar-brand" href="admin_login_form">관리자페이지</a>
 				</c:when>
 				<c:otherwise>
 					${sessionScope.loginUser.name}님 환영합니다
 					<a class="navbar-brand" href="orders?result=1">마이페이지</a>
 					<a class="navbar-brand" href="logout">로그아웃</a>
-					<a class="navbar-brand" href="cartList">장바구니</a>
+					<form class="d-flex">
+                        <button class="btn btn-outline-dark" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            <a class="navbar-brand" href="cartList">Cart</a>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        </button>
+                    </form>
 				</c:otherwise>
 			</c:choose>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<a class="navbar-brand" href="admin_login_form">관리자페이지</a>
+			
 			<form action="search" method="post" id="searchform" name="searchform">
 		<div align="center">
 			<div id="searchdiv">
@@ -81,22 +90,24 @@
 	</form>
 		</div>
 	</nav>
-	
+	<header class="bg-dark">
 	<div class="cpz_lnb_wrap">
 		<div class="cpz_inner">
 			<div class="lnb_menu_box">
 				<div class="cpz_category_layer"></div>
-				<ul>
-					<li><a class="navbar-brand" href="category?kind=1">CPU</a></li>
-					<li><a class="navbar-brand" href="category?kind=2">메인보드</a></li>
-					<li><a class="navbar-brand" href="category?kind=3">그래픽카드</a></li>
-					<li><a class="navbar-brand" href="category?kind=4">파워</a></li>
-					<li><a class="navbar-brand" href="category?kind=5">조립PC </a></li>
-					<li><a class="navbar-brand" href="category?kind=5">세일상품 </a></li>
-				</ul>
+				<div class="text-center text-white">
+				<p class="lead fw-normal text-white-50 mb-0 fw-bolder">
+					<a href="category?kind=1" style="margin:20px;">CPU</a>
+					<a href="category?kind=2" style="margin:20px;">메인보드</a>
+					<a href="category?kind=3" style="margin:20px;">그래픽카드</a>
+					<a href="category?kind=4" style="margin:20px;">파워</a>
+					<a href="category?kind=5" style="margin:20px;">조립PC </a>
+					<a href="category?kind=5" style="margin:20px;">세일상품 </a>
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>
-	
+	</header>
 	
 	<div style="height: 20px;"></div>

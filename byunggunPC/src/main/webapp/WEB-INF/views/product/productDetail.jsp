@@ -26,6 +26,7 @@
 			</div>
 		</form>
 	</div>
+	 <%@ include file="comment.jsp" %>
 </article>
 <script type="text/javascript">
 	function updateTotal() {

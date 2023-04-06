@@ -2,8 +2,6 @@
 <%@ include file="header.jsp"%>
 <div class="container px-4 px-lg-5 my-5">
 	<div class="text-center text-white">
-<!-- 		<h1 class="display-4 fw-bolder">byunggunPC</h1>
-		<p class="lead fw-normal text-white-50 mb-0">병건 조립PC</p> -->
 		<img src="images/main_photo/banner.PNG"/>
 		<br><br>
 		
@@ -22,7 +20,7 @@
 				<div class="col mb-5">
 					<div class="card h-100">
 						<!-- Product image-->
-						<img class="card-img-top" src="images/product/${productVO.image}" alt="..." />
+						<img class="card-img-top wh" src="images/product/${productVO.image}" onerror="this.onerror=null; this.src='images/product/mb7.jpg';"/>
 						<!-- Product details-->
 						<div class="card-body p-4">
 							<div class="text-center">
@@ -38,6 +36,8 @@
 								</span></span></a>
 							</div>
 						</div>
+						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+					</div>
 					</div>
 				</div>
 				<c:if test="${status.count % 3 == 0}">
