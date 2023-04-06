@@ -20,7 +20,8 @@
 <!-- <table id="productList"> -->
 <table id="datatable" class="table table-bordered dataTable">
     <tr>
-        <th>번호</th><th>상품명</th><th>원가</th><th>판매가</th><th>등록일</th><th>사용유무</th>
+        <th>번호</th><th>카테고리</th>
+        <th>상품명</th><th>원가</th><th>판매가</th><th>등록일</th><th>사용유무</th>
     </tr>
     <tbody>
     <c:choose>
@@ -35,6 +36,7 @@
 	<c:forEach items="${productList}" var="productVO" varStatus="status">
     <tr>
       <td height="23" align="center">${status.count}</td>
+      <td>${kind}</td>
       <td style="text-align: left; padding-left: 50px; padding-right: 0px;">   
   		<a href="#" onclick="go_detail('${productVO.pseq}')">    
     	 ${productVO.name}     

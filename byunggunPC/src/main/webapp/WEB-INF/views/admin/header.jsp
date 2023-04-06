@@ -193,8 +193,10 @@
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                    
+                
+                <div class="sidebar-brand-text">
+<a class="navbar-brand" href="index" style="font-size:1rem; margin:0 0 40px 700px;">byunggunPC 바로가기</a>
+                    </div>
 
 
                         <!-- Nav Item - Messages -->
