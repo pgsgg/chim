@@ -116,7 +116,7 @@
 				html += "<div>";
 				html += '<div id="comment_item"> <strong>작성자 :' + item.writer
 						+ "</strong>";
-				html += '<span id="write_date>"' + displayTime(item.regdate) + '</span><br>';
+				html += '<span id="write_date">' + displayTime(item.regdate) + '</span><br>';
 				html += item.content + "<br></div>";
 				html += '</div>';
 			})
