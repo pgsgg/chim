@@ -88,10 +88,6 @@ public class AdminController {
 		return "admin/layout-static";
 	}
 
-	/*
-	 * @RequestMapping("/admin_login") public String loginView() { return
-	 * "admin/login"; }
-	 */
 
 	@RequestMapping("/admin_forgot-password")
 	public String forgotPassword() {

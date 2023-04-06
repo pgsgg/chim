@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<section class="vh-100" style="background-color: #eee;">
+<section class="" style="background-color: #eee;">
 	<div class="container h-100">
 		<div class="row d-flex justify-content-center align-items-center h-100">
 			<div class="col-lg-12 col-xl-11">
@@ -17,7 +17,7 @@
 										<i class="fas fa-key fa-lg me-3 fa-fw"></i>
 										<div class="form-outline flex-fill mb-0">
 											<input type="text" class="form-control" name="id" id="id" value="${id}" style="display: inline-block; width: 180px;" />
-											<button type="button" class="btn btn-primary btn-lg" style="display: inline-block; width: 140px; height: 38px" onclick="idCheck()">중복확인</button>
+											<button type="button" class="btn btn-primary" style="display: inline-block; width: 140px; height: 38px;" onclick="idCheck()" >중복확인</button>
 											<br> <input type="hidden" class="form-control" name="reid" id="reid" value="${reid}" /> <label class="form-label" for="form3Example4cd">아이디</label>
 										</div>
 									</div>
@@ -52,7 +52,7 @@
 										<i class="fas fa-key fa-lg me-3 fa-fw"></i>
 										<div class="form-outline flex-fill mb-0">
 											<input type="text" class="form-control" placeholder="우편번호" name="zipNum" id="zipNum" style="display: inline-block; width: 140px;" />
-											<button type="button" class="btn btn-primary btn-lg" onclick="getAddress()" style="display: inline-block; width: 140px; height: 38px">주소찾기</button>
+											<button type="button" class="btn btn-primary" onclick="getAddress()" style="display: inline-block; width: 140px; height: 38px">주소찾기</button>
 											<input type="text" class="form-control" placeholder="주소" name="address" id="address" /> <input type="text"  class="form-control" placeholder="상세주소" name="addressDetail" id="addressDetail" />
 										</div>
 									</div>
@@ -85,4 +85,5 @@
 		</div>
 	</div>
 </section>
+
 <%@ include file="../footer.jsp"%>
