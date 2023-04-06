@@ -68,10 +68,10 @@
 					<a class="navbar-brand" href="orders?result=1">마이페이지</a>
 					<a class="navbar-brand" href="logout">로그아웃</a>
 					<form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
+                        <button class="btn btn-outline-dark" type="button" onclick="location.href = 'cartList'">
                             <i class="bi-cart-fill me-1"></i>
                             <a class="navbar-brand" href="cartList">Cart</a>
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill" id="cartCounting">0</span>
                         </button>
                     </form>
 				</c:otherwise>

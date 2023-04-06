@@ -42,3 +42,19 @@ function deleteOrder(){
         form.submit();
     }
 }
+
+$(document).ready(function(){
+    getCartCounting();
+})
+
+function getCartCounting(){
+    $.ajax({
+        type : 'post',
+        url : 'cart_counting',
+        data : $("#cartCounting").serialize(),
+        success : function(data){
+            $('#cartCounting').text(data);
+        }
+    })
+}
+

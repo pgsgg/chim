@@ -38,4 +38,10 @@ public class CartServiceImpl implements CartService {
 		cartDAO.updateCart(cseq);
 	}
 
+	@Override
+	public int cartCounting(String id) {
+		// TODO Auto-generated method stub
+		return cartDAO.cartCounting(id);
+	}
+
 }

@@ -30,4 +30,8 @@ public class CartDAO{
 	public void updateCart(int cseq) {
 		mybatis.update("CartMapper.updateCart", cseq);
 	}
+	
+	public int cartCounting(String id) {
+		return mybatis.selectOne("CartMapper.cartCounting", id);
+	}
 }

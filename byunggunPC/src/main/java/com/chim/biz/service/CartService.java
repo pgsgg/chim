@@ -13,5 +13,7 @@ public interface CartService {
 	void deleteCart(int cseq);
 
 	void updateCart(int cseq);
+	
+	int cartCounting(String id);
 
 }
