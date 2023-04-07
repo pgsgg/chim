@@ -40,12 +40,36 @@ public class ProductServiceImpl implements ProductService {
 		return productDAO.countProductList(name);
 	}
 
+	/*
+	 * 상품 재고 관련 메소드
+	 */
 	@Override
-	public void updateQuantity(int quantity, int pseq) {
+	public void updateQuantity(ProductVO vo) {
 		// TODO Auto-generated method stub
-		productDAO.updateQuantity(quantity, pseq);
+		productDAO.updateQuantity(vo);
 	}
 
+	@Override
+	public void increaseQuantity(ProductVO vo) {
+		// TODO Auto-generated method stub
+		productDAO.increaseQuantity(vo);
+	}
+	
+	@Override
+	public void updateSellable(ProductVO vo) {
+		// TODO Auto-generated method stub
+		productDAO.updateSellable(vo);
+	}
+	
+	@Override
+	public int getProductQuantity(int pseq) {
+		// TODO Auto-generated method stub
+		return productDAO.getProductQuantity(pseq);
+	}
+
+	/*
+	 * 상품 재고 관련 메소드 끝
+	 */
 	@Override
 	public List<ProductVO> getProductListByKind(String kind) {
 		// TODO Auto-generated method stub
@@ -57,7 +81,7 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return productDAO.getProductListByKindWithPaging(kind, criteria);
 	}
-	
+
 	@Override
 	public int countProductListByKind(String kind) {
 		// TODO Auto-generated method stub
@@ -81,6 +105,7 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return productDAO.getProduct(vo);
 	}
+
 	@Override
 	public void deleteProduct(ProductVO vo) {
 		// TODO Auto-generated method stub

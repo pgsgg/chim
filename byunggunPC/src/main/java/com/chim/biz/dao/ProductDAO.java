@@ -39,14 +39,30 @@ public class ProductDAO {
 
 		return mybatis.selectOne("ProductMapper.countProductList", name);
 	}
-	
-	
 
-	public void updateQuantity(int quantity, int pseq) {
-		Object[] args = { quantity, pseq };
-		mybatis.update("ProductMapper.updateQuantity", args);
+	/*
+	 * 상품 재고 관련 메소드
+	 */
+	// quantity는 product 테이블 컬럼
+	public void updateQuantity(ProductVO vo) {
+		mybatis.update("ProductMapper.updateQuantity", vo);
 	}
 
+	public void increaseQuantity(ProductVO vo) {
+		mybatis.update("ProductMapper.updateQuantity", vo);
+	}
+
+	public void updateSellable(ProductVO vo) {
+		mybatis.update("ProductMapper.updateSellable", vo);
+	}
+
+	public int getProductQuantity(int pseq) {
+		return mybatis.selectOne("ProductMapper.getProductQuantity", pseq);
+	}
+
+	/*
+	 * 상품 재고 관련 메소드 끝
+	 */
 	public List<ProductVO> getProductListByKind(String kind) {
 
 		return mybatis.selectList("ProductMapper.getProductListByKind", kind);
@@ -62,11 +78,10 @@ public class ProductDAO {
 	}
 
 	public int countProductListByKind(String kind) {
-		
+
 		return mybatis.selectOne("ProductMapper.countProductListByKind", kind);
 	}
-	
-	
+
 	public List<ProductVO> getProductListByBestynWithPaging(String bestyn, Criteria criteria) {
 		Map<String, Object> map = new HashMap<String, Object>();
 
@@ -77,16 +92,16 @@ public class ProductDAO {
 	}
 
 	public int countProductListByBestyn(String bestyn) {
-		
+
 		return mybatis.selectOne("ProductMapper.countProductListByBestyn", bestyn);
 	}
-	
-	public List<ProductVO> searchProdcutList(String name,Criteria criteria){
+
+	public List<ProductVO> searchProdcutList(String name, Criteria criteria) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		
+
 		map.put("name", name);
 		map.put("criteria", criteria);
-		
+
 		return mybatis.selectList("ProductMapper.searchProdcutList", map);
 	}
 
@@ -104,15 +119,14 @@ public class ProductDAO {
 
 		return mybatis.selectOne("ProductMapper.getProduct", vo);
 	}
-	
+
 	public int countSearchProduct(String name) {
-		
+
 		return mybatis.selectOne("ProductMapper.countSearchProduct", name);
 	}
 
-	
 	public void deleteProduct(ProductVO vo) {
-		
+
 		mybatis.delete("ProductMapper.deleteProduct", vo);
 	}
 //	<select id="countProductList" parameterType="String" resultType="int">

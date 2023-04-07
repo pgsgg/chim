@@ -3,7 +3,7 @@
  */
 function go_order() {
    var regExp = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;
-   
+
    if (document.getElementById('name').value == "") {
       alert("이름을 입력해주세요.");
       document.getElementById('name').focus();
@@ -28,8 +28,4 @@ function go_order() {
 }
 
 
-function go_order_sheet() {
-   var form = document.getElementById('theform');
-   form.action = "order_sheet";
-   form.submit();
-}
+

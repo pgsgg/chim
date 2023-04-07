@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.chim.biz.dto.CartVO;
 import com.chim.biz.dto.MemberVO;
@@ -16,6 +17,7 @@ import com.chim.biz.dto.OrderVO;
 import com.chim.biz.service.CartService;
 import com.chim.biz.service.MemberService;
 import com.chim.biz.service.OrderService;
+import com.chim.biz.service.ProductService;
 
 @Controller
 public class OrderControler {
@@ -26,6 +28,8 @@ public class OrderControler {
 	private CartService cartService;
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private ProductService productService;
 
 	@RequestMapping("/order_sheet")
 	public String orderSheetView(OrderVO vo, HttpSession session, Model model) {
@@ -111,5 +115,14 @@ public class OrderControler {
 		model.addAttribute("listOrder", listOrder);
 		model.addAttribute("totalPrice", totalPrice);
 		return "mypage/orderList";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/check_quantity")
+	public int checkQuantity(@RequestParam(value = "pseq")int pseq,
+			@RequestParam(value = "quantity") int quantity) {
+		int qty = productService.getProductQuantity(pseq);
+		
+		return qty;
 	}
 }

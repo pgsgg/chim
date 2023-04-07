@@ -48,22 +48,30 @@ public class OrderServiceImpl implements OrderService {
 		if (cartList.size() > 0) {
 			for (CartVO cart : cartList) {
 				OrderVO order = new OrderVO();
+				ProductVO qty = new ProductVO();
 				
 				order.setOseq(oseq);
 				order.setPseq(cart.getPseq());
+				qty.setPseq(cart.getPseq());
 				order.setQuantity(cart.getQuantity());
-
+				qty.setQuantity(cart.getQuantity());
+				
 				orderDAO.insertOrderDetail(order);
-				productService.updateQuantity(cart.getQuantity(),cart.getPseq());
+				productService.updateQuantity(qty);
 				cartDAO.updateCart(cart.getCseq());
 				
 			}
 		} else {
 			OrderVO order = new OrderVO();
+			ProductVO qty = new ProductVO();
+			
 			order.setOseq(oseq);
 			order.setPseq(vo.getPseq());
+			qty.setPseq(vo.getPseq());
 			order.setQuantity(vo.getQuantity());
-			productService.updateQuantity(vo.getQuantity(),vo.getPseq());
+			qty.setQuantity(vo.getQuantity());
+			
+			productService.updateQuantity(qty);
 			orderDAO.insertOrderDetail(order);
 		}
 		return oseq;
