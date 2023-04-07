@@ -153,7 +153,7 @@ public class mypageController {
 	@RequestMapping("/cart_counting")
 	public int cartCounting(HttpSession session) {
 
-		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
+		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 		if (loginUser == null) {
 			return 0;
 		} else {

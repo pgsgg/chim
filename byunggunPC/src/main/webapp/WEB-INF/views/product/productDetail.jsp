@@ -22,11 +22,11 @@
 			</fieldset>
 			<div class="clear"></div>
 			<div id="buttons" align="center">
-				<input type="button" value="장바구니에 담기" class="submit" onclick="go_cart()"> <input type="button" value="즉시 구매" class="submit" onclick="go_order()"> <input type="reset" value="취소" class="cancel">
+				<input type="button" value="장바구니에 담기" class="submit" onclick="go_cart()"> <input type="button" value="즉시 구매" class="submit" onclick="go_order_sheet()"> <input type="reset" value="취소" class="cancel"> <input type="hidden" name = "pname" value="${productVO.name}"> <input type="hidden" name="price2" value="${productVO.price2}">
 			</div>
 		</form>
 	</div>
-	
+
 </article>
 <article>
 	<div class="container">
@@ -62,7 +62,7 @@
 			</ul>
 		</div>
 	</div>
-	
+
 </article>
 <script type="text/javascript">
 	function updateTotal() {
@@ -116,7 +116,8 @@
 				html += "<div>";
 				html += '<div id="comment_item"> <strong>작성자 :' + item.writer
 						+ "</strong>";
-				html += '<span id="write_date">' + displayTime(item.regdate) + '</span><br>';
+				html += '<span id="write_date">' + displayTime(item.regdate)
+						+ '</span><br>';
 				html += item.content + "<br></div>";
 				html += '</div>';
 			})
@@ -127,56 +128,57 @@
 		}
 		$("#commentList").html(html);
 	}
-	
+
 	function displayTime(timeValue) {
 		var today = new Date();
-		
+
 		// 현재시간에서 댓글등록시간을 빼줌
 		var timeGap = today.getTime() - timeValue;
-		
+
 		// timeValue를 Date객체로 변환
 		var dateObj = new Date(timeValue);
-		
+
 		// timeGap이 24시간 이내인지 판단
-		if (timeGap < (1000 * 60 * 60 * 24)) {  // 시, 분, 초를 구함
+		if (timeGap < (1000 * 60 * 60 * 24)) { // 시, 분, 초를 구함
 			var hh = dateObj.getHours();
 			var mi = dateObj.getMinutes();
 			var ss = dateObj.getSeconds();
-			
+
 			//return hh + ':' + mi + ':' + ss;
-			return [(hh>9 ? '':'0')+hh, ':', (mi>9 ? '':'0')+mi, ':', 
-				    (ss>9 ? '':'0')+ss].join('');
+			return [ (hh > 9 ? '' : '0') + hh, ':', (mi > 9 ? '' : '0') + mi,
+					':', (ss > 9 ? '' : '0') + ss ].join('');
 		} else {
 			var yy = dateObj.getFullYear();
 			var mm = dateObj.getMonth() + 1;
 			var dd = dateObj.getDate();
-			
+
 			//return yy + "-" + mm + "-" + dd;
-			return [yy, '/', (mm>9 ? '':'0')+mm, '/', (dd>9 ? '':'0')+dd].join('');
+			return [ yy, '/', (mm > 9 ? '' : '0') + mm, '/',
+					(dd > 9 ? '' : '0') + dd ].join('');
 		}
 	}
-	
-	function save_comment(pseq){
-		  $.ajax({
-		    type : 'post',
-		    url : 'comment_save',
-		    data : $('#commentForm').serialize(),
-		    success : function(data){
-		      if (data == 'success'){
-		        getCommentList();
-		        $('#content').val("");
-		      } else if(data == 'fail'){
-		        alert("상품평 등록이 실패했습니다.");
-		      } else if(data == 'not_logedin'){
-		        alert("상품평 등록은 로그인이 필요합니다.");
-		      }
-		    },
-		    error : function(request, status, error){
-		      alert("error : " + error);
-		    }
 
-		  });
-		}
+	function save_comment(pseq) {
+		$.ajax({
+			type : 'post',
+			url : 'comment_save',
+			data : $('#commentForm').serialize(),
+			success : function(data) {
+				if (data == 'success') {
+					getCommentList();
+					$('#content').val("");
+				} else if (data == 'fail') {
+					alert("상품평 등록이 실패했습니다.");
+				} else if (data == 'not_logedin') {
+					alert("상품평 등록은 로그인이 필요합니다.");
+				}
+			},
+			error : function(request, status, error) {
+				alert("error : " + error);
+			}
+
+		});
+	}
 </script>
 <%@ include file="../footer.jsp"%>
 

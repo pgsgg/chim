@@ -42,5 +42,8 @@ public class MemberDAO {
 	public List<MemberVO> getListMember(String name) {
 		return mybatis.selectList("MemberMapper.listMember",name);
 	}
-
+	
+	public void updateOrderSheet(MemberVO vo) {
+		mybatis.update("MemberMapper.updateOrderSheet", vo);
+	}
 }

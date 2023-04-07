@@ -17,4 +17,6 @@ public interface MemberService {
 	void chagePwd(MemberVO vo);
 	
 	List<MemberVO> getListMember(String name);
+	
+	void updateOrderSheet(MemberVO vo);
 }

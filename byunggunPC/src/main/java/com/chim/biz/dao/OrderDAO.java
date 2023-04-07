@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.chim.biz.dto.MemberVO;
 import com.chim.biz.dto.OrderVO;
 
 import utils.Criteria;
@@ -65,5 +66,9 @@ public class OrderDAO {
 	public void updateOrderResult(int odseq) {
 		
 		mybatis.update("OrderMapper.updateOrderResult",odseq);
+	}
+	
+	public void updateOrderSheet(MemberVO vo) {
+		mybatis.update("OrderMapper.updateOrderSheet", vo);
 	}
 }

@@ -50,6 +50,12 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.getListMember(name);
 	}
 
+	@Override
+	public void updateOrderSheet(MemberVO vo) {
+		// TODO Auto-generated method stub
+		memberDAO.updateOrderSheet(vo);
+	}
+
 	
 
 }

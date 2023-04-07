@@ -17,6 +17,7 @@
 				<th>아이디</th>
 				<th>사용자 이름</th>
 				<th>제품명</th>
+				<th>수량</th>
 				<th>가격</th>
 				<th>등록일</th>
 				<th>선택삭제</th>
@@ -29,7 +30,8 @@
 					<td>${cartVO.id}</td>
 					<td>${cartVO.mname}</td>
 					<td>${cartVO.pname}</td>
-					<td>${cartVO.price2}원</td>
+					<td>${cartVO.quantity}</td>
+					<td>${cartVO.price2*cartVO.quantity}원</td>
 					<td><fmt:formatDate value="${cartVO.indate}" pattern="yyyy-MM-dd"/></td>
 					<td><input type="checkbox" name="cseq" id="cseq" value="${cartVO.cseq}"> </td>
 				</tr>
@@ -51,7 +53,7 @@
 	</table><br>
 	<center>
 	<button type="button" class="btn btn-color" onclick="go_cart_delete()">삭제하기</button>
-	<input type="button" class="btn btn-color" onclick="go_order()" value="주문하기">
+	<input type="button" class="btn btn-color" onclick="go_order_sheet()" value="주문하기">
 	</center>
 	</c:otherwise>
 	</c:choose>
