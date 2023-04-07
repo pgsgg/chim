@@ -51,7 +51,7 @@
 									<div class="d-flex flex-row align-items-center mb-4">
 										<i class="fas fa-key fa-lg me-3 fa-fw"></i>
 										<div class="form-outline flex-fill mb-0">
-											<input type="text" class="form-control" placeholder="우편번호" name="zipNum" id="zipNum" style="display: inline-block; width: 140px;" />
+											<input type="text" class="form-control" placeholder="우편번호" name="zip_num" id="zip_num" style="display: inline-block; width: 140px;" />
 											<button type="button" class="btn btn-primary" onclick="getAddress()" style="display: inline-block; width: 140px; height: 38px">주소찾기</button>
 											<input type="text" class="form-control" placeholder="주소" name="address" id="address" /> <input type="text"  class="form-control" placeholder="상세주소" name="addressDetail" id="addressDetail" />
 										</div>

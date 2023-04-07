@@ -18,81 +18,83 @@ import com.chim.biz.service.MemberService;
 @Controller
 @SessionAttributes("loginUser")
 public class MemberController {
-	
+
 	@Autowired
 	private MemberService memberService;
-	
+
 	@GetMapping("/loginForm")
 	public String loginForm() {
-		
+
 		return "member/login";
 	}
-	
+
 	@GetMapping("/joinForm")
 	public String joinForm() {
-		
+
 		return "member/join";
 	}
-	
+
 	@PostMapping("/login")
-	public String loginAction(MemberVO vo,Model model) {
+	public String loginAction(MemberVO vo, Model model) {
 		String pwd = memberService.confirmMember(vo.getId());
-		
-		if(pwd == null) {
+
+		if (pwd == null) {
 			model.addAttribute("message", "아이디가 맞지 않습니다.");
 			return "member/loginfail";
-		} else if(!pwd.equals(vo.getPwd())) {
+		} else if (!pwd.equals(vo.getPwd())) {
 			model.addAttribute("message", "비밀번호가 맞지 않습니다.");
 			return "member/loginfail";
 		} else {
 			model.addAttribute("loginUser", memberService.getMember(vo.getId()));
 			return "redirect:index";
 		}
-		
+
 	}
+
 	@GetMapping("/logout")
 	public String logoutAction(SessionStatus status) {
-		
+
 		status.setComplete();
 		return "index";
 	}
-	
+
 	@RequestMapping("/idCheck_form")
-	public String idCheckForm(MemberVO vo,Model model) {
-		
+	public String idCheckForm(MemberVO vo, Model model) {
+
 		String pwd = memberService.confirmMember(vo.getId());
 		int message = 0;
-		if(pwd == null) {//아이디 사용 중 아님
+		if (pwd == null) {// 아이디 사용 중 아님
 			message = 0;
-			
-		} else {//아이디 사용중
+
+		} else {// 아이디 사용중
 			message = 1;
 		}
 		model.addAttribute("id", vo.getId());
 		model.addAttribute("message", message);
 		return "member/idCheck";
 	}
-	
+
 	@PostMapping("/join")
-	public String joinAction(MemberVO vo,
-			@RequestParam(value = "addressDetail") String addressDetail) {
-		vo.setAddress(vo.getAddress() + " " + addressDetail);
+	public String joinAction(MemberVO vo, @RequestParam(value = "addressDetail") String addressDetail) {
+		if (addressDetail != null) {
+			vo.setAddress(vo.getAddress() + " " + addressDetail);
+		}
 		memberService.insertMember(vo);
-		
+
 		return "member/login";
 	}
-	
+
 	@GetMapping("/find_id_form")
 	public String findIdView() {
-		
+
 		return "member/findId";
 	}
-	
+
 	@PostMapping("/find_id")
-	public String findIdAction(MemberVO vo,Model model) {
+	public String findIdAction(MemberVO vo, Model model) {
 		String id = memberService.getIdByNamePhone(vo);
 		int message = 0;
-		if(id == null) {
+		if (id == null) {
 			message = -1;
 		} else {
 			message = 1;
@@ -101,19 +103,19 @@ public class MemberController {
 		model.addAttribute("message", message);
 		return "member/findResult";
 	}
-	
+
 	@GetMapping("/find_pwd_form")
 	public String findPwdView() {
-		
+
 		return "member/findPwd";
 	}
-	
+
 	@PostMapping("/find_pwd")
-	public String findPwdAction(MemberVO vo,Model model) {
+	public String findPwdAction(MemberVO vo, Model model) {
 		String id = memberService.getIdByNamePhone(vo);
 		int message = 0;
-		
-		if(id != null && id.equals(vo.getId())) {	
+
+		if (id != null && id.equals(vo.getId())) {
 			message = 1;
 			model.addAttribute("id", vo.getId());
 			model.addAttribute("message", message);
@@ -123,11 +125,11 @@ public class MemberController {
 		}
 		return "member/findPwdResult";
 	}
-	
+
 	@PostMapping("/change_pwd")
 	public String changePwdAction(MemberVO vo) {
 		memberService.chagePwd(vo);
-		
+
 		return "member/changePwdOK";
 	}
 }

@@ -13,7 +13,7 @@
 	<insert id="insertMember">
 		insert into member(id, pwd, name, email, zip_num,
 		address, phone) values
-		(#{id}, #{pwd}, #{name}, #{email},#{zipNum}, #{address}, #{phone})
+		(#{id}, #{pwd}, #{name}, #{email},#{zip_num}, #{address}, #{phone})
 	</insert>
 
 	<select id="selectIdByNamePhone" resultType="String">

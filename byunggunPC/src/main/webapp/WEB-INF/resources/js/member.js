@@ -52,9 +52,9 @@ function go_save() {
         alert("이메일을 입력해 주세요");
         document.getElementById('email').focus();
         return false;
-    } else if (document.getElementById('zipNum').value == "") {
+    } else if (document.getElementById('zip_num').value == "") {
         alert("주소를 입력해 주세요");
-        document.getElementById('zipNum').focus();
+        document.getElementById('zip_num').focus();
         return false;
     } else if (document.getElementById('phone').value == "") {
         alert("휴대폰 번호를 입력해 주세요");
@@ -74,7 +74,7 @@ function go_save() {
 function getAddress() {
     new daum.Postcode({
         oncomplete: function (data) {
-            document.getElementById('zipNum').value = data.zonecode;
+            document.getElementById('zip_num').value = data.zonecode;
             document.getElementById('address').value = data.address;
             document.getElementById('addressDetail').focus();
         }

@@ -34,21 +34,27 @@ public class OrderControler {
 		if (loginUser == null) {
 			return "member/login";
 		} else {
-			String fullAddress = loginUser.getAddress();
-			String[] addressArr = fullAddress.split(" ");
-			StringBuilder address = new StringBuilder();
-			StringBuilder addressDetail = new StringBuilder();
+			if (loginUser.getAddress() != null) {
+				String fullAddress = loginUser.getAddress();
+				String[] addressArr = fullAddress.split(" ");
+				StringBuilder address = new StringBuilder();
+				StringBuilder addressDetail = new StringBuilder();
 
-			for (int i = 0; i < addressArr.length; i++) {
-				if (i <= 3) {
-					address.append(addressArr[i] + " ");
-				} else {
-					addressDetail.append(addressArr[i] + " ");
+				for (int i = 0; i < addressArr.length; i++) {
+					if (i <= 3) {
+						address.append(addressArr[i] + " ");
+					} else {
+						addressDetail.append(addressArr[i] + " ");
+					}
 				}
-			}
-			address.deleteCharAt(address.length() - 1);
-			addressDetail.deleteCharAt(addressDetail.length() - 1);
+				address.deleteCharAt(address.length() - 1);
+				model.addAttribute("address", address.toString());
+				if (addressDetail.length()  > 0) {
+					addressDetail.deleteCharAt(addressDetail.length() - 1);
+					model.addAttribute("addressDetail", addressDetail.toString());
+				}
 
+			}
 			List<CartVO> listOrder = cartService.getCart(loginUser.getId());
 			int totalPrice = 0;
 			if (listOrder.size() > 0) {
@@ -61,8 +67,6 @@ public class OrderControler {
 			model.addAttribute("order", vo);
 			model.addAttribute("totalPrice", totalPrice);
 			model.addAttribute("listOrder", listOrder);
-			model.addAttribute("address", address.toString());
-			model.addAttribute("addressDetail", addressDetail.toString());
 			model.addAttribute("memberVO", loginUser);
 
 			return "mypage/orderSheet";

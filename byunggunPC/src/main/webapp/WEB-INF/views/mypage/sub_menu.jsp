@@ -30,5 +30,6 @@
 			<li><a href="cartList">장바구니(cart)내역</a></li>
 			<li><a href="orders?result=1">입금확인중</a></li>
 			<li><a href="orders?result=2">결제완료</a></li>
+			<li><a href="qna_list">Q&A</a></li>
 		</ul>
 	</nav>

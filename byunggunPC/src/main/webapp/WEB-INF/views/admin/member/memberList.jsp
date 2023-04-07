@@ -43,7 +43,7 @@ checked="checked" disabled="disabled">
     </td>
     <td> ${memberVO.name} </td>
     <td> ${memberVO.email} </td> 
-    <td> ${memberVO.zipNum} </td>
+    <td> ${memberVO.zip_num} </td>
     <td> ${memberVO.address} </td>
     <td> ${memberVO.phone} </td> 
     <td> <fmt:formatDate value="${memberVO.regDate}"/></td>

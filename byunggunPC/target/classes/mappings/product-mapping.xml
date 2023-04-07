@@ -39,11 +39,15 @@
 		AND rn > (#{criteria.pageNum} - 1) * #{criteria.rowsPerPage}
 		]]>
 	</select>
+	<!-- 상품 재고관련 쿼리문 -->
 	<update id="updateQuantity">
 		UPDATE PRODUCT SET quantity = quantity - #{array[0]}
 		WHERE pseq = #{array[1]}
 	</update>
-
+	<update id="increaseQuantity">
+		UPDATE PRODUCT SET quantity = quantity + #{array[0]}
+		WHERE pseq = #{array[1]}
+	</update>
 	<!-- 상품 상세정보 조회 -->
 	<select id="getProduct" resultType="product">
 		SELECT * FROM product WHERE
