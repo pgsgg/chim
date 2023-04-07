@@ -3,7 +3,7 @@
 <%@ include file="sub_menu.jsp"%>
 <br>
 <article id="main-menu">
-	<h2>My Page(${title})</h2>
+	<h2>My Page(${title})</h2> 
 	<br><br>
 	<form name="formm" method="post" id="formm">
 		<c:choose>
