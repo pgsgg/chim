@@ -19,7 +19,7 @@ width: 1050px; height: 100px; display: flex; align-items: center;
 </style>
 <article>
 
-	<h1>상품 상세</h1>
+	<h1 align="center">상품 상세</h1>
 <form method="post" action="cart_insert" name="formm" id="theform">
 		<section class="py-5">
 
@@ -75,6 +75,7 @@ width: 1050px; height: 100px; display: flex; align-items: center;
 							</td>
 							<td style="width: 10%;">
 								<a href='#' onClick="save_comment('${productVO.pseq}')" class="btn">등록</a>
+								
 							</td>
 						</tr>
 					</table>

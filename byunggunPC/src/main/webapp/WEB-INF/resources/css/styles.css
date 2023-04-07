@@ -4094,6 +4094,7 @@ textarea.form-control-lg {
 	.navbar-expand-lg {
 		flex-wrap: nowrap;
 		justify-content: flex-start;
+		background: aliceblue;
 	}
 	.navbar-expand-lg .navbar-nav {
 		flex-direction: row;

@@ -350,7 +350,7 @@ white-space: nowrap;text-overflow: ellipsis;}
 .sta_rolling_banner .bnr_paging {position:absolute; bottom:10px; right:0px; z-index:11;}
 
 /*lnb ·¹ÀÌ¾Æ¿ô*/
-.cpz_lnb_wrap {position:relative; border-bottom:1px solid #f2f2f2; border-top:1px solid #f2f2f2; font-family:noto-R; height:45px;}
+.cpz_lnb_wrap {position:relative; border-bottom:0px solid #f2f2f2; border-top:0px solid #f2f2f2; font-family:noto-R; height:45px;}
 .cpz_lnb_wrap button{font-family:inherit}
 
 /* category Ä«Å×°í¸® ÀüÃ¼º¸±â ¾ÆÀÌÄÜ */
@@ -1652,6 +1652,7 @@ background: url(//image5.compuzone.co.kr/img/images/cscenter2019/btn_rdo.png) ce
 }
 
 .pd_info_box .price_area {
-  color: #1A1A1A;
+  color: #716B6B;
   float: right;
+  font-weight: bolder;
 }
