@@ -30,6 +30,11 @@ public interface ProductService {
 	
 	int countProductListByKind(String kind);
 	
+	
+	List<ProductVO> getProductListByBestynWithPaging(String bestyn,Criteria criteria);
+	
+	int countProductListByBestyn(String bestyn);
+	
 	List<ProductVO> searchProdcutList(String name,Criteria criteria);
 	
 	int countSearchProduct(String name);

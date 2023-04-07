@@ -39,6 +39,8 @@ public class ProductDAO {
 
 		return mybatis.selectOne("ProductMapper.countProductList", name);
 	}
+	
+	
 
 	public void updateQuantity(int quantity, int pseq) {
 		Object[] args = { quantity, pseq };
@@ -62,6 +64,21 @@ public class ProductDAO {
 	public int countProductListByKind(String kind) {
 		
 		return mybatis.selectOne("ProductMapper.countProductListByKind", kind);
+	}
+	
+	
+	public List<ProductVO> getProductListByBestynWithPaging(String bestyn, Criteria criteria) {
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		map.put("bestyn", bestyn);
+		map.put("criteria", criteria);
+
+		return mybatis.selectList("ProductMapper.getProductListByBestynWithPaging", map);
+	}
+
+	public int countProductListByBestyn(String bestyn) {
+		
+		return mybatis.selectOne("ProductMapper.countProductListByBestyn", bestyn);
 	}
 	
 	public List<ProductVO> searchProdcutList(String name,Criteria criteria){

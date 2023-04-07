@@ -99,6 +99,18 @@ public class ProductServiceImpl implements ProductService {
 		return productDAO.countSearchProduct(name);
 	}
 
+	@Override
+	public List<ProductVO> getProductListByBestynWithPaging(String bestyn, Criteria criteria) {
+		// TODO Auto-generated method stub
+		return productDAO.getProductListByBestynWithPaging(bestyn, criteria);
+	}
+
+	@Override
+	public int countProductListByBestyn(String bestyn) {
+		// TODO Auto-generated method stub
+		return productDAO.countProductListByBestyn(bestyn);
+	}
+
 
 
 }

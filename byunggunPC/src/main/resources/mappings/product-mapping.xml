@@ -72,6 +72,22 @@
 		SELECT count(*)
 		FROM product WHERE kind = #{kind}
 	</select>
+	
+	
+	<select id="getProductListByBestynWithPaging" resultType="product">
+				<![CDATA[
+         select * from
+         		(SELECT rownum rn, A.*
+		FROM   (SELECT * FROM product WHERE bestyn = #{bestyn} ORDER BY name) A
+		WHERE rownum <= #{criteria.pageNum} * #{criteria.rowsPerPage} )
+		where rn > (#{criteria.pageNum} - 1) * #{criteria.rowsPerPage}
+		]]>
+	</select>
+	<select id="countProductListByBestyn" resultType="int">
+		SELECT count(*)
+		FROM product WHERE bestyn = #{bestyn}
+	</select>
+	
 	<select id="searchProdcutList" resultType="product">
 					<![CDATA[
          select * from

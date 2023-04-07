@@ -68,6 +68,27 @@ public class ProductController {
 		model.addAttribute("url", "category");
 		return "product/productKind";
 	}
+	
+	@RequestMapping("/category2")
+	public String productListByBestynWithPagingAction(ProductVO product, Model model,
+			@RequestParam(value = "pageNum", defaultValue = "1") String pageNum,
+			@RequestParam(value = "rowsPerPage", defaultValue = "5") String rowsPerPage) {
+
+		Criteria criteria = new Criteria();
+		criteria.setPageNum(Integer.parseInt(pageNum));
+		criteria.setRowsPerPage(Integer.parseInt(rowsPerPage));
+
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCriteria(criteria);
+		pageMaker.setTotalCount(productService.countProductListByBestyn(product.getBestyn()));
+
+		List<ProductVO> listProduct = productService.getProductListByBestynWithPaging(product.getBestyn(), criteria);
+
+		model.addAttribute("productBestynList", listProduct);
+		model.addAttribute("pageMaker", pageMaker);
+		model.addAttribute("url", "category");
+		return "product/productKind2";
+	}
 
 	@RequestMapping("/search")
 	public String searchProdcutListAction(ProductVO product, Model model,

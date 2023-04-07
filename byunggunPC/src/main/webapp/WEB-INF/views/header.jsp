@@ -21,7 +21,7 @@
 	padding: 10px;
 	border: 0px;
 	outline: none;
-	
+	background: #fafafa;
 }
 
 #searchButton {
@@ -106,7 +106,7 @@
 					<a href="category?kind=3" style="margin:20px; color:#135dba;">그래픽카드</a>
 					<a href="category?kind=4" style="margin:20px; color:#135dba;">파워</a>
 					<a href="category?kind=5" style="margin:20px; color:#135dba;">조립PC </a>
-					<a href="category?kind=5" style="margin:20px; color:#135dba;">세일상품 </a>
+					<a href="category2?bestyn=1" style="margin:20px; color:#135dba;">세일상품 </a>
 					</p>
 				</div>
 			</div>
