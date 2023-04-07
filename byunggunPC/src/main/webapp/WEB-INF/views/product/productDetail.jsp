@@ -1,35 +1,66 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
+<style type="text/css">
+
+.a {
+margin: auto;
+padding: 0;
+border-radius: 15px;
+width: 1050px; height: 400px; display: flex; align-items: center; border: 1px groove #bcbcbc; margin: auto;
+}
+
+.b {
+margin:auto;
+padding: 0;
+border-radius: 15px;
+width: 1050px; height: 100px; display: flex; align-items: center;
+}
+
+</style>
 <article>
+
 	<h1>상품 상세</h1>
-	<div id="itemdetail">
-		<form method="post" action="cart_insert" name="formm" id="theform">
-			<fieldset>
-				<legend> 상품 상세 정보</legend>
-				<span style="float: left;"> <img src="images/product/${productVO.image}" style="width: 400px; height: 400px;" />
-				</span>
-				<h2>${productVO.name}</h2>
-				<label> 가 격 : </label>
-				<p>
-					<fmt:formatNumber type="currency" value="${productVO.price2}" />
-				</p>
-				<label> 수 량 : </label> <input type="number" min="1" max="20" name="quantity" id="quantity" size="2" value="1" onchange="updateTotal()" style="width: 50px"><br> <input type="hidden" name="pseq" value="${productVO.pseq}"><br>
-				<p>
+<form method="post" action="cart_insert" name="formm" id="theform">
+		<section class="py-5">
+
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row gx-4 gx-lg-5 align-items-center">
+
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="images/product/${productVO.image}" 
+                    onerror="this.onerror=null; this.src='images/product/ready.jpg';"></div>
+
+                    <div class="col-md-6">
+
+                       <!--  <div class="small mb-1">SKU: BST-498</div> -->
+                        <h1 class="display-5 fw-bolder">${productVO.name}</h1>
+                        <div class="fs-5 mb-5">
+                            <span>가격 : &nbsp;</span>
+                            <span><fmt:formatNumber type="currency" value="${productVO.price2}" /></span>
+                        </div>
+                        <div class="d-flex">
+                            <p style="font-size: 24px;">수량 :&nbsp; </p> <input type="number" min="1" max="20" name="quantity" id="quantity" size="2" value="1" onchange="updateTotal()" style="width: 50px"><br> <input type="hidden" name="pseq" value="${productVO.pseq}"><br>
+                        </div>
+                        <p>
 					총 합계: <input type="text" readonly="readonly" id="total" style="border: 0;">
 				</p>
-				<p>${productVO.content}</p>
+                        <p class="lead">상품설명  : ${productVO.content}</p>
+                    </div>
 
-			</fieldset>
+                </div>
+            </div>
+        </section>
+			
 			<div class="clear"></div>
-			<div id="buttons" align="center">
-				<input type="button" value="장바구니에 담기" class="submit" onclick="go_cart()"> <input type="button" value="즉시 구매" class="submit" onclick="go_order_sheet()"> <input type="reset" value="취소" class="cancel"> <input type="hidden" name = "pname" value="${productVO.name}"> <input type="hidden" name="price2" value="${productVO.price2}">
+			<div id="buttons" style="margin:0px 0px 0px 1200px">
+				<input type="button" value="장바구니에 담기" class="submit" onclick="go_cart()" style="height:60px; width:120px;"> <input type="button" value="즉시 구매" class="submit" onclick="go_order_sheet()" style="height:60px; width:120px;"> <input type="reset" value="취소" class="cancel" style="height:60px; width:120px;"> <input type="hidden" name = "pname" value="${productVO.name}"> <input type="hidden" name="price2" value="${productVO.price2}">
 			</div>
 		</form>
-	</div>
 
 </article>
+
+
 <article>
-	<div class="container">
+	<div class="container" style="margin:0px 0px 0px 900px">
 		<form id="commentForm" name="commentForm" method="post">
 			<br> <br>
 			<div>
@@ -52,7 +83,7 @@
 			<input type="hidden" id="pseq" name="pseq" value="${productVO.pseq}" />
 		</form>
 	</div>
-	<div class="container">
+	<div class="container" style="margin:0px 0px 0px 900px">
 		<form id="commentListForm" name="commentListForm" method="post">
 			<div id="commentList"></div>
 		</form>

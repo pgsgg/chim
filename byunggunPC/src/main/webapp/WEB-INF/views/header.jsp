@@ -114,73 +114,7 @@
 	</div>
 	</header>
 	<br>
-	<hr><hr><hr><hr><br>
-	
-	
     
-   
-    
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#!">Start Bootstrap</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <!-- <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li> -->
-                        
-			<c:choose>
-				<c:when test="${sessionScope.loginUser == null}">
-					<a class="navbar-brand" href="loginForm" style="margin:0 0 0 100px;">로그인</a>
-					<a class="navbar-brand" href="joinForm" style="margin:0 0 0 100px;">회원가입</a>
-					<form action="search" method="post" id="searchform" name="searchform" style="margin:0 0 0 100px;">
-						<div align="center">
-						<div id="searchdiv">
-							<input type="text" name="keyword" id="search" placeholder="검색어 입력">
-							<button type="button" onclick="go_search()" id="searchButton">검색</button>
-						</div>
-						</div>
-			</form>
-					<a class="" href="admin_login_form" style="margin:0 0 0 100px;">관리자페이지</a>
-				</c:when>
-				
-				<c:otherwise>
-                       
-                    
-             <form action="search" method="post" id="searchform" name="searchform" style="margin:0 0 0 100px;">
-						<div align="center">
-						<div id="searchdiv">
-							<input type="text" name="keyword" id="search" placeholder="검색어 입력">
-							<button type="button" onclick="go_search()" id="searchButton">검색</button>
-						</div>
-						</div>
-			</form>
-			
-                    <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit" style="margin:0 0 0 10px;">
-                            <i class="bi-cart-fill me-1"></i>
-                           <a class="navbar-brand" href="cartList"> Cart</a>
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                    </form>
-                    
-                     <li class="nav-item " style="margin:0 0 0 100px;">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            ${sessionScope.loginUser.name}님 환영합니다</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" >
-                                <li><a class="dropdown-item"  href="orders?result=1">마이페이지</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="logout">로그아웃</a></li>
-                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    
-            </c:otherwise>
-			</c:choose>
-                </div>
-            </div>
-        </nav>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="js/scripts.js"></script>
 	<div style="height: 20px;"></div>
