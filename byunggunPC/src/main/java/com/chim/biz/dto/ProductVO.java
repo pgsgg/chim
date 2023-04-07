@@ -22,4 +22,5 @@ public class ProductVO {
 	private String bestyn;
 	private int quantity;
 	private Date regdate;
+	private int sellable;
 }

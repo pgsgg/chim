@@ -16,7 +16,7 @@
 	<select id="countProductList" parameterType="String"
 		resultType="int">
 		SELECT count(*) FROM product
-		WHERE name LIKE '%'||#{name}||'%'
+		WHERE name LIKE '%'||#{name}||'%' and sellable = 1
 	</select>
 
 	<!-- 상품목록 조회 -->
@@ -31,10 +31,11 @@
 	<!-- 페이지별 상품 목록 조회 -->
 	<select id="listProductWithPaging" resultType="product">
 		<![CDATA[
-		SELECT rn, pseq, regdate, name, price1, price2, bestyn
-		FROM   (SELECT row_number() OVER (ORDER BY name) rn, pseq, regdate, name, price1, price2, bestyn
+		SELECT rn, pseq, regdate, name, price1, price2, bestyn,quantity,sellable
+		FROM   (SELECT row_number() OVER (ORDER BY name) rn, pseq, regdate, name, price1, price2, bestyn,quantity,sellable
 	        	FROM product 
-	        	WHERE name LIKE '%'||#{name}||'%')
+	        	WHERE name LIKE '%'||#{name}||'%' 
+	        	AND sellable = 1) 	
 		WHERE rn <= #{criteria.pageNum} * #{criteria.rowsPerPage}  
 		AND rn > (#{criteria.pageNum} - 1) * #{criteria.rowsPerPage}
 		]]>
@@ -69,14 +70,16 @@
 				<![CDATA[
          select * from
          		(SELECT rownum rn, A.*
-		FROM   (SELECT * FROM product WHERE kind = #{kind} ORDER BY name) A
+		FROM   (SELECT * FROM product WHERE kind = #{kind} 
+		and sellable = 1
+		ORDER BY name) A
 		WHERE rownum <= #{criteria.pageNum} * #{criteria.rowsPerPage} )
 		where rn > (#{criteria.pageNum} - 1) * #{criteria.rowsPerPage}
 		]]>
 	</select>
 	<select id="countProductListByKind" resultType="int">
 		SELECT count(*)
-		FROM product WHERE kind = #{kind}
+		FROM product WHERE kind = #{kind} and sellable = 1
 	</select>
 	
 	
@@ -84,21 +87,21 @@
 				<![CDATA[
          select * from
          		(SELECT rownum rn, A.*
-		FROM   (SELECT * FROM product WHERE bestyn = #{bestyn} ORDER BY name) A
+		FROM   (SELECT * FROM product WHERE bestyn = #{bestyn} and sellable = 1 ORDER BY name) A
 		WHERE rownum <= #{criteria.pageNum} * #{criteria.rowsPerPage} )
 		where rn > (#{criteria.pageNum} - 1) * #{criteria.rowsPerPage}
 		]]>
 	</select>
 	<select id="countProductListByBestyn" resultType="int">
 		SELECT count(*)
-		FROM product WHERE bestyn = #{bestyn}
+		FROM product WHERE bestyn = #{bestyn} and sellable = 1
 	</select>
 	
 	<select id="searchProdcutList" resultType="product">
 					<![CDATA[
          select * from
          		(SELECT rownum rn, A.*
-		FROM   (select * from product where name like '%'||#{name}||'%' order by pseq desc) A
+		FROM   (select * from product where name like '%'||#{name}||'%' and sellable = 1 order by pseq desc) A
 		WHERE rownum <= #{criteria.pageNum} * #{criteria.rowsPerPage} )
 		where rn > (#{criteria.pageNum} - 1) * #{criteria.rowsPerPage}
 		]]>
@@ -106,7 +109,7 @@
 	</select>
 	
 	<select id="countSearchProduct" resultType="int">
-		select count(*) from product where name like '%'||#{name}||'%'
+		select count(*) from product where name like '%'||#{name}||'%' and sellable = 1
 	</select>
 
 	<!-- 세미콜론(;) 금지 syntax에러남 -->

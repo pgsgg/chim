@@ -47,6 +47,11 @@ public class ProductServiceImpl implements ProductService {
 	public void updateQuantity(ProductVO vo) {
 		// TODO Auto-generated method stub
 		productDAO.updateQuantity(vo);
+		
+		if(productDAO.getProductQuantity(vo.getPseq()) == 0) {
+			vo.setSellable(0);
+			productDAO.updateSellable(vo);
+		}
 	}
 
 	@Override
