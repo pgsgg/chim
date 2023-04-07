@@ -13,18 +13,31 @@
 <section class="py-5 text-center">
 	<ul align="center" style="list-style-type: none;">
 		<c:forEach var="productVO" items="${productKindList}" varStatus="status">
-			<li style="width: 1050px; height: 190px; display: flex; align-items: center;">
+			<li style="width: 1050px; height: 220px; display: flex; align-items: center; border: 1px groove #bcbcbc; margin: 10px 10px 10px 200px;" >
 				<div style="margin-left: 10px;">
-					<a href="product_detail?pseq=${productVO.pseq}"> <img src="images/product/${productVO.image}" width="190" height="190" align="left">
+					<a href="product_detail?pseq=${productVO.pseq}"> <img src="images/product/${productVO.image}" width="190" height="190" align="left"
+					onerror="this.onerror=null; this.src='images/product/ready.jpg';">
 					</a>
 				</div>
-				<div style="margin-left: 20px;">
+				<div style="margin: auto;">
 					<a href="product_detail?pseq=${productVO.pseq}" style="font-weight: bold;">${productVO.name}</a>
 					<p style="text-align: center;">${productVO.content}</p>
+				</div>
+				
+				<div style="margin: auto;">
+				<a href="product_detail?pseq=${productVO.pseq}" style="font-weight: bold;">${productVO.price2} 원</a>
 				</div>
 			</li>
 		</c:forEach>
 			<%@include file="page_area.jsp"%>
 	</ul>
 </section>
+
+<style type="text/css">
+
+.avav {
+border : 1px soild #fff;
+}
+
+</style>
 <%@ include file="../footer.jsp"%>

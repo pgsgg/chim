@@ -4,9 +4,114 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8" />
+<title>TEST</title>
+<link href="css/styles2.css" rel="stylesheet" />
 <style type="text/css">
+@charset "UTF-8";
 
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+
+.body2{
+	font-family:'Montserrat', sans-serif;
+	margin:0;
+}
+.container2{
+	display: grid;
+	grid-gap:10px;
+	height:100vh;
+	grid-template-columns: 300px 1fr 300px;
+	gird-template-rows:100px 150px 1fr 150px 100px;
+	grid-template-areas:'header header header'
+						'menu main top'
+						'menu main aside'
+						'menu main bottom'
+						'footer footer footer';
+	
+}
+.container2 div {
+	background-color:skyblue;
+	padding:20px;
+	border:1px soild #000;
+	display: grid;
+	justify-items:center;
+	align-items:center;
+	
+}
+
+.header{
+	grid-area:header;
+	
+}
+
+.menu{
+	grid-area:menu;
+}
+.main{
+	grid-area:main;
+}
+.top{
+	grid-area:top;
+}
+.asdie{
+	grid-area: aside;
+}
+.bottom{
+	grid-area: bottom;
+}
+.footer{
+	grid-area: footer;
+}
+
+#searchdiv {
+	display: flex;
+	align-items: center;
+	height: 40px;
+	width: 400px;
+	border-radius: 15px;
+	background: #ffffff;
+	box-sizing: border-box;
+}
+
+#search {
+	flex: 1;
+	font-size: 16px;
+	padding: 10px;
+	border: 0px;
+	outline: none;
+	
+}
+
+#searchButton {
+	width: 50px;
+	height: 100%;
+	border: 0px;
+	background: #000;
+	outline: none;
+	color: #ffffff;
+	border-radius: 15px;
+}
+
+button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled) {
+    cursor: pointer;
+}
+button, [type=button], [type=reset], [type=submit] {
+    -webkit-appearance: button;
+}
+
+button {text-transform: none;}
+
+body, input, textarea, select, button, table {
+    font-family: '¸¼Àº°íµñ',malgun gothic,'µ¸¿ò',Dotum,AppleGothic,sans- serif;
+    font-size: 12px;
+}
+
+body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, th, td, form, fieldset, legend, input, textare a, button, select {
+    margin: 0;
+    padding: 0;
+    border-radius: 15px;
 </style>
+
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
@@ -24,93 +129,36 @@
 <script type="text/javascript" src="js/product.js"></script>
 <script type="text/javascript" src="js/mypage.js"></script>
 <script type="text/javascript" src="js/order.js"></script>
-<script type="text/javascript" src="js/page.js"></script>
 </head>
 <body>
-	<!-- Navigation-->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<div class="container px-4 px-lg-5">
-			<a class="navbar-brand" href="index">byunggunPC</a>
-			<c:choose>
-				<c:when test="${sessionScope.loginUser == null}">
-					<a class="navbar-brand" href="loginForm">로그인</a>
-					<a class="navbar-brand" href="joinForm">회원가입</a>
-				</c:when>
-				<c:otherwise>
-					${sessionScope.loginUser.name}님 환영합니다
-					<a class="navbar-brand" href="orders?result=1">마이페이지</a>
-					<a class="navbar-brand" href="logout">로그아웃</a>
-					<a class="navbar-brand" href="cartList">장바구니</a>
-				</c:otherwise>
-			</c:choose>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<a class="navbar-brand" href="admin_login_form">관리자페이지</a>
-		</div>
-	</nav>
-	<nav id="top_menu">
-		<ul align="center">
-			<li style="display: inline-block;"><a href="category?kind=1">CPU</a></li>
-			<li style="display: inline-block;"><a href="category?kind=2">메인보드</a></li>
-			<li style="display: inline-block;"><a href="category?kind=3">그래픽카드</a></li>
-			<li style="display: inline-block;"><a href="category?kind=4">파워</a></li>
-			<li style="display: inline-block;"><a href="category?kind=5">조립PC </a></li>
-			<li style="display: inline-block;"><a href="category?kind=5">세일상품 </a></li>
-		</ul>
-	</nav>
-<!-- Header-->
-
-
-<header class="bg-dark py-5">
-	<div class="container px-4 px-lg-5 my-5">
-		<div class="text-center text-white">
-			<h1 class="display-4 fw-bolder">byunggunPC</h1>
-			<p class="lead fw-normal text-white-50 mb-0">병건 조립PC</p>
-		</div>
+	
+	<div class="container2">
+	<div class="header">header
+	
 	</div>
-</header>
-<!-- Section-->
-<section class="py-5">
-	<div class="container px-4 px-lg-5 mt-5">
-		<div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center">
-			<c:forEach var="productVO" items="${productList}" varStatus="status">
-				<div class="col mb-5">
-					<div class="card h-100">
-						<!-- Product image-->
-						<img class="card-img-top" src="images/product/${productVO.image}" alt="..." />
-						<!-- Product details-->
-						<div class="card-body p-4">
-							<div class="text-center">
-								<!-- Product name-->
-								<h5 class="fw-bolder">
-									<a href="product_detail?pseq=${productVO.pseq}">${productVO.name}</a>
-								</h5>
-								<!-- Product price-->
-								${productVO.price2}원
-							</div>
-						</div>
-					</div>
-				</div>
-				<c:if test="${status.count % 3 == 0}">
-					<div class="w-100"></div>
-				</c:if>
-			</c:forEach>
-		</div>
+	<div class="menu">menu
+	
+	
 	</div>
-</section>
-<div class="clear"></div>
-    
-    <!-- footer -->
-  <footer>  
-    <hr>
-    <div id="copy">
-     All contents Copyright 2013 Nonage Inc. all rights reserved<br>
-     Contact mail : Nonage@Nonage.com Tel: +82 64 123 4315 
-     Fax +82 64 123 4321
-    </div>         
-  </footer>
+	<div class="main">main
+		<img src="images/main_photo/banner.PNG"/>
+	
+		
+		<br><br>
+	<img src="images/main_photo/guard.PNG"/>
+	<img src="images/main_photo/banner.PNG"/>
+	<img src="images/main_photo/banner.PNG"/>
 
-
+	</div>
+	<div class="top">top</div>
+	<div class="aside">aside</div>
+	<div class="bottom">bottom</div>
+	<div class="footer">footer</div>
+	
+	
+	
+	</div>
+	
+	
 </body>
 </html>

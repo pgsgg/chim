@@ -20,7 +20,7 @@
 				<div class="col mb-5">
 					<div class="card h-100">
 						<!-- Product image-->
-						<img class="card-img-top wh" src="images/product/${productVO.image}" onerror="this.onerror=null; this.src='images/product/mb7.jpg';"/>
+						<img class="card-img-top wh" src="images/product/${productVO.image}" onerror="this.onerror=null; this.src='images/product/ready.jpg';"/>
 						<!-- Product details-->
 						<div class="card-body p-4">
 							<div class="text-center">
