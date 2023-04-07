@@ -7,15 +7,17 @@
 <title>login</title>
 </head>
 <body>
-	<form method="post" id="loginForm" action="login">
+	<form method="post" id="loginForm" action="login" style="margin:0px 0px 0px 400px">
 		<!-- Email input -->
 		<div class="form-outline mb-4">
-			<input type="text" class="form-control" name="id" id="id" /> <label class="form-label" for="form2Example1">아이디</label>
+		<label class="form-label" for="form2Example1">아이디</label>
+			<input type="text" class="form-control" style="width:400px" name="id" id="id" placeholder="아이디를 입력하세요." /> 
 		</div>
 
 		<!-- Password input -->
 		<div class="form-outline mb-4">
-			<input type="password" class="form-control" name="pwd" id="pwd" /> <label class="form-label" for="form2Example2">비밀번호</label>
+		<label class="form-label" for="form2Example2">비밀번호</label>
+			<input type="password" class="form-control" style="width:400px" name="pwd" id="pwd" placeholder="비밀번호를 입력하세요."/> 
 		</div>
 		<div class="form-outline mb-4"></div>
 		<div class="col d-flex justify-content-center"></div>
