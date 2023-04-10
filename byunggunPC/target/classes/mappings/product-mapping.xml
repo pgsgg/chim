@@ -35,7 +35,7 @@
 		FROM   (SELECT row_number() OVER (ORDER BY name) rn, pseq,kind, regdate, name, price1, price2, bestyn,quantity,sellable
 	        	FROM product 
 	        	WHERE name LIKE '%'||#{name}||'%' 
-	        	AND sellable = 1) 	
+	        	) 	
 		WHERE rn <= #{criteria.pageNum} * #{criteria.rowsPerPage}  
 		AND rn > (#{criteria.pageNum} - 1) * #{criteria.rowsPerPage}
 		]]>
