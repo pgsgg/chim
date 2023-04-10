@@ -4,7 +4,7 @@
 <section class="" style="background-color: #eee;">
 	<div class="container h-100">
 		<div class="row d-flex justify-content-center align-items-center h-100">
-			<div class="col-lg-12 col-xl-11">
+			<div class="col-lg-12 col-xl-11" style="margin:0 0 0 300px;">
 				<div class="card text-black" style="border-radius: 25px;">
 					<div class="card-body p-md-5">
 						<div class="row justify-content-center">
@@ -17,7 +17,7 @@
 										<i class="fas fa-key fa-lg me-3 fa-fw"></i>
 										<div class="form-outline flex-fill mb-0">
 											<input type="text" class="form-control" name="id" id="id" value="${id}" style="display: inline-block; width: 180px;" />
-											<button type="button" class="btn btn-primary" style="display: inline-block; width: 140px; height: 38px;" onclick="idCheck()" >중복확인</button>
+											<button type="button" class="btn btn-primary" style="display: inline-block;" onclick="idCheck()" >중복확인</button>
 											<br> <input type="hidden" class="form-control" name="reid" id="reid" value="${reid}" /> <label class="form-label" for="form3Example4cd">아이디</label>
 										</div>
 									</div>
@@ -52,7 +52,7 @@
 										<i class="fas fa-key fa-lg me-3 fa-fw"></i>
 										<div class="form-outline flex-fill mb-0">
 											<input type="text" class="form-control" placeholder="우편번호" name="zip_num" id="zip_num" style="display: inline-block; width: 140px;" />
-											<button type="button" class="btn btn-primary" onclick="getAddress()" style="display: inline-block; width: 140px; height: 38px">주소찾기</button>
+											<button type="button" class="btn btn-primary" onclick="getAddress()" style="display: inline-block;">주소찾기</button>
 											<input type="text" class="form-control" placeholder="주소" name="address" id="address" /> <input type="text"  class="form-control" placeholder="상세주소" name="addressDetail" id="addressDetail" />
 										</div>
 									</div>
@@ -63,7 +63,7 @@
 										</div>
 									</div>
 									<div class="form-check d-flex justify-content-center mb-5">
-										<input class="form-check-input me-2" type="checkbox" value="" id="terms" /> <label class="form-check-label" for="form2Example3"> 약관에 동의합니다 <a href="#!">이용약관</a>
+										<label class="form-check-label" for="form2Example3">  약관에 동의합니다 <input class="form-check-input me-2" type="checkbox" value="" id="terms" /> <a href="#!">이용약관</a>
 										</label>
 									</div>
 

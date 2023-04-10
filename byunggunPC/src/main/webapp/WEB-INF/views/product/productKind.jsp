@@ -11,8 +11,10 @@
 </header> -->
 <!-- Section-->
 <section class="py-5 text-center">
+
 	<ul align="center" style="list-style-type: none;">
 		<c:forEach var="productVO" items="${productKindList}" varStatus="status">
+		
 			<li style="width: 1250px; height: 220px; display: flex; align-items: center; border: 1px groove #bcbcbc; margin: 10px 10px 10px 200px;" >
 				<div style="margin-left: 10px;">
 					<a href="product_detail?pseq=${productVO.pseq}"> <img src="images/product/${productVO.image}" width="190" height="190" align="left"
