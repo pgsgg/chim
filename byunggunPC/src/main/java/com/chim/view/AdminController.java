@@ -2,7 +2,10 @@ package com.chim.view;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -103,7 +106,11 @@ public class AdminController {
 	public String tablesView(Criteria criteria, @RequestParam(value = "key", defaultValue = "") String name,
 			Model model) {
 		List<ProductVO> productList = productService.getlistProductWithPaging(criteria, name);
-
+		String[] kindList = { "CPU", "메인보드", "그래픽카드", "파워", "조립 PC", "세일상품" };
+		Map<String, String> kind = new HashMap<String, String>();
+		for (int i = 0; i < kindList.length; i++) {
+			kind.put(Integer.toString(i+1), kindList[i]);
+		}
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCriteria(criteria);
 		pageMaker.setTotalCount(productService.countProductList(name));
@@ -111,6 +118,7 @@ public class AdminController {
 		model.addAttribute("productList", productList);
 		model.addAttribute("productListSize", productList.size());
 		model.addAttribute("pageMaker", pageMaker);
+		model.addAttribute("kind", kind);
 
 		return "admin/product/productList";
 	}
@@ -152,6 +160,8 @@ public class AdminController {
 			@RequestParam(value = "pageNum", defaultValue = "1") String pageNum,
 			@RequestParam(value = "rowsPerPage", defaultValue = "10") String rowsPerPage,
 			@RequestParam(value = "key", defaultValue = "") String name, Model model) {
+		String[] kindList = { "CPU", "메인보드", "그래픽카드", "파워", "조립 PC", "세일상품" };
+		Map<String, String> kind = new HashMap<String, String>();
 		Criteria criteria = new Criteria();
 		criteria.setPageNum(Integer.parseInt(pageNum));
 		criteria.setRowsPerPage(Integer.parseInt(rowsPerPage));
@@ -163,12 +173,16 @@ public class AdminController {
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCriteria(criteria); // 현재 페이지 정보 저장
 		pageMaker.setTotalCount(productService.countProductList(name)); // 전체 게시글의 수 저장
-
+		
+		for (int i = 0; i < kindList.length; i++) {
+			kind.put(Integer.toString(i+1), kindList[i]);
+		}
 		// (2) model 객체에 상품 목록저장 --- productList.jsp 에 테이블이 productList 및 Size
 		model.addAttribute("productList", productList);
 		model.addAttribute("productListSize", productList.size());
 		model.addAttribute("pageMaker", pageMaker);
-
+		model.addAttribute("kind", kind);
+		
 		// (3) 화면 호출 : productList.jsp
 
 		return "admin/product/productList";

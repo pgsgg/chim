@@ -31,8 +31,8 @@
 	<!-- 페이지별 상품 목록 조회 -->
 	<select id="listProductWithPaging" resultType="product">
 		<![CDATA[
-		SELECT rn, pseq, regdate, name, price1, price2, bestyn,quantity,sellable
-		FROM   (SELECT row_number() OVER (ORDER BY name) rn, pseq, regdate, name, price1, price2, bestyn,quantity,sellable
+		SELECT rn, pseq, regdate,kind, name, price1, price2, bestyn,quantity,sellable
+		FROM   (SELECT row_number() OVER (ORDER BY name) rn, pseq,kind, regdate, name, price1, price2, bestyn,quantity,sellable
 	        	FROM product 
 	        	WHERE name LIKE '%'||#{name}||'%' 
 	        	AND sellable = 1) 	

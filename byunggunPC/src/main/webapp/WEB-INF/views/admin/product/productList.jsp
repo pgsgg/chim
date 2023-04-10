@@ -36,7 +36,7 @@
 	<c:forEach items="${productList}" var="productVO" varStatus="status">
     <tr>
       <td height="23" align="center">${status.count}</td>
-      <td>${kind}</td>
+      <td>${kind[productVO.kind]}</td>
       <td style="text-align: left; padding-left: 50px; padding-right: 0px;">   
   		<a href="#" onclick="go_detail('${productVO.pseq}')">    
     	 ${productVO.name}     
