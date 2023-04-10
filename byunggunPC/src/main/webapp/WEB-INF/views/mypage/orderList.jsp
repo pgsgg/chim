@@ -3,7 +3,7 @@
 <h2> Order List </h2>
 	<table id="datatable" class="table table-bordered dataTable">
 		<thead>
-			<tr align="center">
+			<tr >
 				<th>주문번호</th>
 				<th>제품명</th>
 				<th>수량</th>

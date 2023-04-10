@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>BYGUN Admin - Dashboard</title>
+    <title>ELTEIR Admin - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -38,7 +38,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh"></i>
                 </div><i class="fas fa-laugh rotate-n-15""></i><i class="fas fa-laugh"></i>
-                <div class="sidebar-brand-text"> BYGUN Admin<sup></sup></div>
+                <div class="sidebar-brand-text"> ELTEIL Admin<sup></sup></div>
             </a>
 
             <!-- Divider -->
@@ -195,7 +195,7 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                 
                 <div class="sidebar-brand-text">
-<a class="navbar-brand" href="index" style="font-size:1rem; margin:0 0 40px 700px;">byunggunPC 바로가기</a>
+<a class="navbar-brand" href="index" style="font-size:1rem; margin:0 0 40px 700px;">메인페이지 바로가기</a>
                     </div>
 
 
