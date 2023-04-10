@@ -4,8 +4,8 @@
 
 function go_cart_delete() {
     const query = "input[name=cseq]:checked";
-
     var len = document.querySelectorAll(query).length;
+    console.log("pseq = " + pseq);
     console.log("len =" + len);
     if (len == 0) {
         alert("삭제할 항목을 선택해 주세요")
@@ -53,7 +53,6 @@ function go_order() {
 
 function deleteOrder() {
     const query = "input[name=oseq]:checked"
-
     var len = document.querySelectorAll(query).length;
     console.log("oseq.length = " + len);
 

@@ -49,7 +49,7 @@ public class ProductDAO {
 	}
 
 	public void increaseQuantity(ProductVO vo) {
-		mybatis.update("ProductMapper.updateQuantity", vo);
+		mybatis.update("ProductMapper.increaseQuantity", vo);
 	}
 
 	public void updateSellable(ProductVO vo) {

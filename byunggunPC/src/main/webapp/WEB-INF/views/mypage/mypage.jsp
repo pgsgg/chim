@@ -41,9 +41,11 @@
 							<c:if test="${orderVO.result == 1}">
 								<td>
 									<input type="checkbox" value="${orderVO.oseq}" name="oseq" id="oseq">
+									<input type="hidden" value="${pseq}" name = "pseq" id="pseq">
 								</td>
 							</c:if>
 						</tr>
+						
 					</c:forEach>
 				</table>
 <br>

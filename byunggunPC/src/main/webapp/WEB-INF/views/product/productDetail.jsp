@@ -231,7 +231,7 @@
 			success : function(qty) {
 				console.log(qty)
 				if (qty < $("#quantity").val()) {
-					alert("상품 재고가 부족합니다.");
+					alert("상품 재고가 부족합니다 구매 가능한 수량 : " + qty);
 					$("#quantity").focus();
 					return false;
 				} else{

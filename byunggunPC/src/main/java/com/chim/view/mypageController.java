@@ -2,12 +2,16 @@ package com.chim.view;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.expression.MapAccessor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,13 +19,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.chim.biz.dto.CartVO;
 import com.chim.biz.dto.MemberVO;
 import com.chim.biz.dto.OrderVO;
+import com.chim.biz.dto.ProductVO;
 import com.chim.biz.service.CartService;
 import com.chim.biz.service.MemberService;
 import com.chim.biz.service.OrderService;
+import com.chim.biz.service.ProductService;
 
 import utils.Criteria;
 import utils.PageMaker;
@@ -33,6 +41,8 @@ public class mypageController {
 	private CartService cartService;
 	@Autowired
 	private OrderService orderSerive;
+	@Autowired
+	private ProductService productService;
 	/*
 	 * @GetMapping("/mypage") public String mypageView() {
 	 * 
@@ -138,17 +148,43 @@ public class mypageController {
 		}
 
 	}
-
+	
 	@RequestMapping("/order_delete")
-	public String deleteOrderAction(@RequestParam(value = "oseq") int[] oseq) {
-
-		for (int i : oseq) {
-			orderSerive.deleteOrder(i);
+	public String deleteOrderAction(@RequestParam(value = "oseq") int[] oseq,HttpSession session,
+			RedirectAttributes redirect) {
+		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
+		OrderVO ovo = new OrderVO();
+		ovo.setResult("1");
+		ovo.setId(loginUser.getId());
+		ArrayList<ProductVO> pseq = new ArrayList<>();
+		for(int i = 0;i<oseq.length; i++) {
+			ovo.setOseq(oseq[i]);
+			List<OrderVO> list = orderSerive.listOrderById(ovo);
+			for(OrderVO  order : list) {
+				ProductVO vo = new ProductVO();
+				vo.setPseq(order.getPseq());
+				vo.setQuantity(order.getQuantity());
+				pseq.add(vo);
+			}		
 		}
-
+		for(int i : oseq) {
+			orderSerive.deleteOrder(i);
+			ovo.setOseq(i);
+		}
+		redirect.addFlashAttribute("pseq", pseq);
+		return "redirect:increaseQuantity";
+	}
+	
+	@RequestMapping("/increaseQuantity")
+	public String increaserQuantityAction(HttpServletRequest request,ModelMap map) {
+		Map<String, ?> redirectMap = RequestContextUtils.getInputFlashMap(request);
+		ArrayList<ProductVO> pseq = (ArrayList<ProductVO>) redirectMap.get("pseq");
+		for(ProductVO product : pseq) {
+			productService.increaseQuantity(product);
+		}
+		
 		return "redirect:orders?result=1";
 	}
-
 	@ResponseBody
 	@RequestMapping("/cart_counting")
 	public int cartCounting(HttpSession session) {

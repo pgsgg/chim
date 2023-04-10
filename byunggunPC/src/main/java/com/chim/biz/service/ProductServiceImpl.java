@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.chim.biz.dao.ProductDAO;
 import com.chim.biz.dto.ProductVO;
 
@@ -53,11 +52,15 @@ public class ProductServiceImpl implements ProductService {
 			productDAO.updateSellable(vo);
 		}
 	}
-
 	@Override
 	public void increaseQuantity(ProductVO vo) {
 		// TODO Auto-generated method stub
 		productDAO.increaseQuantity(vo);
+		
+		if(productDAO.getProductQuantity(vo.getPseq()) == 1) {
+			vo.setSellable(1);
+			productDAO.updateSellable(vo);
+		}
 	}
 	
 	@Override
