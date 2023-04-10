@@ -116,9 +116,9 @@
 
 	<insert id="insertProduct" parameterType="product">
 		INSERT INTO product
-		(pseq,name,kind,price1,price2,price3,content,image)
+		(pseq,name,kind,price1,price2,price3,content,image,quantity)
 		VALUES
-		(product_seq.nextval,#{name},#{kind},#{price1},#{price2},#{price3},#{content},#{image})
+		(product_seq.nextval,#{name},#{kind},#{price1},#{price2},#{price3},#{content},#{image},#{quantity})
 	</insert>
 
 	<update id="updateProduct" parameterType="product">

@@ -80,6 +80,17 @@ function go_list() {
 	form.submit();
 }
 
+function go_mov() {
+	var form = document.getElementById("write_form");
+	form.action = "admin_product_list"; //?pageNum=1&rowsPerPage=10
+	form.submit();
+}
+function go_moc() {
+	var form = document.getElementById("update_form");
+	form.action = "admin_product_list"; //?pageNum=1&rowsPerPage=10
+	form.submit();
+}
+
 function go_mod(pseq) {
 	var form = document.getElementById("detail_form");
 	form.action = "admin_product_update_form?pseq="+pseq;

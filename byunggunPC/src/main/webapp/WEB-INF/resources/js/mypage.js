@@ -51,6 +51,12 @@ function go_order() {
     form.submit();
 }
 
+function go_order_sheet() {
+    var form = document.getElementById('theform');
+    form.action = "order_sheet";
+    form.submit();
+}
+
 function deleteOrder() {
     const query = "input[name=oseq]:checked"
     var len = document.querySelectorAll(query).length;

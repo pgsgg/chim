@@ -91,7 +91,7 @@
   </tr>    
 </table>
 <input class="btn" type="button" value="수정" onClick="go_mod_save('${productVO.pseq}')">           
-<input class="btn" type="button" value="취소" onClick="go_mov()">
+<input class="btn" type="button" value="취소" onClick="go_moc()">
 </form> 
 </article>
 <%-- <%@ include file="../footer.jsp"%> --%>
