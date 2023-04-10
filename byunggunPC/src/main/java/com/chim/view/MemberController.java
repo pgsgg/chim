@@ -55,7 +55,7 @@ public class MemberController {
 	public String logoutAction(SessionStatus status) {
 
 		status.setComplete();
-		return "index";
+		return "redirect:index";
 	}
 
 	@RequestMapping("/idCheck_form")
