@@ -19,8 +19,13 @@
   </select>      
 <tr>
   <th>상품명</th>
-  <td width="343" colspan="5">
+  <td width="343" colspan="3">
        <input type="text" name="name" id="name" size="47" maxlength="100" placeholder="상품명">
+       
+  </td>
+  <th>수량</th>
+  <td width="343" colspan="2">
+       <input type="text" name="quantity" id="quantity" size="11" maxlength="100" onKeyUp='NumFormat(this)' placeholder="수량">
        
   </td>
 </tr>

@@ -4,7 +4,7 @@
 
 <!--  각 화면의 페이지 번호가 표시되는 영역의 구현 -->
 <center>
-<div style="margin:0 0 0 420px;">
+<div style="margin:0 0 0 0;">
 	<ul class="pagination">
 	
 		<c:if test="${pageMaker.prev}">

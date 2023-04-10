@@ -36,21 +36,24 @@
 						<img class="card-img-top mb-5 mb-md-0" src="images/product/${productVO.image}" onerror="this.onerror=null; this.src='images/product/ready.jpg';">
 					</div>
 
-					<div class="col-md-6">
+					<div class="col-md-6" align="right">
 
 						<!--  <div class="small mb-1">SKU: BST-498</div> -->
 						<h1 class="display-5 fw-bolder">${productVO.name}</h1>
 						<div class="fs-5 mb-5">
 							<span>가격 : &nbsp;</span> <span><fmt:formatNumber type="currency" value="${productVO.price2}" /></span>
 						</div>
-						<div class="d-flex">
-							<p style="font-size: 24px;">수량 :&nbsp;</p>
-							<input type="number" min="1" max="20" name="quantity" id="quantity" size="2" value="1" onchange="updateTotal()" style="width: 50px"><br> <input type="hidden" name="pseq" id="pseq" value="${productVO.pseq}"><br>
-						</div>
-						<p>
-							총 합계: <input type="text" readonly="readonly" id="total" style="border: 0;">
+						<div class="d-flex" >
+							<p style="font-size: 24px;">수량 :&nbsp;
+							<input type="number" min="1" max="20" name="quantity" id="quantity" size="2" value="1" onchange="updateTotal()" style="width: 50px; text-align:right;"><br> <input type="hidden" name="pseq" id="pseq" value="${productVO.pseq}"><br>
 						</p>
-						<p class="lead">상품설명 : ${productVO.content}</p>
+						</div>
+						<div class="d-flex">
+						<p>
+							총 합계: <input type="text" readonly="readonly" id="total" style="border: 0; text-align:right;">
+						</p>
+						</div>
+						<p class="lead" style="width:1200px;">상품설명 : ${productVO.content}</p>
 					</div>
 
 				</div>
@@ -59,8 +62,9 @@
 
 		<div class="clear"></div>
 		<div id="buttons" style="margin: 0px 0px 0px 1200px">
-			<input type="button" value="장바구니에 담기" class="submit" onclick="go_cart()" style="height: 60px; width: 120px;"> <input type="button" value="즉시 구매" class="submit" onclick="go_order_sheet()" style="height: 60px; width: 120px;"> <input type="reset" value="취소" class="cancel" style="height: 60px; width: 120px;"> <input type="hidden" name="pname" value="${productVO.name}"> <input type="hidden" name="price2" value="${productVO.price2}">
+			<input type="button" value="장바구니에 담기" class="submit" onclick="go_cart()" > <input type="button" value="즉시 구매" class="submit" onclick="go_order_sheet()" > <input type="reset" value="취소" class="cancel" > <input type="hidden" name="pname" value="${productVO.name}"> <input type="hidden" name="price2" value="${productVO.price2}">
 		</div>
+		
 	</form>
 
 </article>
@@ -80,7 +84,7 @@
 							<td style="width: 80%;">
 								<textarea rows="3" cols="75" id="content" name="content" placeholder="댓글을 입력하세요"></textarea>
 							</td>
-							<td style="width: 10%;">
+							<td style="width: 20%;">
 								<a href='#' onClick="save_comment('${productVO.pseq}')" class="btn">등록</a>
 							</td>
 						</tr>
@@ -231,7 +235,7 @@
 			success : function(qty) {
 				console.log(qty)
 				if (qty < $("#quantity").val()) {
-					alert("상품 재고가 부족합니다 구매 가능한 수량 : " + qty);
+					alert("상품 재고가 부족합니다.");
 					$("#quantity").focus();
 					return false;
 				} else{

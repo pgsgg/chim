@@ -16,7 +16,9 @@
     </tr>    
     <tr>
         <th align="center" >상품 명</th>
-        <td colspan="5">${productVO.name}</td>
+        <td colspan="3">${productVO.name}</td>
+        <th align="center" >수량</th>
+        <td colspan="2">${productVO.quantity}</td>
     </tr>
     
     <tr>

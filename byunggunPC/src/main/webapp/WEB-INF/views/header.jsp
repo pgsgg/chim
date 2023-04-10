@@ -35,7 +35,7 @@
 					<a style="">${sessionScope.loginUser.name}님 환영합니다</a>
 					<a class="navbar-brand" href="orders?result=1" style="margin:0 0 0 60px;">마이페이지</a>
 					<a class="navbar-brand" href="logout" style="margin:0 0 0 60px;">로그아웃</a>
-                    <a class="navbar-brand" href="cartList" style="margin:0 0 0 60px;">Cart</a>
+                    <a class="navbar-brand" href="cartList" style="margin:0 0 0 60px;">장바구니</a>
 				</c:otherwise>
 			</c:choose>
 			

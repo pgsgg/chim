@@ -21,7 +21,8 @@
 <table id="datatable" class="table table-bordered dataTable">
     <tr>
         <th>번호</th><th>카테고리</th>
-        <th>상품명</th><th>원가</th><th>판매가</th><th>등록일</th><th>사용유무</th>
+        <th>상품명</th><th>수량</th>
+        <th>원가</th><th>판매가</th><th>등록일</th><th>사용유무</th>
     </tr>
     <tbody>
     <c:choose>
@@ -42,6 +43,7 @@
     	 ${productVO.name}     
    		</a>
    	  </td>
+   	  <td><fmt:formatNumber value="${productVO.quantity}"/></td>
       <td><fmt:formatNumber value="${productVO.price1}"/></td>
       <td><fmt:formatNumber value="${productVO.price2}"/></td>
       <td><fmt:formatDate value="${productVO.regdate}"/></td>
