@@ -3,6 +3,7 @@
 <%@ include file="../header.jsp" %>   
 <%@ include file="sub_menu.jsp" %>   
   <article>
+  <br>
     <h2> 1:1 고객 게시판 </h2>
     <form name="formm" method="post">
       <table id="cartList">

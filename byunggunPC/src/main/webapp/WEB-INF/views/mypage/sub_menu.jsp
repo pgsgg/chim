@@ -24,7 +24,7 @@
 	/* ... 생략 ... */
 }
 </style>
-<div class=container">
+<div class="container" >
 	<nav id="sub-menu">
 		<ul>
 			<li><a href="cartList">장바구니(cart)내역</a></li>
@@ -33,3 +33,5 @@
 			<li><a href="qna_list">Q&A</a></li>
 		</ul>
 	</nav>
+	</div>
+	<br>

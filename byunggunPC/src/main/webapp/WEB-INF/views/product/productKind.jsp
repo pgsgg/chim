@@ -23,7 +23,7 @@
 				</div>
 				<div style="margin: auto;">
 					<a href="product_detail?pseq=${productVO.pseq}" style="font-weight: bold;">${productVO.name}</a>
-					<p style="text-align: center; width:700px;">${productVO.content}</p>
+					<p style="text-align: ; width:700px;">${productVO.content}</p>
 				</div>
 				
 				<div style="margin: auto;">
