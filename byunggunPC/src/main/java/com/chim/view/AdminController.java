@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.util.NestedServletException;
 
 import com.chim.biz.dto.AdminVO;
 import com.chim.biz.dto.MemberVO;
@@ -365,9 +366,18 @@ public class AdminController {
 	
 	@RequestMapping("/admin_delete_product")
 	public String deleteBoard(ProductVO vo) {
-
-		productService.deleteProduct(vo);
-		return "redirect:/admin_product_list";
+		try {
+			productService.deleteProduct(vo);
+			return "redirect:/admin_product_list";
+		} catch (Exception e) {
+			return "redirect:admin_delete_fail";
+		}
+		
+	}
+	@RequestMapping("/admin_delete_fail")
+	public String deleteFailed() {
+		
+		return "admin/product/deleteProductFailed";
 	}
 
 }

@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 <script type="text/javascript">
   alert("삭제실패 - 주문이력이 있는 제품입니다.");
-  history.go(-1);
+  location.href="admin_product_list";
 </script>
