@@ -25,7 +25,7 @@
 </style>
 <article>
 
-	<h1>상품 상세</h1>
+	<h1>&emsp;상품 상세</h1>
 	<form method="post" action="cart_insert" name="formm" id="theform">
 		<section class="py-5">
 
@@ -81,8 +81,8 @@
 				<div id="reply">
 					<table id="rep_input" style="width: 650px">
 						<tr>
-							<td style="width: 80%;">
-								<textarea rows="3" cols="75" id="content" name="content" placeholder="댓글을 입력하세요"></textarea>
+							<td style="width: 80%; margin:30px 0 0 0;">
+								<textarea rows="3" cols="75" id="content" name="content" placeholder="댓글을 입력하세요" style="width: 80%; min-height: 0em; height:0px;"></textarea>
 							</td>
 							<td style="width: 20%;">
 								<a href='#' onClick="save_comment('${productVO.pseq}')" class="btn">등록</a>

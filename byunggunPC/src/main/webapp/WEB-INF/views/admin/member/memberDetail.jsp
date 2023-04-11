@@ -15,10 +15,10 @@
      </td>    
     </tr>    
     <tr>
-        <th align="center" >상품 명</th>
-        <td colspan="3">${productVO.name}</td>
-        <th align="center" >수량</th>
-        <td colspan="1">${productVO.quantity}</td>
+        <th>아이디</th>
+        <td >${productVO.name}</td>
+        <th >비밀번호</th>
+        <td >${productVO.quantity}</td>
     </tr>
     
     <tr>
