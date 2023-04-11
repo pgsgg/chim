@@ -7,7 +7,9 @@
     <form name="formm" id="theform" method="post">
     <c:choose>
     <c:when test="${cartList.size() == 0}">
+    <br><br><br>
     	장바구니 내역이 없습니다.
+    	<br><br><br><br><br><br><br>
     </c:when>
     <c:otherwise>
 	<table>
