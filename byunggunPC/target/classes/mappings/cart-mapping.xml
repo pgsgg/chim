@@ -8,6 +8,9 @@
 	<delete id="deleteCart">
 		DELETE cart WHERE cseq=#{cseq}
 	</delete>
+		<delete id="deleteProductInCart">
+		DELETE cart WHERE pseq=#{pseq}
+	</delete>
 	<update id="updateCart">
 		UPDATE cart SET result = '2' WHERE cseq = #{cseq}
 	</update>

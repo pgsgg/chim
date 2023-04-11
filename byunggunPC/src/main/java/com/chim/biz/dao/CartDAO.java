@@ -34,4 +34,7 @@ public class CartDAO{
 	public int cartCounting(String id) {
 		return mybatis.selectOne("CartMapper.cartCounting", id);
 	}
+	public void deleteProductInCart(int pseq) {
+		mybatis.delete("CartMapper.deleteProductInCart", pseq);
+	}
 }

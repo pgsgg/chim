@@ -367,6 +367,7 @@ public class AdminController {
 	@RequestMapping("/admin_delete_product")
 	public String deleteBoard(ProductVO vo) {
 		try {
+			cartService.deleteProductInCart(vo.getPseq());
 			productService.deleteProduct(vo);
 			return "redirect:/admin_product_list";
 		} catch (Exception e) {

@@ -15,5 +15,6 @@ public interface CartService {
 	void updateCart(int cseq);
 	
 	int cartCounting(String id);
-
+	
+	void deleteProductInCart(int pseq);
 }

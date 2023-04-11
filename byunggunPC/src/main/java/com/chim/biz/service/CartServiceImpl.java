@@ -44,4 +44,10 @@ public class CartServiceImpl implements CartService {
 		return cartDAO.cartCounting(id);
 	}
 
+	@Override
+	public void deleteProductInCart(int pseq) {
+		// TODO Auto-generated method stub
+		cartDAO.deleteProductInCart(pseq);
+	}
+
 }
