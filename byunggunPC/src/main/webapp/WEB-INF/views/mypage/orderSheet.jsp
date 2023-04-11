@@ -45,7 +45,7 @@
 	<div class="d-flex flex-row align-items-center mb-4">
 		<i class="fas fa-key fa-lg me-3 fa-fw"></i>
 		<div class="form-outline flex-fill mb-0">
-			<input type="text" class="form-control" value="${memberVO.zip_num}" name="zip_num" id="zipNum" readonly="readonly" style="display: inline-block; width: 140px;" />
+			<input type="text" class="form-control" value="${memberVO.zip_num}" name="zip_num" id="zip_num" readonly="readonly" style="display: inline-block; width: 140px;" />
 			<button type="button" class="btn btn-primary btn-lg" onclick="getAddress()" style="display: inline-block; width: ; height: ">주소찾기</button>
 			<input type="text" class="form-control" value="${address}" name="address" id="address" readonly="readonly" /> <input type="text" class="form-control" value="${addressDetail}" name="addressDetail" id="addressDetail" />
 		</div>
