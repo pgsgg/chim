@@ -4,7 +4,6 @@
 <%@ include file="sub_menu.jsp" %>
 <!DOCTYPE html>
 <h2> Cart List </h2>
-<br>
     <form name="formm" id="theform" method="post">
     <c:choose>
     <c:when test="${cartList.size() == 0}">
@@ -37,18 +36,12 @@
 					<td><input type="checkbox" name="cseq" id="cseq" value="${cartVO.cseq}"> </td>
 				</tr>
 				<tr>
-				<td colspan="6"> &nbsp;</td>
+				<td colspan="8"> &nbsp;</td>
 				</tr>
 			</c:forEach>
 			<tr style="background-color:#73685d;" height="5px">
-			<td style="background-color:#73685d"></td>
-			<td style="background-color:#73685d"></td>
-			<td style="background-color:#73685d"></td>
-			
-			<td style="background-color:#73685d"></td>
-			<td style="background-color:#73685d"></td>
-			<td style="background-color:#73685d; color:white; font-size:20px;">총액</td>
-			<td style="background-color:#73685d; color:white; font-size:20px;">${totalPrice}원</td>
+			<td style="background-color:#73685d; color:white; font-size:20px;text-align: end;" colspan="7">총액</td>
+			<td style="background-color:#73685d; color:white; font-size:20px;" colspan="1">${totalPrice}원</td>
 			</tr>
 		</tbody>	
 	</table><br>

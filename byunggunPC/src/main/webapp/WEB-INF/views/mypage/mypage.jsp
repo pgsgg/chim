@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
 <%@ include file="sub_menu.jsp"%>
-<br>
 <article id="main-menu">
 	<h2>My Page(${title})</h2> 
-	<br><br>
+	
 	<form name="formm" method="post" id="formm">
 		<c:choose>
 			<c:when test="${orderList.size() == 0}">
@@ -31,7 +30,7 @@
 								<fmt:formatDate value="${orderVO.indate}" type="date" />
 							</td>
 							<td>${orderVO.oseq}</td>
-							<td>${orderVO.pname}</td>
+							<td><a href="order_list?oseq=${orderVO.oseq}&result=${orderVO.result}">${orderVO.pname}</a></td>
 							<td>
 								<fmt:formatNumber value="${orderVO.price2}" type="currency" currencySymbol="￦" />
 							</td>
@@ -52,9 +51,9 @@
 				<div class="clear"></div>
 				<div id="buttons" style="float: right">
 					<c:if test="${orderList[0].result == 1}">
-						<input type="button" value="주문삭제" class="cancel btn-color" onclick="deleteOrder()" style='padding:10px;'>
+						<input type="button" value="주문삭제" class="cancel btn-color" onclick="deleteOrder()" >
 					</c:if>
-					<input type="button" value="쇼핑 계속하기" class="cancel btn-color" onclick="location.href='index'" style='padding:10px;'>
+					<input type="button" value="쇼핑 계속하기" class="cancel btn-color" onclick="location.href='index'" >
 				</div>
 			</c:otherwise>
 		</c:choose>
