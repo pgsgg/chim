@@ -8,9 +8,9 @@ function go_order() {
       alert("이름을 입력해주세요.");
       document.getElementById('name').focus();
       return false;
-   } else if (document.getElementById('zipNum').value == "") {
+   } else if (document.getElementById('zip_num').value == "") {
       alert("우편번호를 입력해주세요.");
-      document.getElementById('zipNum').focus();
+      document.getElementById('zip_num').focus();
       return false;
    } else if (document.getElementById('address').value == "") {
       alert("주소를 입력해주세요.");
