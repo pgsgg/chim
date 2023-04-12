@@ -53,7 +53,7 @@
 										<div class="form-outline flex-fill mb-0">
 											<input type="text" class="form-control" placeholder="우편번호" name="zip_num" id="zip_num" style="display: inline-block; width: 140px;" />
 											<button type="button" class="btn btn-primary" onclick="getAddress()" style="display: inline-block;">주소찾기</button>
-											<input type="text" class="form-control" placeholder="주소" name="address" id="address" /> <input type="text"  class="form-control" placeholder="상세주소" name="addressDetail" id="addressDetail" />
+											<input type="text" class="form-control" placeholder="주소" name="address" id="address" style="width:100%" /> <input type="text"  class="form-control" placeholder="상세주소" name="addressDetail" id="addressDetail" style="width:100%"/>
 										</div>
 									</div>
 									<div class="d-flex flex-row align-items-center mb-4">
@@ -68,12 +68,13 @@
 									</div>
 
 									<div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-										<button type="button" class="btn btn-primary btn-lg" onclick="go_save()">회원가입</button>
-									</div>
-
-									<div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+										<button type="button" class="btn btn-primary btn-lg" onclick="go_save()">회원가입</button>&nbsp;&nbsp;
 										<button type="reset" class="btn btn-danger btn-lg">취소</button>
 									</div>
+
+									<!-- <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+										
+									</div> -->
 
 								</form>
 
