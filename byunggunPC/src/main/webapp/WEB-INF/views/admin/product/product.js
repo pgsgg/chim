@@ -56,7 +56,12 @@ function go_save() {
 		alert("상품설명을 입력하세요");
 		document.getElementById("content").focus();
 		return false;
-	} else {
+	} else if (document.getElementById("quantity").value==""){
+		alert("상품수량을 입력하세요");
+		document.getElementById("quantity").focus();
+		return false;
+	}
+	else {
 		var form = document.getElementById("write_form");
 		form.enctype = "multipart/form-data";
 		form.action = "admin_product_write";
